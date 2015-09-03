@@ -1,0 +1,23 @@
+\begin{table}
+  \begin{threeparttable}
+    \caption{Target architecture}
+    \begin{tabular*}{\linewidth}{=L{70pt}l}
+      \toprule
+      Component    & Description \\
+      \midrule
+      Core         & 2660 MHz, 1.2 V \\
+      L1-I/D cache & 32 KB, 4-way, LRU, private \\
+      L2 cache     & 256 KB, 4-way, LRU, private \\
+      L3 cache     & 8192 KB, 16-way, LRU, one per four cores \\
+      \sc{DRAM}    & 1 GB \\
+      \bottomrule
+    \end{tabular*}
+    \tlab{target}
+    \begin{tablenotes}
+      \item A detailed description of the target architecture can be found in
+      the \texttt{nehalem.cfg} and \texttt{gainestown.cfg} configuration files
+      of Sniper.
+    \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+% vim: nowrap tw=0

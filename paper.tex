@@ -42,9 +42,12 @@
   \subsection{System}
 
   \subsection{Traffic}
-  A multifractal wavelet model \cite{riedi1999}.
-  The dataset is usage data of a computational cluster published by Google
-  \cite{google}.
+  In order to generate realistic steams of job arrivals, we have decided to use
+  a multifractal wavelet model \cite{riedi1999}, which was originally proposed
+  in the context of network traffic modeling. In vain with other studies
+  \cite{nikitovic2004}. We use a dataset published by Google \cite{google}. The
+  dataset contains usage data of a computational cluster over a month period
+  (May 2011).
 
   \subsection{Workload}
   \sc{PARSEC} \cite{bienia2011}.
@@ -53,14 +56,15 @@
   \section{Simulation}
   \subsection{Performance}
   Sniper \cite{carlson2011}.
+  \input{include/assets/tables/target}
 
   \subsection{Power}
-  McPAT \cite{li2009}.
+  \sc{McPAT} \cite{li2009}.
 
   \subsection{Temperature}
   HotSpot \cite{skadron2004}.
   \sc{3D-ICE} \cite{sridhar2010}.
-  \cite{ukhov2012}.
+  The solver is based on exponential integrators \cite{ukhov2012}.
 
   \section{Implementation}
   \input{include/implementation}
