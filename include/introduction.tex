@@ -1,14 +1,14 @@
 \lettrine[findent=0.4em, nindent=0em]{\textbf{P}}{ower} consumption and heat
 dissipation are of paramount importance. The two inseparable phenomena dictate
-limitations on the usage of electronic devices and severely affect the costs
-pertaining to the deployment and maintenance of electronic systems. Power is
-essentially energy, and energy translates willingly to such quantities as hours
-of battery life and zeros in electricity bills. Temperature, on the other hand,
-is one of the major causes of permanent damage \cite{jedec}; it necessitates the
-deployment of adequate cooling equipment, escalating the overall expenses. The
-situation is deteriorated further by the fact that higher power leads higher
-temperature, and higher temperature strikes back by causing electronic devices
-to consume even more power \cite{liu2007}. Under these circumstances, it is no
+limitations on the usage of electronic devices and magnify the costs pertaining
+to the deployment and maintenance of electronic systems. Power is essentially
+energy, and energy translates willingly to hours of battery life and zeros in
+electricity bills. Temperature, on the other hand, is one of the major causes of
+permanent damage \cite{jedec}, which necessitates the deployment of adequate
+cooling equipment, escalating the overall expenses. Furthermore, the situation
+is deteriorated by the power-temperature interplay: higher power leads higher
+temperature, and higher temperature strikes back by making electronic devices
+consume even more power \cite{liu2007}. Under these circumstances, it is no
 surprise that \emph{power}, \emph{temperature}, \emph{energy}, and their
 derivatives are omnipresent in the titles of scientific publications. Power and
 temperature have been steadily in the research limelight and have no plans on
@@ -23,9 +23,9 @@ using the technologies currently employed in the fabrication process. Another
 reason is aging \cite{coskun2006}: the performance of a system degrades over
 time due to natural or accelerated wear, which is unlikely to be uniform. Yet
 another and perhaps the most consequential reason is workload: the demand on a
-deployed system is rarely, if ever, known in the lab. Such uncertainties
-inevitably make the actual power and temperature characteristics of electronic
-systems uncertain as well.
+system in the field is rarely, if ever, known in the lab. Such uncertainties
+inevitably make power and temperature characteristics of electronic systems
+uncertain as well.
 
 The above concerns are especially prominent in offline settings. They can be
 better dealt with online, assuming that the system at hand provides basic
@@ -35,26 +35,35 @@ only one particular fabricated hardware in one particular environment needs to
 be considered. More importantly, being online enables continuous adaptation.
 This means that instantiations of the system are treated on a case-by-case
 basis; each instantiation attains a custom-built, fine-tuned solution, and this
-solution evolves, following changes diligently. In this context, an invaluable
-source of information for making power- and temperature-aware decisions is power
-and temperature data.
+solution evolves, diligently following changes. In this context, power and
+temperature data are an invaluable source of information for making power- and
+temperature-aware decisions.
 
 Power and temperature data should be available timely. Proactive management
 strategies are known to be more efficient than reactive ones since they aims at
-preventing problems instead of recovering from the consequences of problems,
-which, in particular, avoids slowing or shutting down processing elements
-\cite{coskun2008}. Acting proactively requires peaking into the future.
-Consequently, the first step towards proactively taking into account power and
-temperature is to predict the future power and temperature, leveraging what has
-been observed so far.
+preventing problems instead of recovering from the consequences of problems
+\cite{coskun2008, beneventi2014}, which, in particular, avoids slowing or
+shutting down processing elements. Acting proactively requires peaking into the
+future. Consequently, the first step towards proactive power- and
+temperature-aware management---and, hence, towards making electronic products
+more reliable and energy efficient---is to predict the future power consumption
+and heat dissipation.
 
-Machine learning.
+Data-based prediction implies learning, which typically done by virtue of tools
+from statistics and adjacent fields such as machine learning \cite{bishop2006}.
+In \cite{coskun2008}, a thermal management strategy for multiprocessor systems
+is proposed, in which temperature prediction is based on an autoregressive
+moving-average model. The analysis and mitigation of the impact of process
+variation are addressed in \cite{juan2014} by means of a liner-regression model
+trained on leakage measurements in order to predict the maximal temperature. The
+work in \cite{beneventi2014} presents a framework for learning thermal models of
+multiprocessor chips from on-chip power and temperature measurements.
 
-Neural networks.
-
-Training data.
+Regardless of the learning tool used, the tool needs data to learn from.
 
 Real data.
+
+From around 2006, artificial neural networks got a new spin.
 
 Synthetic data.
 
