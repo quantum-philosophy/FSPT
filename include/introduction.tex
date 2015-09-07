@@ -5,14 +5,14 @@ to the deployment and maintenance of electronic systems. Power is essentially
 energy, and energy translates willingly to hours of battery life and zeros in
 electricity bills. Temperature, on the other hand, is one of the major causes of
 permanent damage \cite{jedec}, which necessitates the deployment of adequate
-cooling equipment, escalating the overall expenses. Furthermore, the situation
-is deteriorated by the power-temperature interplay: higher power leads higher
-temperature, and higher temperature strikes back by making electronic devices
-consume even more power \cite{liu2007}. Under these circumstances, it is no
-surprise that \emph{power}, \emph{temperature}, \emph{energy}, and their
-derivatives are omnipresent in the titles of scientific publications. Power and
-temperature have been steadily in the research limelight and have no plans on
-leaving this spot.
+cooling equipment, escalating the overall expenses \cite{chaudhry2015}.
+Furthermore, the situation is deteriorated by the power-temperature interplay:
+higher power leads higher temperature, and higher temperature strikes back by
+making electronic devices consume even more power \cite{liu2007}. Under these
+circumstances, it is no surprise that \emph{power}, \emph{temperature},
+\emph{energy}, and their derivatives are omnipresent in the titles of scientific
+publications. Power and temperature have been steadily in the research limelight
+and have no plans on leaving this spot.
 
 Accounting for power and temperature is key to achieving effectiveness,
 efficiency, and robustness. However, many aspects of the system being developed
@@ -35,60 +35,56 @@ only one particular fabricated hardware in one particular environment needs to
 be considered. More importantly, being online enables continuous adaptation.
 This means that instantiations of the system are treated on a case-by-case
 basis; each instantiation attains a custom-built, fine-tuned solution, and this
-solution evolves, diligently following changes. In this context, power and
+solution evolves, diligently following any changes. In this context, power and
 temperature data are an invaluable source of information for making power- and
 temperature-aware decisions.
 
 Power and temperature data should be available timely. Proactive management
 strategies are known to be more efficient than reactive ones since they aims at
 preventing problems instead of recovering from the consequences of problems
-\cite{coskun2008, beneventi2014}, which, in particular, avoids slowing or
+\cite{coskun2008, chaudhry2015}, which, in particular, avoids slowing or
 shutting down processing elements. Acting proactively requires peaking into the
 future. Consequently, the first step towards proactive power- and
 temperature-aware management---and, hence, towards making electronic products
-more reliable and energy efficient---is to predict the future power consumption
-and heat dissipation.
+more reliable and energy efficient---is to predict the power consumption and
+heat dissipation.
 
-Data-based prediction implies learning, which typically done by virtue of tools
-from statistics and adjacent fields such as machine learning \cite{bishop2006}.
-In \cite{coskun2008}, a thermal management strategy for multiprocessor systems
-is proposed, in which temperature prediction is based on an autoregressive
-moving-average model. The analysis and mitigation of the impact of process
-variation are addressed in \cite{juan2014} by means of a liner-regression model
-trained on leakage measurements in order to predict the maximal temperature. The
-work in \cite{beneventi2014} presents a framework for learning thermal models of
-multiprocessor chips from on-chip power and temperature measurements.
+Predicting the future relies on learning from the past, which is typically done
+by virtue of tools from statistics and adjacent fields such as machine learning
+\cite{bishop2006}. In \cite{coskun2008}, for example, temperature prediction is
+based on an autoregressive moving-average model, enabling the development of an
+efficient thermal management strategy for multiprocessor systems. The analysis
+and mitigation of the impact of process variation in \cite{juan2014} are
+facilitated by a liner-regression model trained on leakage measurements in order
+to predict peak temperatures.
 
-Regardless of the learning tool used, the tool needs data to learn from.
-
-Real data.
-
-From around 2006, artificial neural networks got a new spin.
-
-Synthetic data.
-
-Slow simulators.
-
-Prior to a physical instantiation of a design, the hope is all in the hands of
+Regardless of the learning tool used, the tool needs data to learn from. Prior
+to a physical instantiation of a design, the hope is all in the hands of
 computer models and simulators. The need in simulators is not any lower even
 when an existing platform is concerned. The platform might not be available to
 the interested party, or it might not be an appropriate place for early
 experimentation and fluid exploration, which is arguably the most common
-scenario in research. In any case, computer simulations are great help.
+scenario in research. In such cases, computer simulators are of great help, and
+their ubiquitous usages speaks to this assertion. That being said, it is
+important to note that, while synthetic data enable thoughts and ideas to evolve
+and ripen, the solution being developed will obviously have to face real data,
+and, therefore, it should be verified using such data as well, which perhaps
+could be at the end of a large iteration.
 
-Simulation can be done on different levels. Cycle-accurate simulation is
-particularly useful for the design of individual processing units; however,
-cycle-accurate simulation falls short when it comes to large multiprocessor
-systems. Such systems are reasonably more complex, which leads to prohibitively
-large, often infeasible, simulation times. On the other hand, in order to be
-properly addressed, many questions asked in both academia and industry do not
-need cycle accuracy. It is important to have an adequate level of abstraction in
-order to stay focused on what matters the most to the problem at hand without
-being constantly destructed by insignificant or unrelated issues. In such cases,
-cycle accuracy can become a serious obstacle.
+Simulations can be undertaken on different levels. Cycle-accurate simulations,
+for instance, are particularly useful for the design of individual processing
+units; however, meticulous simulations fall short when it comes to
+multiprocessor systems. Such systems are reasonably more complex, which leads to
+prohibitively large, often infeasible, simulation times. On the other hand, in
+order to be properly addressed, many questions asked in both academia and
+industry do not need cycle accuracy. It is important to have a sufficiently
+hight level of abstraction in order to stay focused on what matters the most to
+the problem at hand without being constantly destructed by insignificant or
+completely unrelated issues. In such cases, cycle accuracy can become a serious
+obstacle.
 
 Sniper raises the level of abstraction \cite{carlson2011}.
 
 Ultra low-power inference \cite{park2015}.
 
-Uncertainty.
+From around 2006, artificial neural networks got a new spin.
