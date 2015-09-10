@@ -17,8 +17,8 @@ and have no plans on leaving this spot.
 Accounting for power and temperature is key to achieving effectiveness,
 efficiency, and robustness. However, power consumption and heat dissipation are
 a result of a myriad of interactions between numerous hardware and software
-components, comprising modern electronic systems. Consequently, it is difficult
-to describe mathematically or algorithmically the impact of a parameter on the
+components, comprising modern electronic systems. It is, therefore, difficult to
+describe mathematically or algorithmically the impact of a parameter on the
 power and temperature characteristics of the system being developed. Moreover,
 many aspects of the system are inherently uncertain to the designer. One of the
 reasons is process variation \cite{chandrakasan2000}: the properties of
@@ -27,22 +27,23 @@ controlled precisely using the technologies currently employed in the
 fabrication process. Another reason is aging \cite{coskun2006}: the performance
 of a system degrades over time due to natural or accelerated wear, which is
 unlikely to be uniform. Yet another and perhaps the most consequential reason is
-variable workload: the demand on a system in the field is rarely, if ever, known
-in the lab. Such uncertainties inevitably make power and temperature
-characteristics of electronic systems uncertain as well.
+workload: the demand on a system in the field is rarely, if ever, known in the
+lab. Such uncertainties inevitably make power and temperature characteristics of
+electronic systems uncertain as well.
 
-The above concerns are especially daunting from a theoretical standpoint. They
-can be better dealt with taking a pragmatic point of view instead, namely,
-making use of on-chip data. To elaborate, assuming that the system at hand
-provides basic profiling tools such as performance counters and thermal sensors,
-which is typically the case, direct or indirect power and temperature readings
-are an invaluable source of information for making power- and temperature-aware
-decisions. The attractiveness of this route is due the fact that only one
-particular fabricated hardware in one particular environment needs to be
-considered. More importantly, being on the chip enables adaptation, which can
-also be made continuous. This means that instances of the system are treated on
-a case-by-case basis; each instance attains a custom-built, fine-tuned solution,
-and this solution evolves, diligently following any changes.
+The above concerns are particularly hard to address from a theoretical
+standpoint. They can be better dealt with taking a more pragmatic approach,
+namely, making use of on-chip data. To elaborate, assuming that the system at
+hand provides basic profiling mechanisms such as performance counters and
+thermal sensors, which is typically the case, direct or indirect power and
+temperature readings are an invaluable source of information for making power-
+and temperature-aware decisions. The attractiveness of the real-data route is
+due the fact that only one particular fabricated hardware in one particular
+environment needs to be considered. More importantly, being on the chip enables
+adaptation, which can also be made continuous. This means that instances of the
+system are treated on a case-by-case basis; each instance attains a
+custom-built, fine-tuned solution, and this solution evolves, diligently
+following any changes.
 
 Power and temperature data should be available timely. Proactive management
 strategies are known to be more efficient than reactive ones since they aim at
@@ -70,7 +71,7 @@ when an existing platform is concerned. The platform might not be available to
 the interested party, or it might not be an appropriate place for early
 experimentation and fluid exploration, which is arguably the most common
 scenario in research. In such cases, computer simulators are of great help, and
-their ubiquitous usages speaks to this assertion. That being said, it is
+their ubiquitous usage speaks to this assertion. That being said, it is
 important to note that, while synthetic data enable thoughts and ideas to evolve
 and ripen, the solution being developed will obviously have to face real data,
 and, therefore, it should be verified using such data as well, which perhaps
