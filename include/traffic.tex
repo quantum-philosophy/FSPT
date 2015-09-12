@@ -1,52 +1,43 @@
 As stated in \sref{problem-formulation}, the system serves a stream of jobs,
 which can also be viewed as user requests. The foremost component of our
 methodology is then a traffic model, describing how or, rather, when jobs
-arrive. Needless to mention, this model should capture well the idiosyncrasies
-present in real traffic data as it establishes a foundation for our data
-generation.
+arrive. This model should satisfy a number of requirements to be practically
+useful. First of all, it should be able to capture well the idiosyncrasies
+present in real network traffic as it establishes a foundation for the further
+generation of power and temperature traces. Additionally, since various
+monitoring and logging systems are ubiquitous now-a-days, it should be
+straightforward to adequately configure the model given a reference dataset of
+arrival times.
 
-The most notable trait of network traffic is self-similarity
-\cite{lifshits2014}, which manifests itself in many different ways. This
-behavior is very much in contrast to the one exhibited by traditional telephone
-traffic, for example. The seminal work in \cite{leland1994} brought attention to
-this important aspect in the context of Ethernet \sc{LAN} traffic. Since then
-self-similarity has been acknowledged and studied in other computer networks as
-well.
+The seminal work in \cite{leland1994} and subsequent studies have shown that
+network traffic exhibits fractal properties such as burstiness, self-similarity,
+and long-range dependence, which is very much unlike traditional telephone
+traffic. It is well known that traffic models based on the Poisson process
+\cite{lifshits2014} are unable to express any of the above properties and,
+therefore, drastically departure from reality when it comes to modeling of
+network traffic. A step in the right direction is to consider the fractional
+Gaussian noise \cite{lifshits2014}, which is a self-similar stochastic process.
+However, the process is inconvenient to work with from the perspective of a
+computer simulator. More concretely, the noise is suited for modeling arrivals
+per unit of time but not arrival or inter-arrival times, which are what is
+typically needed for simulation. Moreover, even with a proper rescaling and a
+positive shift, the process can still take negative values, which is
+unrealistic. Finally, the fractional Gaussian noise is a monofractal process;
+however, real traffic data often have multifractal structures.
 
-It is well known that traffic models based on the Poisson process
-\cite{lifshits2014}---in which the number of requests per unit of time follows
-the Poisson distribution---are not capable of expressing self-similarity and,
-therefore, drastically departure from reality when it comes to modeling network
-traffic. One popular alternative is the fractional Gaussian noise
-\cite{lifshits2014}, which is a self-similar process. However, the process is
-inconvenient to work with from the perspective of a simulator. More concretely,
-the noise is suited for modeling arrivals per unit of time but not arrival or
-inter-arrival times, which are what is typically needed for simulation. This
-implies the need for additional logic converting bin counts to time instances.
-Moreover, the process can take negative values, which is nonrealistic. Finally,
-the fractional Gaussian noise is a monofractal process; however, real traffic
-data often have multifractal structures.
+In order to address the aforementioned concerns and enable the generation of
+arrival streams exhibiting fractal properties, our methodology leverages a
+multifractal wavelet model characterizing positive-valued data with
+long-range-dependent correlations proposed in \cite{riedi1999}. In brief, we
+take a reference time series of arrival times, analyze it by means of the
+discrete wavelet transform based on Haar wavelets, and construct a certain
+representation of the data, which can then be used in order to generate random
+time series matching the fractal properties of the original one. The model can
+be tuned without any reference time series; however, the strength of the
+technique \emph{is} in the rigorous usage of reference data. By doing so, no
+manual parameter tuning is needed, and the model gets tailored to the arrival
+pattern of each particular problem.
 
-In order to generate realistic steams of job arrivals, we have decided to use a
-multifractal wavelet model \cite{riedi1999}, which was originally proposed in
-the context of network traffic modeling. In vain with other studies
-\cite{nikitovic2004}. We use a dataset published by Google \cite{google}. The
-dataset contains usage data of a computational cluster over a month period (May
-2011).
-
-After a lot of going back and forth, I found a paper (1999) that presented a
-framework for the analysis and synthesis of network traffic based on a
-multifractal wavelet model. The approach takes a (recorded, real) time series of
-arrival times, analyzes it using the discrete wavelet transform, and fits a
-model to that data that is able to generate synthetic traces matching the
-properties (in particular, the multifractal structure) of the data. I thought it
-was a good idea, and I implemented it.
-
-Regarding the data needed for model fitting, you have probably seen papers
-studying the so-called Google cluster dataset. It is a large dataset published
-by Google in 2011 for research studies. It is a log of the traffic of one of
-Google's clusters recorded over a month-time period (May 2011). I downloaded the
-dataset and extracted what was relevant for us, that is, arrival times of the
-jobs submitted to the cluster. Right now I am using this dataset for
-multifractal wavelet modeling and subsequent generation of interarrival times.
-The next step is scheduling and mapping.
+In our experiments, we use a dataset published by Google \cite{google}. The
+dataset contains usage data of a computer cluster over a month period, namely,
+May 2011.
