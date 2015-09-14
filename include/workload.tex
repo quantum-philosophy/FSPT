@@ -1,2 +1,16 @@
-\sc{PARSEC} \cite{bienia2011}.
-\sc{SPEC CPU2006} \cite{cpu2006}.
+In the previous subsection, we introduced our approach to synthesizing arrival
+times, capturing the properties of real arrival data such as burstiness,
+self-similarity, and long-range dependence. Now we need to associate a concrete
+workload with each arrival time or, equivalently, with each job or user request.
+These workloads should satisfy a number of requirements according to the goal of
+this work. First of all, as emphasized throughout the paper, our goal is to
+produce realistic power and temperature traces; therefore, the workloads should
+represent well the applications/programs/services that the system is supposed to
+provide to the end user. Second, a workload should be fast to evaluate, which,
+in our context, refers to obtaining the power profile of that workload.
+
+As motivated in \sref{introduction}, this is the most time-consuming part, and,
+therefore, we would like to avoid it as much as possible.
+
+In our experiments, we use the applications from two benchmark suites, namely,
+from \sc{PARSEC} \cite{bienia2011} and \sc{SPEC CPU2006} \cite{cpu2006}.
