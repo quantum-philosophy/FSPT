@@ -4,39 +4,38 @@ methodology is then a traffic model, describing how or, rather, when jobs
 arrive. This model should satisfy a number of requirements to be practically
 useful. First of all, it should be able to capture well the idiosyncrasies
 present in real network traffic as it establishes a foundation for the further
-generation of power and temperature traces. Additionally, since various
-monitoring and logging systems are ubiquitous now-a-days, it should be
-straightforward to adequately configure the model given a reference dataset of
-arrival times.
+generation of power and temperature traces. Additionally, since monitoring and
+logging systems are ubiquitous now-a-days, it should be straightforward to
+configure the model given a dataset of arrival times, serving as a reference.
 
 The seminal work in \cite{leland1994} and subsequent studies have shown that
 network traffic exhibits fractal properties such as burstiness, self-similarity,
 and long-range dependence, which is very much unlike traditional telephone
 traffic. It is well known that traffic models based on the Poisson process
 \cite{lifshits2014} are unable to express any of the above properties and,
-therefore, drastically departure from reality when it comes to modeling of
-network traffic. A step in the right direction is to consider the fractional
-Gaussian noise \cite{lifshits2014}, which is a self-similar stochastic process.
-However, the process is inconvenient to work with from the perspective of a
-computer simulator. More concretely, the noise is suited for modeling arrivals
-per unit of time but not arrival or inter-arrival times, which are what is
-typically needed for simulation. Moreover, even with a proper rescaling and a
-positive shift, the process can still take negative values, which is
-unrealistic. Finally, the fractional Gaussian noise is a monofractal process;
-however, real traffic data often have multifractal structures.
+therefore, drastically departure from reality when it comes to modeling network
+traffic. A step in the right direction is to consider the fractional Gaussian
+noise \cite{lifshits2014}, which is a self-similar stochastic process. However,
+the process is inconvenient to work with from the perspective of a computer
+simulator. More concretely, the noise is suited for modeling arrivals per unit
+of time but not arrival or inter-arrival times, which are what is typically
+needed for simulation. Moreover, even with a proper rescaling and a positive
+shift, the process can still take negative values, which is unrealistic.
+Finally, the fractional Gaussian noise is a monofractal process; however, real
+traffic data often have multifractal structures.
 
 In order to address the aforementioned concerns and enable the generation of
-arrival streams exhibiting fractal properties, our methodology leverages a
-multifractal wavelet model characterizing positive-valued data with
-long-range-dependent correlations proposed in \cite{riedi1999}. In brief, we
-take a reference time series of arrival times, analyze it by means of the
+arrival streams exhibiting fractal properties, our methodology employs a
+multifractal wavelet model, characterizing positive-valued data with
+long-range-dependent correlations, proposed in \cite{riedi1999}. To elaborate,
+we take a reference time series of arrival times, analyze it by means of the
 discrete wavelet transform based on Haar wavelets, and construct a certain
 representation of the data, which can then be used in order to generate random
 time series matching the fractal properties of the original one. The model can
 be tuned without any reference time series; however, the strength of the
-technique \emph{is} in the rigorous usage of reference data. By doing so, no
-manual parameter tuning is needed, and the model gets tailored to the arrival
-pattern of each particular problem.
+technique is in the rigorous usage of reference data. By doing so, no manual
+parameter tuning is needed, and the model gets tailored to the arrival pattern
+of each particular problem.
 
 In our experiments, we use a dataset published by Google \cite{google}. The
 dataset contains usage data of a computer cluster over a month period, namely,
