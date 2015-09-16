@@ -3,7 +3,7 @@ which can also be viewed as user requests. The foremost component of our
 methodology is then a traffic model, describing how or, rather, when jobs
 arrive. This model should satisfy a number of requirements to be practically
 useful. First of all, it should be able to capture well the idiosyncrasies
-present in real network traffic as it establishes a foundation for the further
+present in (real) network traffic as it establishes a foundation for the further
 generation of power and temperature traces. Additionally, since monitoring and
 logging systems are ubiquitous now-a-days, it should be straightforward to
 configure the model given a dataset of arrival times, serving as a reference.
@@ -26,9 +26,9 @@ traffic data often have multifractal structures.
 
 In order to address the aforementioned concerns and enable the generation of
 arrival streams exhibiting fractal properties, our methodology employs a
-multifractal wavelet model, characterizing positive-valued data with
-long-range-dependent correlations, proposed in \cite{riedi1999}. To elaborate,
-we take a reference time series of arrival times, analyze it by means of the
+multifractal wavelet model proposed in \cite{riedi1999}, characterizing
+positive-valued data with long-range-dependent correlations. To elaborate, we
+take a reference time series of arrival times, analyze it by means of the
 discrete wavelet transform based on Haar wavelets, and construct a certain
 representation of the data, which can then be used in order to generate random
 time series matching the fractal properties of the original one. The model can

@@ -2,15 +2,55 @@ In the previous subsection, we introduced our approach to synthesizing arrival
 times, capturing the properties of real arrival data such as burstiness,
 self-similarity, and long-range dependence. Now we need to associate a concrete
 workload with each arrival time or, equivalently, with each job or user request.
-These workloads should satisfy a number of requirements according to the goal of
-this work. First of all, as emphasized throughout the paper, our goal is to
-produce realistic power and temperature traces; therefore, the workloads should
-represent well the applications/programs/services that the system is supposed to
-provide to the end user. Second, a workload should be fast to evaluate, which,
-in our context, refers to obtaining the power profile of that workload.
+In this regard, there are two main aspects to discuss: the set of workload
+candidates and the decision rule used to select a particular candidate for a
+particular arrival.
 
-As motivated in \sref{introduction}, this is the most time-consuming part, and,
-therefore, we would like to avoid it as much as possible.
+Let us discuss workloads first. Keeping in mind the goal of this work, workloads
+should satisfy a number of requirements. First, as emphasized throughout the
+paper, we aim to produce realistic power and temperature traces; consequently,
+the workloads should represent well the applications/services that the system is
+supposed to provide to the end user. Second, a workload should be fast to
+evaluate, which, in our context, refers to computing the power consumption of
+that workload.
+
+The particularities of the power consumption of a computer program are hard to
+fabricate. A sequence of random numbers taken out of thin air will not do the
+trick as programs have certain algorithmic structures. For instance, a program
+might traverse a number of phases, and each phase might involve a number of
+distinctive computations, shaping the corresponding power and temperature
+profiles. Such features are important to preserve in order to make the
+subsequent experimentation with machine-learning techniques and alike
+meaningful.
+
+With the above concern in mind, the workload-modeling part of our methodology is
+founded on full-system simulations of representative programs. However, if we
+had incorporated such simulations directly into our workflow, it would have
+defeated the purpose of our work since, as motivated in \sref{introduction},
+detailed simulations are too time consuming. Instead, we propose the use of
+high-level recordings. To elaborate, we run each reference program under an
+adequate simulator, capable of modeling the target platform, and record the
+information that is needed for our data generation.\footnote{Such a technique is
+similar in spirit to PinPlay \cite{patil2010}, which is a tool for recording and
+replaying an execution of a program on the instruction level.} From our
+experience, performance and power simulation is by far the largest expense on
+the way to temperature, and, therefore, we propose to record is power directly,
+eliminating this expense all together. The result of the above procedure is a
+catalog of power traces corresponding to real programs, which we shall refer to
+as power patterns.
+
+Simulations obviously take time; however, they should be done only once.
+Moreover, such a catalog of real power patterns can be populated and maintained
+online by the research community so that the patterns are at a one-click
+distance from any single researcher, and no expensive simulation is needed. The
+role of the catalog could be similar to the one played by the benchmark suites
+commonly used in research now-a-days, such as \sc{PARSEC} \cite{bienia2011} and
+\sc{SPEC CPU2006} \cite{cpu2006}.
+
+Now, it should be clear that, by recording power directly, we make a significant
+trade-off: many details related to programs' executions have been discarded in
+order to gain speed. What has been baked in into recordings cannot be to altered
+at the usage/replay stage in general.
 
 In our experiments, we use the applications from two benchmark suites, namely,
-from \sc{PARSEC} \cite{bienia2011} and \sc{SPEC CPU2006} \cite{cpu2006}.
+from \sc{PARSEC} and \sc{SPEC CPU2006}, which were mentioned earlier.
