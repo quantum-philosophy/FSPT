@@ -1,12 +1,14 @@
-As stated in \sref{problem-formulation}, the system serves a stream of jobs,
-which can also be viewed as user requests. The foremost component of our
-methodology is then a traffic model, describing how or, rather, when jobs
-arrive. This model should satisfy a number of requirements to be practically
-useful. First of all, it should be able to capture well the idiosyncrasies
-present in (real) network traffic as it establishes a foundation for the further
-generation of power and temperature traces. Additionally, since monitoring and
-logging systems are ubiquitous now-a-days, it should be straightforward to
-configure the model given a dataset of arrival times, serving as a reference.
+As described in \sref{problem-formulation}, the system at hand serves a stream
+of jobs, which can also be viewed as user requests. The foremost component of
+our methodology is then a traffic model, describing how or, rather, when jobs
+arrive. This model should satisfy a number of requirements in order to be
+practically useful. First of all, the model should be able to capture well the
+idiosyncrasies present in real traffic as it establishes a foundation for the
+subsequent generation of power and temperature traces. Second, it should be
+straightforward to configure the model given a dataset of arrival times serving
+as a reference. This last requirement acknowledges the importance of the arrival
+data that are at our disposal nowadays due to ubiquitously deployed monitoring
+and logging systems.
 
 The seminal work in \cite{leland1994} and subsequent studies have shown that
 network traffic exhibits fractal properties such as burstiness, self-similarity,
@@ -25,17 +27,17 @@ Finally, the fractional Gaussian noise is a monofractal process; however, real
 traffic data often have multifractal structures.
 
 In order to address the aforementioned concerns and enable the generation of
-arrival streams exhibiting fractal properties, our methodology employs a
+arrival streams exhibiting fractal properties, our methodology employs the
 multifractal wavelet model proposed in \cite{riedi1999}, characterizing
 positive-valued data with long-range-dependent correlations. To elaborate, we
 take a reference time series of arrival times, analyze it by means of the
 discrete wavelet transform based on Haar wavelets, and construct a certain
-representation of the data, which can then be used in order to generate random
-time series matching the fractal properties of the original one. The model can
-be tuned without any reference time series; however, the strength of the
-technique is in the rigorous usage of reference data. By doing so, no manual
-parameter tuning is needed, and the model gets tailored to the arrival pattern
-of each particular problem.
+representation of the data, which can then be used for generating random time
+series matching the fractal properties of the original one. The model can be
+tuned without any reference time series; however, the strength of the technique
+is in the rigorous usage of reference data. By doing so, no manual parameter
+tuning is needed, and the model gets tailored to the arrival pattern of each
+particular problem.
 
 In our experiments, we use a dataset published by Google \cite{google}. The
 dataset contains usage data of a computer cluster over a month period, namely,
