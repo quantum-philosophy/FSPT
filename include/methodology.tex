@@ -1,20 +1,32 @@
 \input{include/assets/figures/methodology}
-In this section, we describe the workflow of the proposed methodology and the
-core models that the methodology is based on. An overview is depicted in
+In this section, we describe the workflow of the proposed methodology along with
+the core models that the methodology is based on. An overview is depicted in
 \fref{methodology} and can be voiced as follows. There are two major stages:
-data acquisition and data synthesis. The left-hand side of \fref{methodology}
-corresponds to the former, and the right-hand one to the latter. The
-data-acquisition stage collects and stores reference data while the
-data-synthesis stage fetches these data and produces as much power and
-temperatures data as needed. There are two types of reference data: arrival and
-workload, which are referred to as patterns in the picture and in what follows.
-As the names suggest, the two types the generation of job arrivals and the
-corresponding workloads; they will be further discussed in the sections below,
-\sref{traffic-model} and \sref{workload-model}.
+data acquisition and data synthesis. The boxes to the left of the two clouds in
+\fref{methodology} correspond to the data-acquisition stage, and the box to the
+right corresponds to the data-synthesis state. The data-acquisition stage
+collects and stores reference data while the data-synthesis stage fetches these
+data and produces power and temperature traces of the system. There are two
+types of reference data: arrival and workload, which are referred to as patterns
+in the figure and in what follows. As the names suggest, the two pieces of
+information are utilized for generating job arrivals and job workloads, and they
+will be further discussed in the sections below, \sref{traffic-model} and
+\sref{workload-model}.
 
-
-\subsection{Traffic Model} \slab{traffic-model}
+\subsection{Traffic Modeling} \slab{traffic-model}
 \input{include/traffic}
 
-\subsection{Workload Model} \slab{workload-model}
+\subsection{Workload Modeling} \slab{workload-model}
 \input{include/workload}
+
+\subsection{Performance Modeling} \slab{performance-model}
+They are matched with job arrivals and form a schedule. Now we need to describe
+how a particular workload is chosen for a particular arrival.
+
+Now, it should be clear that, by recording power directly, we make a trade-off:
+many details related to programs' executions are discarded in order to gain
+speed. What has been baked into recordings cannot be to altered at the usage
+stage in general. Consider, for instance, a recording of a program that had two
+cores and a shared L3 cache at its disposal. This pattern cannot be used to
+replay the execution as if there was only one core. Similarly, the recording
+cannot tell what would happen if the program could leverage one extra core.

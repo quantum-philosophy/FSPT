@@ -1,11 +1,12 @@
 In the previous subsection, we introduced our approach to generating streams of
 arrivals; however, an arrival is only a time stamp without any information about
-the actual workload. In this subsection, we describe how workloads are obtained
-and associated with job arrivals. To begin with, workload candidates should
-conform to a number of criteria. First, as emphasized throughout the paper, we
-aim to produce realistic power and temperature traces, and, therefore, workloads
-should represent well the applications or services that the system in question
-is supposed to provide to the end user. Second, a workload should be fast to
+the actual workload. In this subsection, we describe how workloads needed for
+substantiating job arrivals are obtained, which is depicted in the bottom part
+of \fref{methodology}. To begin with, workload candidates should conform to a
+number of criteria. First, as emphasized throughout the paper, we aim to produce
+realistic power and temperature traces, and, therefore, workloads should
+represent well the applications or services that the system in question is
+supposed to provide to the end user. Second, a workload should be fast to
 evaluate, which, in our context, refers to computing the power consumption of
 that workload.
 
@@ -35,17 +36,10 @@ From our experience, performance and power simulation is by far the largest
 expense on the way to temperature, and, therefore, we propose to record power
 directly, eliminating this expense all together. Then the result of the
 procedure described above is a repository of power traces corresponding to real
-programs, which we shall refer to as power patterns.
-
-Power patterns serve as building blocks.
-
-Now, it should be clear that, by recording power directly, we make a trade-off:
-many details related to programs' executions are discarded in order to gain
-speed. What has been baked into recordings cannot be to altered at the usage
-stage in general. Consider, for instance, a recording of a program that had two
-cores and a shared L3 cache at its disposal. This pattern cannot be used to
-replay the execution as if there was only one core. Similarly, the recording
-cannot tell what would happen if the program could leverage one extra core.
+programs, which we refer to as workload patterns (see \fref{methodology}). These
+patterns are building blocks: they are used to construct a power profile of the
+system under consideration, which we shall further elaborate on in the next
+subsection, \sref{performance-model}.
 
 Full-system simulations obviously take time; however, they should be done only
 once. Moreover, since researchers tend to test their ideas using similar sets of
@@ -57,5 +51,6 @@ will be needed. The role of such a repository could be similar to the one played
 nowadays by the benchmark suites themselves, but it would be on a different
 level and for a different purpose.
 
-Finally, we need to discuss how a particular workload is chosen for a particular
-arrival.
+To recapitulate, we have obtained a set of materials for rendering job arrivals.
+These materials, that is, workload patterns, correspond to executions of real
+programs and, therefore, possess the particularities found in real life.
