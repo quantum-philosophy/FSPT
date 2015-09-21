@@ -1,0 +1,58 @@
+Accounting for power and temperature is key to achieving effectiveness,
+efficiency, and robustness. However, power consumption and heat dissipation are
+a result of a myriad of interactions between numerous hardware and software
+components, comprising modern electronic systems. It is, therefore, difficult to
+describe mathematically or algorithmically the impact of a parameter on the
+power and temperature characteristics of the system being developed. Moreover,
+many aspects of the system are inherently uncertain to the designer. One of the
+reasons is process variation \cite{chandrakasan2000}: the properties of
+fabricated dies deviate from the nominal ones since process parameters cannot be
+controlled precisely using the technologies currently employed in the
+fabrication process. Another reason is aging \cite{coskun2006}: the performance
+of a system degrades over time due to natural or accelerated wear, which is
+unlikely to be uniform. Yet another and perhaps the most consequential reason is
+workload: the demand on a system in the field is rarely, if ever, known in the
+lab. Such uncertainties inevitably make power and temperature characteristics of
+electronic systems uncertain as well.
+
+The above concerns are particularly hard to address from a theoretical
+standpoint. They can be better dealt with taking a more pragmatic approach,
+namely, making use of on-chip data. To elaborate, assuming that the system at
+hand provides basic profiling mechanisms such as performance counters and
+thermal sensors, which is typically the case, direct or indirect power and
+temperature readings are an invaluable source of information for making power-
+and temperature-aware decisions. The attractiveness of the data route is due the
+fact that only one particular fabricated hardware in one particular environment
+needs to be considered. More importantly, being on the chip enables adaptation,
+which can also be made continuous. This means that instances of the system are
+treated on a case-by-case basis; each instance attains a custom-built,
+fine-tuned solution, and this solution evolves, diligently following any
+changes.
+
+Power and temperature data should be available timely. Proactive management
+strategies are known to be more efficient than reactive ones since they aim at
+preventing problems instead of recovering from the consequences of problems
+\cite{coskun2008, chaudhry2015}, which, in particular, avoids slowing or
+shutting down processing elements. Acting proactively requires peaking into the
+future. Consequently, the first step towards proactive power- and
+temperature-aware management---and, hence, towards making electronic products
+more reliable and energy efficient---is to predict the power consumption and
+heat dissipation.
+
+Predicting the future relies on learning from the past, which is typically done
+by virtue of tools from statistics and adjacent fields such as machine learning
+\cite{bishop2006}. In \cite{coskun2008}, for example, temperature prediction is
+based on an autoregressive moving-average model, enabling the development of an
+efficient thermal management strategy for multiprocessor systems. The analysis
+and mitigation of the impact of process variation in \cite{juan2014} are
+facilitated by a liner-regression model trained on leakage measurements in order
+to predict peak temperatures.
+
+Regardless of the learning tool used, the tool needs data to learn from. Prior
+to a physical instantiation of a design, all the hope resets on the shoulders of
+computer models and simulators. The need in simulators is not any lower even
+when an existing platform is concerned. The platform might not be available to
+the interested party, or it might not be an appropriate place for early
+experimentation and fluid exploration, which is arguably the most common
+scenario in research. In such cases, computer simulators are of great help; they
+are enablers, and their ubiquitous usage speaks to this assertion.

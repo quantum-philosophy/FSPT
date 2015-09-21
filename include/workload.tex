@@ -24,13 +24,14 @@ based on full-system simulations of reference programs. However, if we had
 incorporated such simulations directly into our workflow, it would have defeated
 the purpose of our work since, as motivated in \sref{introduction}, detailed
 simulations are too time consuming. Instead, we propose the use of high-level
-recordings. To elaborate, using an adequate simulator capable of modeling the
-target architecture, we execute each reference program and record certain
-information about this execution.\footnote{Such a technique is similar in spirit
-to PinPlay \cite{patil2010}, which is a tool for recording and replaying an
-execution of a program on the instruction level.} At a later stage of our
-pipeline, the collected information is utilized in order to flesh out jobs upon
-their arrival, and this stage requires no simulation.
+recordings; see the box labeled ``Recorder'' in \fref{methodology}. To
+elaborate, using an adequate simulator capable of modeling the target
+architecture, we execute each reference program and record certain information
+about this execution.\footnote{Such a technique is similar in spirit to PinPlay
+\cite{patil2010}, which is a tool for recording and replaying an execution of a
+program on the instruction level.} At a later stage of our pipeline (the box
+labeled ``Streamer''), the collected information is utilized in order to flesh
+out jobs upon their arrival, and this stage requires no simulation.
 
 From our experience, performance and power simulation is by far the largest
 expense on the way to temperature, and, therefore, we propose to record power
