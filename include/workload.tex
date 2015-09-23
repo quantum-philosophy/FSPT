@@ -1,3 +1,4 @@
+\input{include/assets/figures/workload}
 In the previous subsection, we introduced our approach to generating streams of
 arrivals; however, an arrival is only a time stamp without any information about
 the actual workload. In this subsection, we describe how workloads needed for
@@ -12,11 +13,13 @@ that workload.
 
 The particularities of the power consumption of a computer program are hard to
 fabricate. A sequence of random numbers taken out of thin air will not do the
-trick as programs have certain algorithmic structures. A program might, for
-instance, traverse a number of phases, and each phase might trigger a number of
-distinctive computations, shaping the corresponding power and temperature
-profiles. Such features are important to preserve in order to make the
-subsequent experimentation with machine-learning techniques and alike
+trick as programs have certain algorithmic structures.
+Figure~\ref{fig:workload} illustrates the power consumption of four applications
+taken from the \sc{SPEC CPU2006} benchmark suite \cite{cpu2006}. A program
+might, for instance, traverse a number of phases, and each phase might trigger a
+number of distinctive computations, shaping the corresponding power and
+temperature profiles. Such features are important to preserve in order to make
+the subsequent experimentation with machine-learning techniques and alike
 meaningful.
 
 With the above concern in mind, the workload-modeling part of our methodology is
