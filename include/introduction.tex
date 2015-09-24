@@ -9,28 +9,46 @@ cooling equipments, escalating the overall expenses \cite{chaudhry2015}. The
 situation is deteriorated even further by the power-temperature interplay:
 higher power leads to higher temperature, and higher temperature strikes back by
 making devices consume even more power \cite{liu2007}. Under these
-circumstances, it is no surprise that \emph{power}, \emph{temperature},
-\emph{energy}, and their derivatives are omnipresent in the titles of scientific
-publications. Power and temperature have been steadily in the research limelight
-and have no plans on leaving this spot.
+circumstances, it is no surprise that power and temperature have steadily been
+in the research limelight and have no plans on leaving this spot.
 
-In this paper, we set out to construct a methodology for assisting researchers
-who develop power- and temperature-aware solutions that make use of
-machine-learning techniques. Learning techniques obviously require data to learn
-from, and these data might not be easily accessible to researchers, preventing
-research ideas to flow freely.
+In this paper, we set out to assist researchers working with power and
+temperature in one specific but rather broad context. To elaborate, we would
+like to facilitate the development of on-chip, data-driven, power- and
+temperature-aware solutions for multiprocessor systems. Let us now clarify the
+terms involved in the above statement, and the approach itself will be described
+shortly after. \emph{On-chip} refers to taking decisions online or,
+equivalently, at runtime, which is in contrast to having decisions taken
+offline, at design time. \emph{Data-driven} refers to the usage of algorithms
+that learn from data as opposed to algorithms of any other kind.
+\emph{Power-aware} refers to decision-making that takes into account the impact
+on and the impact of power (and, of course, energy) consumption. Similarly,
+\emph{temperature-aware} refers to considering heat dissipation when making
+decisions.
 
-That being said, it is important to note that, while synthetic data enable
-thoughts and ideas to evolve and ripen, the solution being developed will
-obviously have to face real data, and, therefore, it should be verified using
-such data as well, which perhaps could be at the end of a large iteration.
+We approach the outlined objective by developing a methodology for a fast
+synthesis of realistic power and temperature profiles. Our motivation for doing
+so is described in detail in the next section, \sref{motivation}, and here we
+would like to remark that data-driven techniques obviously require data to learn
+from, and these data might not be easily accessible to researchers for various
+reasons, preventing research ideas from flowing freely. The goal of this work is
+to eliminate this data obstacle.
+
+It is important to realize right from the very beginning that, while artificial
+data enable thoughts and ideas to evolve and ripen, the solution being developed
+will eventually have to face real data, and, therefore, it should be tested in
+action prior to any deployment in a production environment, which could also be
+done at the end of a large development cycle. The usage of synthetic data
+substantially speeds up the whole process due to the accompanying flexibility
+and fast feedback, which, in particular, means that one can filter out bad ideas
+at early stages and explore only the ones which are viable.
 
 The remainder of the paper is organized as follows. In the next section,
-\sref{motivation}, we describe our primary motivation for embarking on this line
-of research. Section~\ref{sec:prior-work} provides an overview of the prior
-work. In \sref{present-work}, the contributions of the present work are
-summarized. The problem that we address is formalized in
-\sref{problem-formulation}. Our methodology and the corresponding toolchain are
-described in \sref{methodology} and \sref{toolchain}, respectively. The
-experimental results are reported and discussed in \sref{experimental-results}.
-Section \ref{sec:conclusion} concludes the paper.
+\sref{motivation}, we describe our motivation for embarking on this line of
+research. Section~\ref{sec:prior-work} provides an overview of the prior work.
+In \sref{present-work}, the contributions of the present work are summarized.
+The problem that we address is formalized in \sref{problem-formulation}. The
+proposed methodology and the corresponding toolchain are described in detail in
+\sref{methodology} and \sref{toolchain}, respectively. The experimental results
+are reported and discussed in \sref{experimental-results}. Section
+\ref{sec:conclusion} concludes the paper.
