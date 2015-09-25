@@ -1,11 +1,38 @@
-The Sniper simulator has a higher level of abstraction \cite{carlson2011} and,
-thus, more affordable simulation times.
+The present work spans multiple disciplines centered at electronic-system
+design. It is tightly related to simulation techniques; however, as it will
+become clear in the following sections, what we do is synthesis, not simulation.
 
-\sc{McPAT} \cite{li2009}.
-HotSpot \cite{skadron2004}.
-\sc{3D-ICE} \cite{sridhar2010}.
+For our purposes, it is sufficient to distinguish three types of simulators:
+performance, power, and temperature. The subjects of the last two are apparent,
+and \emph{performance} refers (in the scope of this paper) to everything that is
+prior to power, which is essentially performance counters as functions of time,
+including the numbers of instructions and read/write memory accesses.
 
-Reinforcement learning, Poisson arrivals, and exponentially distributed
-execution times (an M/M/c model) \cite{lu2015}.
+A performance simulator that we would like to highlight is Sniper
+\cite{carlson2011}. Sniper is aimed at x86-based systems, and it has been
+validated against Intel Core 2 and Nehalem architectures. The simulator has a
+higher level of abstraction than the one of traditional cycle-accurate
+simulators, which makes its simulation times more affordable in practice.
+Regarding power simulation, a common choice is \sc{McPAT} \cite{li2009}.
+\sc{McPAT} is also capable of estimating the areas occupied by processing
+elements, which is handy as this information is essential for the subsequent
+temperature simulation. Temperature simulation is arguably dominated by the
+long-lived HotSpot \cite{skadron2004}. A popular alternative is \sc{3D-ICE}
+\cite{sridhar2010}, which is more focused on modeling \sc{3D} structures and
+features liquid cooling systems.
 
-Ultra low-power inference \cite{park2015}.
+The pipeline assembled from the aforementioned simulators is the one frequently
+used in research as the components are the state-of-the-art. However, the
+pipeline is stiff and slow for machine-learning purposes. Among the three
+simulation stages, by far the most time consuming part is performance
+simulation. Temperature simulation, on the other hand, is negligible compared to
+the other two, based on our experience.
+
+Lastly, we emphasize that the need for a systematic assistance in obtaining data
+for learning-based research studies, which is the goal of this work, is
+prominent in the literature. For instance, the study in \cite{lu2015} proposes a
+temperature-aware task-allocation strategy based on reinforcement learning,
+which is a machine-learning technique. The authors of that work had to invest
+time in developing a custom simulation platform (still based on the
+above-mentioned simulators) in order to experiment with their approach. From our
+perspective, such supplementary work should be streamlined.
