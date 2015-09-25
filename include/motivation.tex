@@ -48,11 +48,28 @@ and mitigation of the impact of process variation in \cite{juan2014} are
 facilitated by a liner-regression model trained on leakage measurements in order
 to predict peak temperatures.
 
-Regardless of the learning tool used, the tool needs data to learn from. Prior
-to a physical instantiation of a design, all the hope resets on the shoulders of
-computer models and simulators. The need in simulators is not any lower even
-when an existing platform is concerned. The platform might not be available to
-the interested party, or it might not be an appropriate place for early
-experimentation and fluid exploration, which is arguably the most common
-scenario in research. In such cases, computer simulators are of great help; they
-are enablers, and their ubiquitous usage speaks to this assertion.
+Regardless of the learning tool utilized, the tool needs data to learn from.
+Prior to a physical instantiation of the platform under consideration, all the
+hope rests on the shoulders of computer models and simulators. The need for
+simulators is not any lower even when an existing platform is concerned. The
+platform might not be available to the interested party, or it might not be an
+appropriate place for early experimentation and fluid exploration, which is
+arguably the most common scenario in research. In such cases, computer
+simulators are of great help, and their ubiquitous usage speaks to this
+assertion.
+
+Simulations can be undertaken on different levels, depending on the goal in
+mind. In order to be useful for learning purposes, simulations should be
+sufficiently detailed so that they capture well the traits, features of real
+systems. Although detailed simulations (down to cycle accuracy) are practical
+for the design of individual components, such simulations fall short when it
+comes to large systems. For instance, a modern multiprocessor system is
+reasonably complex, and it might take days for a state-of-the-art simulator (not
+even cycle accurate) to simulate a short, in wall-clock time, program running on
+such a system. This scheme is not affordable for designing data-driven
+techniques as they require many simulations with potentially long payloads.
+
+To conclude, real data are rarely available, and simulation data are
+prohibitively time consuming to obtain. Both are limiting, rigid from the
+standpoint of a researcher trying to leverage the rich machinery of machine
+learning. The need for alternative sources of data fuel is prominent.
