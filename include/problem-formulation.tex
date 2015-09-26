@@ -1,23 +1,32 @@
-Consider an in-design or in-use electronic system. The system is composed of a
-number of processing elements and is capable of performing a number of
+Consider an in-design or in-production electronic system. The system is composed
+of a number of processing elements and is capable of performing a number of
 operations. The system receives a stream of requests or jobs, which it is
 supposed to process. Each job implies a certain amount of work to be done and,
-therefore, a certain amount of power/energy to be consumed and a certain amount
-of heat to be dissipated. An example of such a system is a member of a computer
-cluster.
+therefore, a certain amount of power to be consumed and a certain amount of heat
+to be dissipated. An example of such a system is a member of a computer cluster.
 
-Consider now a hypothetical research project targeted at developing a solution
-of some sort, such as a management policy, for the system at hand. Since the
-importance of power and temperature is well understood, which is motivated in
-\sref{introduction}, the solution is required to take into account the two
-quantities. Suppose further that the solution is to be based on learning from
-power and temperature data.
+Consider now a hypothetical research project targeted at developing a certain
+solution for the system at hand, such as a scheduling and mapping policy. Since
+the importance of power and temperature is well understood, which is motivated
+in \sref{introduction}, the solution is required to take into account the two
+quantities. Suppose further that the solution is to be based on a
+machine-learning technique digesting power and temperature data available on the
+chip, which is motivated in \sref{motivation}.
 
-Our goal is to develop a methodology for generating power and temperature traces
-and a toolchain embodying it. The requirements are as follows:
+Our goal is to develop a methodology for a fast generation of realistic power
+and temperature profiles of the system in order to provide the research project
+with plenty of data to experiment with. More formally, the requirements are as
+follows:
 
 \begin{itemize}
-  \item {\bfseries Requirement~1 (Realism).}
+  \item {\bfseries Requirement~1 (Realism).} The generated profiles should
+  preserve the particularities of job arrivals and program executions that are
+  present in real life, which is what makes the subsequent learning meaningful.
 
-  \item {\bfseries Requirement~2 (Speed).}
+  \item {\bfseries Requirement~2 (Speed).} The generation should be
+  substantially faster than performing traditional simulations, which is what
+  makes our work worth doing.
 \end{itemize}
+
+In addition, we would like to construct a toolchain in order to streamline the
+usage of the proposed methodology.
