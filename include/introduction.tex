@@ -13,35 +13,36 @@ circumstances, it is no surprise that power and temperature have steadily been
 in the research limelight and have no plans on leaving this spot.
 
 In this paper, we set out to assist researchers working with power and
-temperature in one specific but rather broad context. To elaborate, we would
+temperature in one specific but rather broad context. More concretely, we would
 like to facilitate the development of on-chip, data-driven, power- and
 temperature-aware solutions for multiprocessor systems. Let us now clarify the
-terms involved in the above statement, and the approach itself will be described
+terms involved in the previous sentence; the approach itself will be described
 shortly after. \emph{On-chip} refers to taking decisions online or,
 equivalently, at runtime, which is in contrast to having decisions taken
 offline, at design time. \emph{Data-driven} refers to the usage of machine
 learning \cite{bishop2006}, that is, to the usage of algorithms that learn from
 data as opposed to algorithms of any other kind. \emph{Power-aware} refers to
 decision-making that takes into account the impact on and the impact of power
-(and, of course, energy) consumption. Similarly, \emph{temperature-aware} refers
-to considering heat dissipation when making decisions.
+(and energy) consumption. Similarly, \emph{temperature-aware} refers to
+considering heat dissipation when taking decisions.
 
 We approach the outlined objective by developing a methodology for a fast
 synthesis of realistic power and temperature profiles. Our motivation for doing
-so is described in detail in the next section, \sref{motivation}, and here we
-would like to remark that data-driven techniques obviously require data to learn
-from, and these data might not be easily accessible to researchers for various
+so is described in the next section, \sref{motivation}, and here we would like
+to remark that data-driven techniques obviously require data to learn from, and
+these data might not be easily accessible to researchers for a variety of
 reasons, preventing research ideas from flowing freely. The goal of this work is
-to eliminate this data obstacle.
+to eliminate this obstacle.
 
 It is important to realize right from the start that, while artificial data
 enable thoughts and ideas to evolve and ripen, the solution being developed will
-eventually have to face real data, and, therefore, it should be tested in action
-prior to any deployment in a production environment, which could also be done at
-the end of a large development cycle. The usage of synthetic data substantially
-speeds up the whole process due to the accompanying flexibility and fast
-feedback, which, in particular, means that one can filter out bad ideas at early
-stages and explore only the ones which are viable.
+eventually have to face real data. Therefore, the solution should be tested and,
+if needed, calibrated in a stage environment prior to the deployment to a
+production environment, which could also be done periodically at the end of a
+large development cycle. The usage of synthetic data substantially speeds up the
+development process due to the flexibility and fast feedback enabled by such
+data, which, in particular, means that one can filter out bad ideas at early
+stages and focus solely on the ones which are viable.
 
 The remainder of the paper is organized as follows. In the next section,
 \sref{motivation}, we describe our motivation for embarking on this line of
