@@ -1,4 +1,3 @@
-\input{include/assets/figures/methodology}
 In this section, we describe the workflow of the proposed methodology along with
 the core models that the methodology is based on. An overview is depicted in
 \fref{methodology} and can be voiced as follows. There are two major stages:
@@ -9,20 +8,19 @@ collects and stores reference data while the data-synthesis stage fetches these
 data and produces power and temperature traces of the system. There are two
 types of reference data: arrival and workload, which are referred to as patterns
 in the figure and in what follows. As the names suggest, the two pieces of
-information are utilized for generating job arrivals and job workloads, and they
-will be further discussed in the sections below, \sref{traffic-model} and
-\sref{workload-model}.
+information characterize job arrivals and job workloads, and they will be
+further discussed in the following two subsections, \sref{traffic} and
+\sref{workload}. In \sref{composition}, we explain how the pieces are combined
+into a coherent whole.
 
-\subsection{Traffic Modeling} \slab{traffic-model}
+\subsection{Traffic} \slab{traffic}
 \input{include/traffic}
 
-\subsection{Workload Modeling} \slab{workload-model}
+\subsection{Workload} \slab{workload}
 \input{include/workload}
 
-\subsection{Performance Modeling} \slab{performance-model}
-They are matched with job arrivals and form a schedule. Now we need to describe
-how a particular workload is chosen for a particular arrival.
-
+\subsection{Composition} \slab{composition}
+\input{include/assets/figures/governor}
 Now, it should be clear that, by recording power directly, we make a trade-off:
 many details related to programs' executions are discarded in order to gain
 speed. What has been baked into recordings cannot be to altered at the usage

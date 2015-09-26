@@ -25,7 +25,7 @@ meaningful.
 With the above concern in mind, the workload-modeling part of our methodology is
 based on full-system simulations of reference programs. However, if we had
 incorporated such simulations directly into our workflow, it would have defeated
-the purpose of our work since, as motivated in \sref{introduction}, detailed
+the purpose of our work since, as motivated in \sref{motivation}, detailed
 simulations are too time consuming. Instead, we propose the use of high-level
 recordings; see the box labeled ``Recorder'' in \fref{methodology}. To
 elaborate, using an adequate simulator capable of modeling the target
@@ -42,8 +42,8 @@ directly, eliminating this expense all together. Then the result of the
 procedure described above is a repository of power traces corresponding to real
 programs, which we refer to as workload patterns (see \fref{methodology}). These
 patterns are building blocks: they are used to construct a power profile of the
-system under consideration, which we shall further elaborate on in the next
-subsection, \sref{performance-model}.
+system under consideration, which we further elaborate on in the next
+subsection, \sref{composition}.
 
 Full-system simulations obviously take time; however, they should be done only
 once. Moreover, since researchers tend to test their ideas using similar sets of
@@ -55,6 +55,28 @@ will be needed. The role of such a repository could be similar to the one played
 nowadays by the benchmark suites themselves, but it would be on a different
 level and for a different purpose.
 
-To recapitulate, we have obtained a set of materials for rendering job arrivals.
-These materials, that is, workload patterns, correspond to executions of real
-programs and, therefore, possess the particularities found in real life.
+Let us now turn to the question: How do we choose which workload pattern to use
+for a particular arrival? First of all, since arrivals are modeled as a stream,
+it is convenient to turn workloads into a stream as well so that we can draw an
+element from each stream and obtain a fully characterized job (time and
+payload). Then the question boils down to the logic behind the workload stream.
+The workload stream can be dependent on the arrival stream, which allows for
+modeling, for instance, periodic workloads. The workload stream can also be
+autocorrelated, which allows for modeling, for instance, paired workloads. Since
+such aspects rely heavily on domain-specific knowledge, we refrain from
+providing any particular dependency model. The default option used in our
+toolchain, which is to be discussed in \sref{toolchain}, is drawing samples from
+a uniform distribution over a set of workload patterns.
+
+The stream abstraction introduced in the previous paragraph also helps to
+communicate the notion of workload transformation. A workload transformation is
+an optional means of workload diversification. A selected workload pattern can
+pass through a number of filters---such as noise, offset, scale, stretch, and
+shrink---before being pulled from the stream. This, however, should be done
+thoughtfully as the purpose of recording power patterns is in part to bring in
+realistic power fluctuations.
+
+To recapitulate, we have obtained a database of reference workloads and
+discussed the formation of workload streams, which complement arrival streams.
+The workload patterns correspond to executions of real programs and, therefore,
+exhibit the particularities found in real life.
