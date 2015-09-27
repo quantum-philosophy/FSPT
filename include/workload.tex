@@ -22,38 +22,54 @@ temperature profiles. Such features are important to preserve in order to make
 the subsequent experimentation with machine-learning techniques and alike
 meaningful.
 
-With the above concern in mind, the workload-modeling part of our methodology is
-based on full-system simulations of reference programs. However, if we had
-incorporated such simulations directly into our workflow, it would have defeated
-the purpose of our work since, as motivated in \sref{motivation}, detailed
-simulations are too time consuming. Instead, we propose the use of high-level
-recordings; see the box labeled ``Recorder'' in \fref{methodology}. To
-elaborate, using an adequate simulator capable of modeling the target
-architecture, we execute each reference program and record certain information
-about this execution.\footnote{Such a technique is similar in spirit to PinPlay
+With the above concern in mind, the workload modeling is based on full-system
+simulations of reference programs. However, if we had incorporated such
+simulations directly into our workflow, it would have defeated the purpose of
+our work since, as motivated in \sref{motivation}, detailed simulations are too
+time consuming. Instead, we propose the use of high-level recordings; see the
+box labeled ``Recorder'' in \fref{methodology}. To elaborate, using an adequate
+simulator capable of modeling the target architecture, we execute each reference
+program in isolation and record certain information about this
+execution.\footnote{Such a technique is similar in spirit to PinPlay
 \cite{patil2010}, which is a tool for recording and replaying an execution of a
-program on the instruction level.} At a later stage of our pipeline (the box
-labeled ``Streamer''), the collected information is utilized in order to flesh
-out jobs upon their arrival, and this stage requires no simulation.
+program on the instruction level.} At a later stage of our synthesis pipeline
+(see the box labeled ``Streamer'' in \fref{methodology}), the collected
+information is utilized in order to flesh out jobs upon their arrival, and this
+stage requires no simulation. These primitives are building blocks: they are
+combined to form complex workloads corresponding to multiple programs running in
+parallel, which will be further elaborated on in the next subsection,
+\sref{composition}.
 
 From our experience, performance and power simulation is by far the largest
 expense on the way to temperature, and, therefore, we propose to record power
-directly, eliminating this expense all together. Then the result of the
-procedure described above is a repository of power traces corresponding to real
-programs, which we refer to as workload patterns (see \fref{methodology}). These
-patterns are building blocks: they are used to construct a power profile of the
-system under consideration, which we further elaborate on in the next
-subsection, \sref{composition}.
+directly, eliminating this expense all together. To this end, one first has to
+decide on a time step, granularity level, and resource allocation. The time step
+(sampling interval) is exactly what it sounds. The granularity level specifies
+what parts of the system are treated as recording locations. To give an example,
+one can choose to track the power consumption of a core as a whole or opt for
+tracking \sc{ALU}, \sc{FPU}, and so on individually. The resource allocation
+defines what computational resources are at a program's disposal. For instance,
+a multithreaded program can be recorded as running on one core or several cores.
+
+The result of the procedure is a repository of power traces corresponding to
+real programs, which we refer to as workload patterns; see the bottom cloud in
+\fref{methodology}. Note that a reference program can be recorded
+differently---for instance, with different numbers of cores---and, hence, can
+potentially have multiple entries in the repository. We also note that it is
+worth recording dynamic and static power separately in order to get a better
+control over the subsequent composition.
 
 Full-system simulations obviously take time; however, they should be done only
 once. Moreover, since researchers tend to test their ideas using similar sets of
 benchmark suites and considering similar sets of target architectures, it makes
 sense to create a common repository of power patterns that will be populated and
-maintained online by the research community. In this case, power patterns will
-be at a one-click distance from any single researcher, and no prior simulation
-will be needed. The role of such a repository could be similar to the one played
-nowadays by the benchmark suites themselves, but it would be on a different
-level and for a different purpose.
+maintained online by the research community. The repository could be structured
+in a way that would allow for a proper accommodation of different target
+architectures and other recording conditions. Having established such a common
+repository, power patterns will be at a one-click distance from any single
+researcher, and no prior simulation will be needed. The role of the repository
+could be similar to the one played nowadays by the benchmark suites themselves,
+but it would be on a different level and for a different purpose.
 
 Let us now turn to the question: How do we choose which workload pattern to use
 for a particular arrival? First of all, since arrivals are modeled as a stream,
@@ -62,21 +78,22 @@ element from each stream and obtain a fully characterized job (time and
 payload). Then the question boils down to the logic behind the workload stream.
 The workload stream can be dependent on the arrival stream, which allows for
 modeling, for instance, periodic workloads. The workload stream can also be
-autocorrelated, which allows for modeling, for instance, paired workloads. Since
-such aspects rely heavily on domain-specific knowledge, we refrain from
+autocorrelated, which allows for modeling, for instance, coupled workloads.
+Since such aspects rely heavily on domain-specific knowledge, we refrain from
 providing any particular dependency model. The default option used in our
 toolchain, which is to be discussed in \sref{toolchain}, is drawing samples from
 a uniform distribution over a set of workload patterns.
 
 The stream abstraction introduced in the previous paragraph also helps to
 communicate the notion of workload transformation. A workload transformation is
-an optional means of workload diversification. A selected workload pattern can
-pass through a number of filters---such as noise, offset, scale, stretch, and
-shrink---before being pulled from the stream. This, however, should be done
-thoughtfully as the purpose of recording power patterns is in part to bring in
-realistic power fluctuations.
+an optional operation that can be used for workload diversification and for
+emulation of the effects of such techniques as dynamic voltage/frequency
+scaling. A selected workload pattern can pass through a number of filters---such
+as noise, offset, scale, stretch, and shrink---before being pulled from the
+stream. This, however, should be done thoughtfully as the purpose of recording
+power patterns is in part to bring in realistic power fluctuations.
 
 To recapitulate, we have obtained a database of reference workloads and
 discussed the formation of workload streams, which complement arrival streams.
-The workload patterns correspond to executions of real programs and, therefore,
-exhibit the particularities found in real life.
+The patterns correspond to executions of real programs and, thus, exhibit their
+traits.

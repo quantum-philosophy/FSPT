@@ -1,30 +1,32 @@
 In this section, we describe the workflow of the proposed methodology along with
-the core models that the methodology is based on. An overview is depicted in
-\fref{methodology} and can be voiced as follows. There are two major stages:
-data acquisition and data synthesis. The boxes to the left of the two clouds in
-\fref{methodology} correspond to the data-acquisition stage, and the box to the
-right corresponds to the data-synthesis state. The data-acquisition stage
-collects and stores reference data while the data-synthesis stage fetches these
-data and produces power and temperature traces of the system. There are two
-types of reference data: arrival and workload, which are referred to as patterns
-in the figure and in what follows. As the names suggest, the two pieces of
-information characterize job arrivals and job workloads, and they will be
-further discussed in the following two subsections, \sref{traffic} and
-\sref{workload}. In \sref{composition}, we explain how the pieces are combined
-into a coherent whole.
+the core ideas and models that the methodology is based on. Although our work is
+closely related to simulation techniques, what we do is synthesis, not
+simulation, which will become clear in the following subsections. An overview of
+the methodology is depicted in \fref{methodology} and can be voiced as follows.
+There are two major stages: data acquisition and data synthesis. The boxes to
+the left of the two clouds in \fref{methodology} correspond to the
+data-acquisition stage, and the box to the right corresponds to the
+data-synthesis state. The data-acquisition stage collects and stores reference
+data while the data-synthesis stage fetches these data and produces power and
+temperature traces of the system. There are two types of reference data: arrival
+and workload, which are referred to as patterns in the figure and in what
+follows. As the names suggest, the two pieces of information characterize job
+arrivals and job workloads, and they will be further discussed in the following
+two subsections, \sref{traffic} and \sref{workload}. In \sref{composition}, we
+explain how the pieces are combined into a coherent whole.
 
-\subsection{Traffic} \slab{traffic}
+\subsection{Arrivals} \slab{traffic}
 \input{include/traffic}
 
-\subsection{Workload} \slab{workload}
+\subsection{Workloads} \slab{workload}
 \input{include/workload}
 
 \subsection{Composition} \slab{composition}
-\input{include/assets/figures/governor}
-Now, it should be clear that, by recording power directly, we make a trade-off:
-many details related to programs' executions are discarded in order to gain
-speed. What has been baked into recordings cannot be to altered at the usage
-stage in general. Consider, for instance, a recording of a program that had two
-cores and a shared L3 cache at its disposal. This pattern cannot be used to
-replay the execution as if there was only one core. Similarly, the recording
-cannot tell what would happen if the program could leverage one extra core.
+\input{include/composition}
+
+To summarize, the proposed methodology has been presented. The methodology is
+composed of two stages. In the data-acquisition stage, reference arrival and
+workload data are harvested. In the data-synthesis stage, the data are used to
+generate a stream of jobs and subsequently compute a power and a temperature
+profile. The produced data preserve the particularities of the reference data.
+At the same time, the synthesis is fast as it bypasses expensive simulations.
