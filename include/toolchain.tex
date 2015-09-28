@@ -1,17 +1,18 @@
-The toolchain has been implemented in the Rust programming language
+An important part of this work is a toolchain embodying the methodology. The
+toolchain has been implemented in the Rust programming language
 \cite{rust}.\footnote{Rust is a systems programming developed by Mozilla
 Research and thousands of independent contributors from all around the world.
 Rust focuses on memory safety without garbage collection, concurrency without
 data races, abstractions without overhead, and stability without stagnation.} It
-consists of a number of programs, and the programs are composed of a number of
-stand-alone packages. The toolchain also makes use of third-party software.
-Regardless of the origin, each component of the toolchain is open source. The
-code written by us is distributed under the \sc{MIT} license \cite{mit} and is
-available at \cite{sources}. Feedback is welcome, and contribution will be very
-much appreciated.
+consists of a number of command-line tools, and the tools are composed of a
+number of stand-alone packages. The toolchain also makes use of third-party
+software, including the state-of-the-art simulators introduced in
+\sref{prior-work}. Regardless of the origin, each component toolchain is open
+source. The code written by us is distributed under the \sc{MIT} license
+\cite{mit} and is available at \cite{sources}.
 
-The main programs of our toolchain are called \recorder\ and \streamer, and we
-shall describe them next.
+The main programs of our toolchain are called Recorder and Streamer, and we
+shall describe their architectures next.
 
 \subsection{Recorder}
 \input{include/recorder}
