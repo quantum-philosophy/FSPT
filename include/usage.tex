@@ -1,12 +1,18 @@
 \input{include/assets/figures/usage}
 \input{include/assets/tables/target}
-Before concluding this paper, we would like to illustrate how one can go about
-acquiring reference data and to discuss some common schemes of integrating the
-methodology into the workflow of a research project.
+Before concluding the paper, we would like to illustrate how one can approach
+acquiring reference arrival and workload data and to discuss two common schemes
+of integrating the methodology into the workflow of a research project.
 
-Reference arrival data are based on a dataset published by Google \cite{google}.
-The dataset contains usage data of a computer cluster over a month period,
-namely, May 2011.
+In order to get real-life arrival patterns, we used a dataset published by
+Google \cite{google}. The dataset contains usage data of a computer cluster over
+a month period, namely, over May 2011. We processed the table that was tracking
+the life cycles of the jobs submitted to the cluster and extracted the time
+stamps of the first event related to each job. As a result, we obtained almost
+670,000 arrivals, which we used for model fitting as it was described
+\sref{traffic}. The described processing scheme is rather straightforward and
+could be a good place to start. However, one can perform a more sophisticated
+filtration in order to distill more specific and accurate information.
 
 The workload patterns are obtained by simulating applications from two widely
 used benchmark suites, namely, from \sc{PARSEC} \cite{bienia2011} and \sc{SPEC
