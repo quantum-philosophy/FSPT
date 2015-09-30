@@ -1,5 +1,5 @@
 As described in \sref{problem-formulation}, the system at hand serves a stream
-of jobs, which can also be viewed as user requests. The foremost component of
+of jobs, which can be also viewed as user requests. The foremost component of
 our methodology is then a traffic model, describing \emph{how} or, rather,
 \emph{when} jobs arrive. This model should satisfy a number of requirements in
 order to be practically useful. First of all, the model should be able to
@@ -18,7 +18,7 @@ taking place in the module labeled ``Streamer'' (to be discussed shortly). Now,
 from the perspective of a research project studying a particular system, only
 one arrival pattern is typically needed. If that pattern is very specific, it is
 probably not of much interest to others. However, often research is concerned
-with archetypes of electronic systems such as web servers. In this case, the
+with archetypes of electronic systems such as web servers. In such cases, the
 repository could be a community effort providing arrival data (after a proper
 obfuscation for confidentiality reasons) for research undertakings. We do not
 further elaborate on collecting reference arrival data and move on to the
@@ -35,10 +35,10 @@ noise \cite{lifshits2014}, which is a self-similar stochastic process. However,
 the process is inconvenient to work with from the perspective of a computer
 simulator. More concretely, the noise is suited for modeling arrivals per unit
 of time but not arrival or inter-arrival times, which are what is typically
-needed for simulation. Moreover, even with a proper rescaling and a positive
-shift, the process can still take negative values, which is unrealistic.
-Finally, the fractional Gaussian noise is a monofractal process; however, real
-traffic data often have multifractal structures.
+needed for simulation. Moreover, even with a proper rescaling and shift, the
+process can still take negative values, which is unrealistic. Finally, the
+fractional Gaussian noise is a monofractal process; however, real traffic data
+often have multifractal structures.
 
 In order to address the aforementioned concerns and enable the generation of
 arrival streams exhibiting fractal properties, our methodology employs the
@@ -51,9 +51,9 @@ series matching the fractal properties of the original one. The model can be
 tuned without any reference time series; however, the strength of the technique
 \emph{is} in the rigorous usage of reference data. By doing so, no manual
 parameter tuning is needed, and the model gets tailored to the arrival pattern
-of each particular problem.
+of the particular problem at hand.
 
 To sum up, we now have a dataset of reference arrival times and a versatile
 technique for analyzing them and generating similar arrival streams. The
-technique is capable of capturing the properties that are typically present in
+technique is capable of capturing the properties that are commonly present in
 real traffic such as burstiness, self-similarity, and long-range dependence.

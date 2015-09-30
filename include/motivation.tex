@@ -1,7 +1,7 @@
 Accounting for power and temperature is key to achieving effectiveness,
 efficiency, and robustness. However, power consumption and heat dissipation are
 a result of a myriad of interactions between numerous hardware and software
-components, comprising modern electronic systems. It is, therefore, difficult to
+components comprising modern electronic systems. It is, therefore, difficult to
 describe mathematically or algorithmically the impact of a parameter on the
 power and temperature characteristics of the system being developed. Moreover,
 many aspects of the system are inherently uncertain to the designer. One of the
@@ -60,16 +60,17 @@ assertion.
 
 Simulations can be undertaken on different levels, depending on the goal in
 mind. In order to be useful for learning purposes, simulations should be
-sufficiently detailed so that they capture well the traits, features of real
-systems. Although detailed simulations (down to cycle accuracy) are practical
-for the design of individual components, such simulations fall short when it
-comes to large systems. For instance, a modern multiprocessor system is
-reasonably complex, and it might take days for a state-of-the-art simulator (not
-even cycle accurate) to simulate a short, in wall-clock time, program running on
-such a system. This scheme is not affordable for designing data-driven
-techniques as they require many simulations with potentially long payloads.
+sufficiently detailed so that they capture well the traits of real systems.
+Although detailed simulations (down to cycle accuracy) are practical for the
+design of individual components, such simulations fall short when it comes to
+large systems. A modern multiprocessor system is reasonably complex, and it
+might take days for a state-of-the-art simulator (not even cycle accurate) to
+simulate a short, in wall-clock time, program running on such a system. This
+scheme is not affordable for designing data-driven techniques as they require
+many simulations with potentially large payloads.
 
 To conclude, real data are rarely available, and simulation data are
 prohibitively time consuming to obtain. Both are limiting, rigid from the
 standpoint of a researcher trying to leverage the rich machinery of machine
-learning. The need for alternative sources of data fuel is prominent.
+learning. The need for alternative sources of high-quality data fuel is
+prominent.

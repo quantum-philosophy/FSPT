@@ -5,18 +5,18 @@ supposed to process. Each job implies a certain amount of work to be done and,
 therefore, a certain amount of power to be consumed and a certain amount of heat
 to be dissipated. An example of such a system is a member of a computer cluster.
 
-Consider now a hypothetical research project targeted at developing a certain
-solution for the system at hand, such as a scheduling and mapping policy. Since
-the importance of power and temperature is well understood, which is motivated
-in \sref{introduction}, the solution is required to take into account the two
+Consider now a hypothetical research project targeted at developing a management
+strategy for the system at hand, such as a scheduling policy. Since the
+importance of power and temperature is well understood, which was motivated in
+\sref{introduction}, the solution is required to take into account the two
 quantities. Suppose further that the solution is to be based on a
-machine-learning technique digesting power and temperature data available on the
-chip, which is motivated in \sref{motivation}.
+machine-learning technique leveraging power and temperature data available on
+the chip, which was motivated in \sref{motivation}.
 
 Our goal is to develop a methodology for a fast generation of realistic power
 and temperature profiles of the system in order to provide the research project
-with plenty of data to experiment with. More formally, the requirements are as
-follows:
+with plenty of data to experiment with. More formally, the requirements to the
+data that we would like to produce are as follows:
 
 \begin{itemize}
   \item {\bfseries Requirement~1 (Realism).} The generated profiles should
@@ -29,4 +29,5 @@ follows:
 \end{itemize}
 
 In addition, we would like to construct a toolchain in order to streamline the
-usage of the proposed methodology.
+usage of the proposed methodology. The toolchain will be presented in
+\sref{toolchain} whereas the methodology will be discussed in the next section.

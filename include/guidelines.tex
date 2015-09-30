@@ -12,27 +12,27 @@ Google \cite{google}. The dataset contains usage data of a computer cluster over
 a month period, namely, over May 2011. We downloaded the table that was tracking
 the life cycles of the jobs submitted to the cluster and extracted the time
 stamps of the first event related to each job. As a result, we obtained around
-670,000 data points, which we used for model fitting as it was described
+670,000 data points, which we used for model fitting as it was described in
 \sref{traffic}. The described processing strategy is rather straightforward and
 could be a good place to start. However, one can query the data in more
 sophisticated ways in order to distill more specific and accurate information.
 
 Regarding workload patters, a reasonable solution is to consider the benchmark
-suites that are commonly used in research these days. Moreover, with our toolbox
-in place, the solution is even natural as Sniper provides a smooth integration
-with some of the most popular benchmark suites out of the box. In our
-experiments, the workload patterns were obtained by simulating and recording the
-programs from the popular \sc{PARSEC} \cite{bienia2011} and \sc{SPEC CPU2006}
-\cite{cpu2006}; the former contains 13 programs, and the latter 29 programs. The
-architecture used in the simulations is outlined in \tref{target}, which
+suites that are commonly used in research these days. With our toolbox in place,
+the solution is even natural as Sniper provides a smooth integration with some
+of the most popular benchmark suites out of the box. In our experiments, the
+workload patterns were obtained by simulating and recording the programs from
+the popular \sc{PARSEC} \cite{bienia2011} and \sc{SPEC CPU2006} \cite{cpu2006}
+benchmark suites; the former contains 13 programs, and the latter 29 programs.
+The architecture used in these simulations is outlined in \tref{target}, which
 corresponds to Intel's Nehalem-based Gainestown series. Many programs can be
 executed with inputs of different sizes (\sc{PARSEC}, for instance, has such
 options as small, medium, and large) and be parallelized across a user-specified
 number of cores. Sniper also makes it easy to work with arbitrary programs and
 experiment with different x86-based architecture setups.
 
-All reference data that we harvested and processed to make them suitable for our
-toolbox is available online \cite{sources}.
+All reference data that we collected and processed to make them suitable for our
+toolbox are available online \cite{sources}.
 
 \subsection{Usage Schemes} \slab{usage}
 \input{include/assets/figures/usage} Our vision of the primary usage of the
@@ -50,12 +50,12 @@ policy is referred to as ``Governor.'' The Governor module is, in a sense,
 extraneous to us whereas the modules to the left and right from it are in our
 jurisdiction (note the color code). More concretely, the generation a stream of
 jobs is an imitation of a user behavior, which we try to replicate as
-realistically as possible using reference data. On the other hand, the synthesis
-of power and temperature profiles is an imitation of the response of the
-underlying platform to the incoming user requests and the actions taken by the
-governor. In this scenario, the management policy is assumed to learn from the
-data and perfect itself accordingly, which is emphasized in \fref{usage} by a
-feedback from the Platform module to the Governor module. In real life, this
+realistically as possible by using reference data. On the other hand, the
+synthesis of power and temperature profiles is an imitation of the response of
+the underlying platform to the incoming user requests and the actions taken by
+the governor. In this scenario, the management policy is assumed to learn from
+the data and perfect itself accordingly, which is emphasized in \fref{usage} by
+a feedback from the Platform module to the Governor module. In real life, this
 feedback is readings of various hardware sensors and software counters.
 
 There is another scenario that we would like to mention separately, and it is a

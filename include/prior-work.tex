@@ -15,20 +15,21 @@ capable of estimating the areas occupied by processing elements, which is handy
 as this information is essential for temperature simulation. Temperature
 simulation is arguably dominated by HotSpot \cite{skadron2004}. A popular
 alternative is \sc{3D-ICE} \cite{sridhar2010}, which is more focused on \sc{3D}
-structures and features liquid cooling systems.
+structures and features liquid cooling options.
 
 The pipeline assembled from the aforementioned simulators is the one frequently
 used in research as the components are the state-of-the-art. However, the
 pipeline as such is slow and stiff for machine-learning purposes. According to
 our experience, this is mainly due to performance simulation and, to a lesser
 extent, power simulation, which are considerably time consuming. Temperature
-simulation, on the other hand, has a negligible cost compared to the other two.
+simulation, on the other hand, has a relatively small cost compared to the other
+two.
 
-Lastly, we emphasize that the need for a systematic assistance in obtaining data
-for learning-based research studies, which is the goal of this work, is
-prominent in the literature. For instance, the study in \cite{lu2015} proposes a
-temperature-aware task-allocation strategy based on reinforcement learning,
-which is a machine-learning technique. The authors of that work had to invest
-time into developing a custom simulation platform (still based on the
+Lastly, we would like to emphasize that the need for a systematic assistance in
+obtaining data for learning-based research studies, which is the goal of this
+work, is prominent in the literature. For instance, the study in \cite{lu2015}
+proposes a temperature-aware task-allocation strategy based on reinforcement
+learning, which is a machine-learning technique. The authors of that work had to
+invest time into developing a custom simulation platform (still based on the
 above-mentioned simulators) in order to experiment with their approach. From our
 perspective, such auxiliary work should be streamlined.
