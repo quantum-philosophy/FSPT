@@ -2,22 +2,21 @@ So far we have obtained two corresponding streams: arrival and workload. The two
 streams merge into a new stream representing a sequence of concrete incoming
 jobs or user requests, and this new stream needs to be processed, which is the
 topic of this subsection. Here, \emph{processing} refers to progressively
-building a schedule,\footnote{In this paper, mapping is assumed to be a part of
-scheduling.} constructing a power profile, and computing the corresponding
-temperature profile. In \fref{methodology}, this functionality resides in the
-box labeled ``Streamer.''
+building a schedule,\footnote{In this paper, the mapping of tasks to processing
+elements is assumed to be a part of the scheduling procedure.} constructing a
+power profile, and computing the corresponding temperature profile. In
+\fref{methodology}, this functionality resides in the box labeled ``Streamer.''
 
 As motivated in \sref{motivation}, a prominent use case of our methodology is
-the development of management strategies. Therefore, the management core of the
-system at hand is devised by the user, which is further detailed in
-\sref{usage}. Hence, a scheduling policy is given, and it decides on a schedule.
-Namely, each arrived job contains information about the computational resources
-it needs, and the policy specifies when the job gets access to these resources.
-Then we add accordingly the recorded (and potentially transformed) power pattern
-of the job to the power profile of the system. A helpful analogy here might be
-paving a road with rectangular bricks of different sizes. As the time goes by,
-we feed the power profile to a temperature simulator and obtain a temperature
-profile.
+the development of management strategies. Therefore, the management strategy
+(including the scheduling policy) of the system at hand is devised by the user,
+which is further detailed in \sref{usage}. Consequently, a scheduling policy is
+given, and it decides on a schedule. Namely, for each arrived job, the policy
+specifies when the job gets access to certain resources. Then we add accordingly
+the recorded power pattern of the job to the power profile of the system. A
+helpful analogy here might be paving a road with rectangular bricks of different
+sizes. As the time goes by, we feed the power profile to a temperature simulator
+and obtain a temperature profile.
 
 The obtained power and temperature profiles are the final output of our
 methodology. The key observation to be made is that no expensive performance or

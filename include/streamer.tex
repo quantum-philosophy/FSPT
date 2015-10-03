@@ -10,7 +10,7 @@ which results in an adequately configured multifractal wavelet model
 \cite{riedi1999}. The model is then used to generate a stream of arrival times.
 At the same time, the workload patterns are used to construct a stream of
 workloads, which was explained in \sref{workload}. The rest follows
-\sref{composition}. Namely, the two stream are fused into a stream of jobs,
+\sref{composition}. Namely, the two streams are fused into a stream of jobs,
 which is subsequently handled by a scheduling policy; in \fref{streamer}, this
 policy is a part of the Main module. As the incoming jobs are being scheduled,
 the power profile of the system under consideration is being constructed. The
@@ -31,10 +31,8 @@ leveraging exponential integrators \cite{hochbruck2010, ukhov2012}. The
 construction of thermal circuits is outsourced to either HotSpot
 \cite{skadron2004} or \sc{3D-ICE} \cite{sridhar2010} (in \fref{streamer}, the
 latter is illustrated). Both simulators are based on the thermal \sc{RC} model,
-and we extract the circuits that they build,\footnote{HotSpot has two modeling
-options: block and grid. We are able to extract the thermal circuits produced by
-the former.} which results in a unified interface for working with the two
-alternatives.
+and we extract the circuits that they build, which results in a unified
+interface for working with the two alternatives.
 
 To summarize this subsection, the Streamer tool produces streams of power and
 temperature data, and this procedure closely follows the ideas presented in
