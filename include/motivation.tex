@@ -29,6 +29,7 @@ system are treated on a case-by-case basis; each instance attains a
 custom-built, fine-tuned solution, and this solution evolves, diligently
 following any changes.
 
+\input{include/assets/figures/governor}
 Power and temperature data should be available timely. Proactive management
 strategies are known to be more efficient than reactive ones since they aim at
 preventing problems instead of recovering from the consequences of problems
@@ -39,14 +40,23 @@ temperature-aware management---and, hence, towards making electronic products
 more reliable and energy efficient---is to predict the power consumption and
 heat dissipation.
 
-Predicting the future relies on learning from the past, which is typically done
-by virtue of tools from statistics and adjacent fields such as machine learning
-\cite{bishop2006}. In \cite{coskun2008}, for example, temperature prediction is
-based on an autoregressive moving-average model, enabling the development of an
-efficient thermal management strategy for multiprocessor systems. The analysis
-and mitigation of the impact of process variation in \cite{juan2014} are
-facilitated by a linear-regression model trained on leakage measurements in
-order to predict peak temperatures.
+Predicting the future relies on learning from the past. This task is typically
+done by virtue of the tools from statistics and adjacent fields such as machine
+learning \cite{bishop2006}. In \cite{coskun2008}, for example, temperature
+prediction is based on an autoregressive moving-average model, enabling the
+development of an efficient thermal management strategy for multiprocessor
+systems. The analysis and mitigation of the impact of process variation in
+\cite{juan2014} are facilitated by a linear-regression model trained on leakage
+measurements in order to predict peak temperatures.
+
+\input{include/assets/figures/developer}
+In the above, we have argued for the usage of learning-based techniques for the
+management of electronic systems, and we have put emphasis on those techniques
+that learn online, that is, at runtime on the chip, as they are capable of
+adaptation. However, the present work is not concerned with the development of a
+particular technique of this kind. Instead, the goal of our work is to provide
+an infrastructure that facilitates the development of such techniques, and this
+infrastructure addresses the following major problem.
 
 Regardless of the learning tool utilized, the tool needs data to learn from.
 Prior to a physical instantiation of the platform under consideration, all the
