@@ -16,13 +16,20 @@ represented by a set of modules labeled ``Logger.'' The corresponding data are
 assumed to be stored in a repository, which is accessible for the later usage
 taking place in the module labeled ``Streamer'' (to be discussed shortly). Now,
 from the perspective of a research project studying a particular system, only
-one arrival pattern is typically needed. If that pattern is very specific, it is
+one traffic pattern is typically needed. If that pattern is very specific, it is
 probably not of much interest to others. However, often research is concerned
 with archetypes of electronic systems such as web servers. In such cases, the
-repository could be a community effort providing arrival data (after a proper
-obfuscation for confidentiality reasons) for research undertakings. We do not
-further elaborate on collecting reference arrival data and move on to the
-analysis and synthesis of a chosen arrival pattern.
+repository could be a community effort providing traffic data (after a proper
+obfuscation for confidentiality reasons) for research undertakings.
+
+Monitoring and logging mechanisms, which are a natural source of traffic
+patterns, are outside of the scope of this work. We only note that reference
+traffic data should be collected in an environment similar to the one in which
+the system at hand is supposed to function. For a better intuition about and a
+good example of traffic data, the interested reader is referred to a dataset
+\cite{google} containing traffic data of a large computer cluster over a month
+period; the dataset was made available for research purposes by Google in 2011.
+Let us now move on to the analysis and synthesis of a chosen traffic pattern.
 
 The seminal work in \cite{leland1994} and subsequent studies have shown that
 network traffic exhibits fractal properties such as burstiness, self-similarity,
@@ -50,7 +57,7 @@ representation of the data, which can then be used for generating random time
 series matching the fractal properties of the original one. The model can be
 tuned without any reference time series; however, the strength of the technique
 \emph{is} in the rigorous usage of reference data. By doing so, no manual
-parameter tuning is needed, and the model gets tailored to the arrival pattern
+parameter tuning is needed, and the model gets tailored to the traffic pattern
 of the particular problem at hand.
 
 To sum up, we now have a dataset of reference arrival times and a versatile
