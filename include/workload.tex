@@ -1,4 +1,3 @@
-\input{include/assets/figures/workload}
 In the previous subsection, we introduced our approach to generating streams of
 arrivals; however, an arrival is only a time stamp without any information about
 the actual workload. In this subsection, we describe how workloads needed for
@@ -10,16 +9,6 @@ represent well the applications or services that the system in question is
 supposed to provide to the end user. Second, a workload should be fast to
 evaluate, which, in our context, refers to obtaining the power consumption of
 that workload.
-
-The particularities of the power consumption of a computer program are hard to
-fabricate. A sequence of random numbers taken out of thin air will not do the
-trick as programs have certain algorithmic structures.
-Figure~\ref{fig:workload} illustrates the power consumption of four applications
-taken from the \sc{SPEC CPU2006} benchmark suite \cite{cpu2006}. A program
-might, for instance, traverse a number of phases, and each phase might trigger a
-number of distinctive computations, shaping the corresponding power and
-temperature profiles. Such features are important to preserve in order to make
-the subsequent experimentation with machine-learning techniques meaningful.
 
 The workload modeling is based on full-system simulations of reference programs.
 However, if we had incorporated such simulations directly into our workflow, it
