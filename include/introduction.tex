@@ -1,16 +1,17 @@
 \lettrine[findent=0.4em, nindent=0em]{\textbf{P}}{ower} consumption and heat
 dissipation are of paramount importance. The two inseparable phenomena dictate
 limitations on the usage of electronic devices and magnify the costs pertaining
-to the deployment and maintenance of electronic systems. Power is essentially
-energy, and energy translates willingly to hours of battery life and zeros in
-electricity bills. Temperature, on the other hand, is one of the major causes of
-permanent damage \cite{jedec}, which necessitates the deployment of adequate
-cooling equipments, escalating the overall expenses \cite{chaudhry2015}. The
-situation is deteriorated even further by the power-temperature interplay:
-higher power leads to higher temperature, and higher temperature strikes back by
-making devices consume even more power \cite{liu2007}. Under these
-circumstances, it is no surprise that power and temperature have steadily been
-in the research limelight and have no plans on leaving this spot.
+to the deployment and maintenance of electronic systems. Power is tightly
+related to energy, and energy translates willingly to hours of battery life and
+to electricity bills. Operating temperature, on the other hand, is one of the
+major causes of permanent damage \cite{jedec}, which necessitates the deployment
+of adequate cooling equipments, escalating overall product expenses
+\cite{chaudhry2015}. The situation is deteriorated further by the
+power-temperature interplay: higher power leads to higher temperature, and
+higher temperature strikes back by making electronic devices consume even more
+power \cite{liu2007}. Under these severe circumstances, it is no surprise that
+power and temperature have steadily been in the research limelight and have no
+plans on leaving this spot.
 
 In this paper, we set out to assist researchers working with power and
 temperature in one specific but rather broad context. More concretely, we would
@@ -19,20 +20,20 @@ temperature-aware solutions for multiprocessor systems. Let us clarify the terms
 involved in the previous statement; the approach itself will be described
 shortly after. \emph{On-chip} refers to taking decisions online or,
 equivalently, at runtime, which is in contrast to having decisions taken
-offline, at design time. \emph{Data-driven} refers to the usage of machine
+offline, at design time. \emph{Data-driven} refers to the usage of statistical
 learning \cite{bishop2006}, that is, to the usage of algorithms that learn from
 data as opposed to algorithms of any other kind. \emph{Power-aware} refers to
 decision-making that takes into account the impact on and the impact of power
-(and energy) consumption. Similarly, \emph{temperature-aware} refers to
-considering heat dissipation when taking decisions.
+(and, therefore, energy) consumption. Similarly, \emph{temperature-aware} refers
+to considering heat dissipation when taking decisions.
 
-We approach the outlined objective by developing a methodology for a fast
+We approach the outlined objective by developing a methodology for fast
 synthesis of realistic power and temperature profiles. Our motivation for doing
-so is described in the next section, \sref{motivation}, and here we only would
-like to remark that data-driven techniques obviously require data to learn from,
-and these data might not be easily accessible to researchers for a variety of
-reasons, preventing research ideas from flowing freely. The goal of this work is
-to eliminate this obstacle.
+so is described in the next section, \sref{motivation}, and here we only remark
+that data-driven techniques obviously require data to learn from, and these data
+might not be easily accessible to researchers for a variety of reasons, thereby
+preventing research ideas from flowing freely. The goal of this work is to
+eliminate this obstacle.
 
 It is important to realize right from the start that, while artificial data
 enable thoughts and ideas to evolve and ripen, the solution being developed will

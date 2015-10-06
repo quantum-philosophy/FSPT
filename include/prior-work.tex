@@ -2,12 +2,12 @@ The present work is tightly related to simulation techniques. For our purposes,
 it is sufficient to distinguish four types of simulation: traffic, performance,
 power, and temperature, which are shown in \fref{development}. The subjects of
 the last two are apparent. In this paper, \emph{traffic} refers to a stream of
-jobs or requests that load the system with work. \emph{Performance} refers to
-the system's characteristics that are prior to power, which are essentially
-performance counters as functions of time, including the numbers of instructions
-and read/write memory accesses. For clarity reasons, the discussion on the prior
-work related to traffic simulation is postponed until \sref{traffic}; in the
-rest of this section, we shall focus on the other three.
+jobs or requests that load the system with work, and \emph{performance} refers
+to the system's performance counters as functions of time, including the numbers
+of executed instructions and read/write memory accesses. For clarity reasons,
+the discussion on the prior work related to traffic simulation is postponed
+until \sref{traffic}; in the rest of this section, we shall focus on the other
+three.
 
 A performance simulation that we would like to highlight is Sniper
 \cite{carlson2011}. Sniper is aimed at x86-based systems, and it has been
@@ -22,8 +22,8 @@ popular alternative is \sc{3D-ICE} \cite{sridhar2010}, which is more focused on
 \sc{3D} structures and features the modeling of inter-tier microchannel liquid
 cooling.
 
-The pipeline assembled from the aforementioned simulators is the one frequently
-used today in research as the components are the state-of-the-art. However, the
+The pipeline assembled from the aforementioned simulators is a frequently used
+one in today's research as the components are the state-of-the-art. However, the
 pipeline as such is slow and stiff for machine-learning purposes. According to
 our experience, this is mainly due to the performance- and, to a lesser extent,
 power-simulation components, which are considerably time consuming. Temperature
