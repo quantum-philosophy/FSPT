@@ -13,8 +13,8 @@ performance simulation, which we undertake by virtue of the Sniper simulator
 performance-related information over time. These files are further processed by
 our Recorder.
 
-The communications between Sniper and Recorder are handled by Redis (see
-\fref{recorder}), which is an in-memory key-value storage commonly used for
+The communications between Sniper and Recorder are handled by Redis \cite{redis}
+(see \fref{recorder}), which is an in-memory key-value storage commonly used for
 caching and message passing. Whenever Sniper produces a new file with
 performance information, it sends a message with the file's location to a Redis
 queue. Recorder fetches messages from the queue (observe the diagonal arrow in
