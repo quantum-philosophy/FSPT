@@ -30,19 +30,50 @@ infrastructure displayed in \fref{recorder}) the programs from the popular
 suites; the former contains 13 programs, and the latter 29 programs. The
 architecture used in these simulations is outlined in \tref{target}, which
 corresponds to Intel's Nehalem-based Gainestown series. Many programs can be
-executed with inputs of different sizes (\sc{PARSEC}, for instance, has such
-options as small, medium, and large). Sniper also makes it easy to work with
+executed with inputs of different sizes. Sniper also makes it easy to work with
 arbitrary programs and experiment with different x86-based architecture setups.
 
 All reference data that we collected and processed to make them suitable for our
 toolbox are available online \cite{sources}.
 
-\input{include/assets/tables/recording}
-
 \subsection{Data Acquisition}
+\input{include/assets/tables/recording}
 In the above, we described in a nutshell how the reference workload data were
-harvested. For this purpose, we used our Recorder tool and the infrastructure
-around it discussed in \sref{recorder} and displayed in \fref{recorder}. Let us
-now show the time taken to obtain recordings of some of the considered programs.
+harvested using our Recorder tool and the infrastructure around it, which were
+discussed in \sref{recorder} and are displayed in \fref{recorder}. Now we show
+and elaborate on the performance characteristics of this recording process.
+
+The benchmark suite that we shall look at is \sc{PARSEC}, and our findings are
+summarized in \tref{recording}. \sc{PARSEC} provides several choices of inputs
+to the programs, and we recorded each program with three different inputs,
+namely, with the ones classified as small, medium, and large. There are two
+types of information shown in \tref{recording}: recording time (in minutes),
+which is the time that was taken to simulate and record the programs, and
+simulated time (in seconds), which is the time that the programs would have
+taken in real life.
+
+Each input class was recorded in a single batch: all 13 programs were simulated
+simultaneously using 13 Sniper processes, which was explained and motivated in
+\sref{streamer}. Consequently, the total recording time with respect to each
+batch is dictated by the program that took the most time to finish. This program
+was \texttt{facesim} in all the cases. It took approximately 13 hours to
+simulate \texttt{facesim}, and this time was observed, again, in all the cases,
+which indicates that \sc{PARSEC} actually has only one input size for this
+particular program. As an aside for the curious reader, the simulated and,
+hence, recording times of \sc{SPEC CPU2006} (not shown) were an order of
+magnitude larger than the ones of \sc{PARSEC}.
+
+It can be seen in \tref{recording} that the throughput in terms of simulated
+time is extremely low: one week of recording time gives roughly one second of
+simulated time. This throughput is expected and affordable as a one-time cost.
+However, it is severely onerous for experimenting with data-driven techniques
+wherein lots of data are typically needed, and these data might need to be
+recalculated each time a parameter changes.
+
+Let us remark that the affordability of simulations is a merit of the ideas
+underpinning the Sniper simulator \cite{carlson2011}, which our recording
+infrastructure is based on (see \fref{recorder}). It is also important to note
+that the recording times reported earlier would have been substantially larger
+without the parallelization and caching mechanism described in \sref{streamer}.
 
 \subsection{Data Synthesis}
