@@ -1,0 +1,35 @@
+\begin{table}
+  \begin{threeparttable}
+    \caption{Recording of the \sc{PARSEC} benchmark suite}
+    \begin{tabular*}{\linewidth}{=L{43pt}-R{24pt}-R{24pt}-R{24pt}-R{17pt}-R{17pt}-R{17pt}}
+      \toprule
+      & \multicolumn{3}{c}{Recording time, m} & \multicolumn{3}{c}{Simulated time, s} \\
+      Program       & S & M & L & S & M & L \\
+      \cmidrule( r){1-1}
+      \cmidrule(l ){2-4}
+      \cmidrule(l ){5-7}
+      blackscholes  &  10.77 &  44.21 & 0 & 0.08 & 0.31 & 0 \\
+      bodytrack     &  30.58 & 120.04 & 0 & 0.19 & 0.80 & 0 \\
+      canneal       &  36.90 & 104.52 & 0 & 0.17 & 0.63 & 0 \\
+      dedup         &  81.26 & 208.80 & 0 & 1.66 & 2.86 & 0 \\
+      facesim       & 760.59 & 790.80 & 0 & 8.54 & 8.47 & 0 \\
+      ferret        &  49.67 & 159.19 & 0 & 0.49 & 1.32 & 0 \\
+      fluidanimate  &  46.55 & 131.00 & 0 & 0.59 & 1.43 & 0 \\
+      freqmine      &  74.45 & 292.28 & 0 & 0.72 & 2.75 & 0 \\
+      raytrace      & 253.23 & 341.32 & 0 & 0.28 & 0.75 & 0 \\
+      streamcluster &  44.57 & 172.50 & 0 & 0.36 & 1.45 & 0 \\
+      swaptions     &  35.20 & 140.02 & 0 & 0.24 & 0.97 & 0 \\
+      vips          &  94.00 & 293.51 & 0 & 0.57 & 1.71 & 0 \\
+      x264          &  29.36 & 155.16 & 0 & 0.19 & 1.05 & 0 \\
+      \bottomrule
+    \end{tabular*}
+    \tlab{recording}
+    \begin{tablenotes}
+      \item Note the difference in the units of measurement: the recording time
+      is in minutes, and the simulated time is in seconds. S, M, and L stand
+      for ``small,'' ``medium,'' and ``large,'' respectively, and signify input
+      size.
+    \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+% vim: nowrap tw=0

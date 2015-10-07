@@ -1,0 +1,48 @@
+In this section, we illustrate the performance of the toolchain presented in
+\sref{toolchain}. All experiments are conducted on a \sc{GNU}/Linux machine
+equipped with 16 processors Intel Xeon E5520 2.27~\sc{GH}z and 24~\sc{GB} of
+\sc{RAM}.
+
+To begin with, we would like to describe how we approached acquiring reference
+traffic and workload data for our experiments; see \sref{traffic} and
+\sref{workload}, respectively. This information might also serve as a set of
+guidelines for potential users of the proposed methodology and toolbox.
+
+In order to obtain real-life arrival patterns, we used a dataset published by
+Google \cite{google}. The dataset contains usage data of a computer cluster over
+a month period, namely, over May 2011. We downloaded the table that was tracking
+the life cycles of the jobs submitted to the cluster and extracted the time
+stamps of the first event related to each job. As a result, we obtained around
+670,000 data points, which we used for model fitting as it was described in
+\sref{traffic}. The described processing strategy is rather straightforward and
+could be a good place to start. However, one can query the data in more
+sophisticated ways in order to distill more specific and accurate information
+(for instance, to focus on a subset of the cluster's nodes).
+
+\input{include/assets/tables/target}
+Regarding workload patters, we decided to use the benchmark suites that are
+commonly utilized in research nowadays. With our toolbox in place, this approach
+is even natural as Sniper provides a smooth integration with some of the most
+popular benchmark suites out of the box. In our experiments, the workload
+patterns were obtained by simulating and recording (via our recording
+infrastructure displayed in \fref{recorder}) the programs from the popular
+\sc{PARSEC} \cite{bienia2011} and \sc{SPEC CPU2006} \cite{cpu2006} benchmark
+suites; the former contains 13 programs, and the latter 29 programs. The
+architecture used in these simulations is outlined in \tref{target}, which
+corresponds to Intel's Nehalem-based Gainestown series. Many programs can be
+executed with inputs of different sizes (\sc{PARSEC}, for instance, has such
+options as small, medium, and large). Sniper also makes it easy to work with
+arbitrary programs and experiment with different x86-based architecture setups.
+
+All reference data that we collected and processed to make them suitable for our
+toolbox are available online \cite{sources}.
+
+\input{include/assets/tables/recording}
+
+\subsection{Data Acquisition}
+In the above, we described in a nutshell how the reference workload data were
+harvested. For this purpose, we used our Recorder tool and the infrastructure
+around it discussed in \sref{recorder} and displayed in \fref{recorder}. Let us
+now show the time taken to obtain recordings of some of the considered programs.
+
+\subsection{Data Synthesis}
