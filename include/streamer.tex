@@ -4,22 +4,23 @@ is responsible for synthesizing power and temperature data using reference data
 as a material for the synthesis; see the module labeled ``Streamer'' in
 \fref{methodology}. The structure of the tool is laid out in \fref{streamer}.
 
-Given an arrival pattern and a set of workload patterns, Streamer proceeds as
-follows. The arrival pattern is processed as it was described in \sref{traffic},
+Given a traffic pattern and a set of workload patterns, Streamer proceeds as
+follows. The traffic pattern is processed as it was described in \sref{traffic},
 which results in an adequately configured multifractal wavelet model
 \cite{riedi1999}. The model is then used to generate a stream of arrival times.
-At the same time, the workload patterns are used to construct a stream of
-workloads, which was explained in \sref{workload}. The rest follows
-\sref{composition}. Namely, the two streams are fused into a stream of jobs,
-which is subsequently handled by a scheduling policy; in \fref{streamer}, this
+The arrival times are fleshed out using the workload patterns, which was
+explained in \sref{workload}. The result is a stream of jobs, and the whole
+operation is referred to as job modeling in \fref{streamer}. At this point, it
+might be helpful to recall \fref{streams}. The rest follows \sref{composition}.
+The job stream is handled by a scheduling policy; in \fref{streamer}, this
 policy is a part of the Main module. As the incoming jobs are being scheduled,
 the power profile of the system under consideration is being constructed. The
 power profile is piped into a temperature simulator (to be discussed below),
 which delivers a temperature profile. The continuity of the process is worth
-noting: just as with arrival and workload patterns, power and temperature can be
-viewed as infinite streams of data. The synthesized data (power and temperature)
-can be fed back to the scheduler and/or stored for later usage. In the latter
-case, similar to reference data, the output is an SQLite database.
+noting: just as with arrival times and jobs, power and temperature can be viewed
+as streams of data. The synthesized data (power and temperature) can be fed back
+to the scheduler and/or stored for later usage. In the latter case, similar to
+reference data, the output is an SQLite database.
 
 Let us now outline how temperature simulation is undertaken inside Streamer. The
 simulation is based on the popular thermal \sc{RC} model. In this paradigm, a
