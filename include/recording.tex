@@ -30,14 +30,7 @@ time is (expectedly) low: roughly speaking, two--three hours of recording time
 amounts to one second of simulated time. However, it is important to realize
 that these are one-time expenses in our methodology; the situation would be
 drastically worse if one had to perform such simulations all the time (see
-\sref{workload}). Another important aspect to note is that the reported
+\sref{workload}). Another important aspect to note is that the observed
 recording times have been substantially reduced by the choice of performance
 simulator---Sniper is based on novel simulation ideas \cite{carlson2011}---and
 the parallelization strategy and caching mechanism described in \sref{streamer}.
-
-The results reported in \tref{recording} communicate well the message of this
-paper: the speed of the state-of-the-art simulators is severely onerous for the
-purpose of experimenting with data-driven techniques. Such techniques typically
-require lots of data (long execution traces), and these data might need to be
-recalculated each time a parameter changes (for instance, the parameterization
-of the scheduling policy).

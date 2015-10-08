@@ -33,8 +33,10 @@ corresponds to Intel's Nehalem-based Gainestown series. Many programs can be
 executed with inputs of different sizes. Sniper also makes it easy to work with
 arbitrary programs and experiment with different x86-based architecture setups.
 
-All reference data that we collected and processed to make them suitable for our
-toolbox are available online \cite{sources}.
+All reference data that we collected and processed in order to make them
+suitable for our toolbox are available online at \cite{sources}, which also
+contains a detailed description of the target architecture used for the
+recording of workload patterns.
 
 \subsection{Recording}
 \input{include/recording}
@@ -42,5 +44,13 @@ toolbox are available online \cite{sources}.
 \subsection{Streaming}
 \input{include/streaming}
 
-To summarize, we have shown and discussed the performance of the Recorder and
-Streamer tools.
+To summarize, we have discussed the performance of Recorder and Streamer. The
+results reported in \tref{recording} motivate our work and communicate well the
+message of this paper: the speed of the state-of-the-art simulators is severely
+onerous for the purpose of experimenting with data-driven techniques. The core
+problem is that such techniques typically require lots of data (long execution
+traces); moreover, these data might need to be recalculated each time a
+parameter changes (for instance, the parameterization of the scheduling policy).
+The results in \tref{streaming} show that the proposed approach can efficiently
+tackle this problem by taking the data burden away and, hence, making it easier
+to experiment with data-driven techniques.
