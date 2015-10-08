@@ -1,7 +1,7 @@
 \setlength{\tabcolsep}{4pt}
 \begin{table}
   \begin{threeparttable}
-    \caption{Streaming}
+    \caption{Streaming (synthesis of power and temperature profiles)}
     \begin{tabular*}{\linewidth}{=L{50pt}-R{40pt}-R{40pt}-R{40pt}-R{40pt}}
       \toprule
       \multirow{2}{*}{\parbox{50pt}{Synthesized time (seconds)}} & \multicolumn{4}{c}{Synthesis time (seconds)} \\
@@ -16,8 +16,9 @@
     \end{tabular*}
     \tlab{streaming}
     \begin{tablenotes}
-      \item ``$M + N$'' stands for $M$ cores and $N$ L3 caches. Each four cores
-        have a shared L3 cache; therefore, it holds that $N = M / 4$.
+      \item \hspace{-0.70em}``$M + N$'' stands for $M$ cores and $N$ L3 caches.
+      Every four cores have a shared L3 cache; therefore, it holds that
+      $N = M / 4$.
     \end{tablenotes}
   \end{threeparttable}
 \end{table}

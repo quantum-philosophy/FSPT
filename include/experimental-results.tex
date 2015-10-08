@@ -1,26 +1,26 @@
-In this section, we illustrate the performance of the toolchain presented in
+This section illustrates the performance of the toolchain presented in
 \sref{toolchain}. All experiments are conducted on a \sc{GNU}/Linux machine
 equipped with 16 processors Intel Xeon E5520 2.27~\sc{GH}z and 24~\sc{GB} of
 \sc{RAM}.
 
 To begin with, we would like to describe how we approached acquiring reference
 traffic and workload data for our experiments; see \sref{traffic} and
-\sref{workload}, respectively. This information might also serve as a set of
+\sref{workload}, respectively. This information might serve as a set of
 guidelines for potential users of the proposed methodology and toolbox.
 
-In order to obtain real-life arrival patterns, we used a dataset published by
+In order to obtain real-life traffic patterns, we used a dataset published by
 Google \cite{google}. The dataset contains usage data of a computer cluster over
-a month period, namely, over May 2011. We downloaded the table that was tracking
-the life cycles of the jobs submitted to the cluster and extracted the time
-stamps of the first event related to each job. As a result, we obtained around
-670,000 data points, which we used for model fitting as it was described in
-\sref{traffic}. The described processing strategy is rather straightforward and
-could be a good place to start. However, one can query the data in more
-sophisticated ways in order to distill more specific and accurate information
-(for instance, to focus on a subset of the cluster's nodes).
+a month period, namely, over May 2011. We downloaded the table tracking the life
+cycles of the jobs submitted to the cluster and extracted the time stamps of the
+first event related to each job. As a result, we obtained around 670,000 data
+points, which we used for model fitting as it was described in \sref{traffic}.
+The processing strategy described here is rather straightforward and could be a
+good place to start. However, one can query the data in more sophisticated ways
+in order to distill more specific and accurate information (for instance, to
+focus on a subset of the cluster's nodes).
 
 \input{include/assets/tables/target}
-Regarding workload patters, we decided to use the benchmark suites that are
+Regarding workload patters, we made use of the benchmark suites that are
 commonly utilized in research nowadays. With our toolbox in place, this approach
 is even natural as Sniper provides a smooth integration with some of the most
 popular benchmark suites out of the box. In our experiments, the workload
@@ -36,44 +36,11 @@ arbitrary programs and experiment with different x86-based architecture setups.
 All reference data that we collected and processed to make them suitable for our
 toolbox are available online \cite{sources}.
 
-\subsection{Data Acquisition}
-\input{include/assets/tables/recording}
-In the above, we described in a nutshell how the reference workload data were
-harvested using our Recorder tool and the infrastructure around it, which were
-discussed in \sref{recorder} and are displayed in \fref{recorder}. Now we show
-and elaborate on the performance characteristics of this recording process.
+\subsection{Recording}
+\input{include/recording}
 
-The benchmark suite that we shall look at is \sc{PARSEC}, and our findings are
-summarized in \tref{recording}. \sc{PARSEC} provides several choices of inputs
-to the programs, and we recorded each program with three different inputs,
-namely, with the ones classified as small, medium, and large. There are two
-types of information shown in \tref{recording}: recording time (in minutes),
-which is the time that was taken to simulate and record the programs, and
-simulated time (in seconds), which is the time that the programs would have
-taken in real life.
+\subsection{Streaming}
+\input{include/streaming}
 
-Each input class was recorded in a single batch: all 13 programs were simulated
-simultaneously using 13 Sniper processes, which was explained and motivated in
-\sref{streamer}. Consequently, the total recording time with respect to each
-batch is dictated by the program that took the most time to finish. This program
-was \texttt{facesim} in all the cases. It took approximately 13 hours to
-simulate \texttt{facesim}, and this time was observed, again, in all the cases,
-which indicates that \sc{PARSEC} actually has only one input size for this
-particular program. As an aside for the curious reader, the simulated and,
-hence, recording times of \sc{SPEC CPU2006} (not shown) were an order of
-magnitude larger than the ones of \sc{PARSEC}.
-
-It can be seen in \tref{recording} that the throughput in terms of simulated
-time is extremely low: one week of recording time gives roughly one second of
-simulated time. This throughput is expected and affordable as a one-time cost.
-However, it is severely onerous for experimenting with data-driven techniques
-wherein lots of data are typically needed, and these data might need to be
-recalculated each time a parameter changes.
-
-Let us remark that the affordability of simulations is a merit of the ideas
-underpinning the Sniper simulator \cite{carlson2011}, which our recording
-infrastructure is based on (see \fref{recorder}). It is also important to note
-that the recording times reported earlier would have been substantially larger
-without the parallelization and caching mechanism described in \sref{streamer}.
-
-\subsection{Data Synthesis}
+To summarize, we have shown and discussed the performance of the Recorder and
+Streamer tools.
