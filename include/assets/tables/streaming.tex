@@ -1,0 +1,24 @@
+\setlength{\tabcolsep}{4pt}
+\begin{table}
+  \begin{threeparttable}
+    \caption{Streaming}
+    \begin{tabular*}{\linewidth}{=L{50pt}-R{40pt}-R{40pt}-R{40pt}-R{40pt}}
+      \toprule
+      \multirow{2}{*}{\parbox{50pt}{Synthesized time (seconds)}} & \multicolumn{4}{c}{Synthesis time (seconds)} \\
+      & $4 + 1$ & $8 + 2$ & $16 + 4$ & $32 + 8$ \\
+      \cmidrule( r){1-1}
+      \cmidrule(l ){2-5}
+         10 &   0.24 &   0.40 &   0.67 &   1.13 \\
+        100 &   2.11 &   3.66 &   6.18 &  10.19 \\
+       1000 &  20.59 &  37.47 &  64.58 & 104.00 \\
+      10000 & 214.98 & 394.84 & 598.89 & 984.59 \\
+      \bottomrule
+    \end{tabular*}
+    \tlab{streaming}
+    \begin{tablenotes}
+      \item ``$M + N$'' stands for $M$ cores and $N$ L3 caches. Each four cores
+        have a shared L3 cache; therefore, it holds that $N = M / 4$.
+    \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+% vim: nowrap tw=0

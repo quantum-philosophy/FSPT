@@ -1,28 +1,34 @@
 \setlength{\tabcolsep}{4pt}
 \begin{table}
-  \caption{Recording of the \sc{PARSEC} benchmark suite}
-  \begin{tabular*}{\linewidth}{=L{43pt}-R{24pt}-R{28pt}-R{24pt}-R{24pt}-R{28pt}-R{24pt}}
-    \toprule
-    & \multicolumn{3}{c}{Recording time (minutes)} & \multicolumn{3}{c}{Simulated time (seconds)} \\
-    Program       & Small & Medium & Large & Small & Medium & Large \\
-    \cmidrule( r){1-1}
-    \cmidrule(l ){2-4}
-    \cmidrule(l ){5-7}
-    blackscholes  &  10.77 &  44.21 & 0 & 0.08 & 0.31 & 0 \\
-    bodytrack     &  30.58 & 120.04 & 0 & 0.19 & 0.80 & 0 \\
-    canneal       &  36.90 & 104.52 & 0 & 0.17 & 0.63 & 0 \\
-    dedup         &  81.26 & 208.80 & 0 & 1.66 & 2.86 & 0 \\
-    facesim       & 760.59 & 790.80 & 0 & 8.54 & 8.47 & 0 \\
-    ferret        &  49.67 & 159.19 & 0 & 0.49 & 1.32 & 0 \\
-    fluidanimate  &  46.55 & 131.00 & 0 & 0.59 & 1.43 & 0 \\
-    freqmine      &  74.45 & 292.28 & 0 & 0.72 & 2.75 & 0 \\
-    raytrace      & 253.23 & 341.32 & 0 & 0.28 & 0.75 & 0 \\
-    streamcluster &  44.57 & 172.50 & 0 & 0.36 & 1.45 & 0 \\
-    swaptions     &  35.20 & 140.02 & 0 & 0.24 & 0.97 & 0 \\
-    vips          &  94.00 & 293.51 & 0 & 0.57 & 1.71 & 0 \\
-    x264          &  29.36 & 155.16 & 0 & 0.19 & 1.05 & 0 \\
-    \bottomrule
-  \end{tabular*}
-  \tlab{recording}
+  \begin{threeparttable}
+    \caption{Recording of the \sc{PARSEC} benchmark suite}
+    \begin{tabular*}{\linewidth}{=L{43pt}-R{24pt}-R{28pt}-R{24pt}-R{24pt}-R{28pt}-R{24pt}}
+      \toprule
+      & \multicolumn{3}{c}{Recording time (hours)} & \multicolumn{3}{c}{Simulated time (seconds)} \\
+      Program       & Small & Medium & Large & Small & Medium & Large \\
+      \cmidrule( r){1-1}
+      \cmidrule(l ){2-4}
+      \cmidrule(l ){5-7}
+      blackscholes  &  0.18 &  0.74 &  3.00 & 0.07 & 0.28 &  1.13 \\
+      bodytrack     &  0.51 &  2.00 &  7.36 & 0.17 & 0.70 &  2.71 \\
+      canneal       &  0.61 &  1.74 &  4.04 & 0.18 & 0.67 &  1.72 \\
+      dedup         &  1.35 &  3.48 & 17.20 & 1.97 & 2.85 & 10.75 \\
+      facesim       & 12.68 & 13.18 & 15.48 & 7.84 & 7.93 &  7.87 \\
+      ferret        &  0.83 &  2.65 & 12.15 & 0.40 & 1.06 &  4.59 \\
+      fluidanimate  &  0.78 &  2.18 &  6.90 & 0.53 & 1.32 &  4.11 \\
+      freqmine      &  1.24 &  4.87 & 18.04 & 0.67 & 2.63 &  9.21 \\
+      raytrace      &  4.22 &  5.69 & 10.08 & 0.24 & 0.63 &  1.51 \\
+      streamcluster &  0.74 &  2.88 & 15.71 & 0.34 & 1.40 & 10.68 \\
+      swaptions     &  0.59 &  2.33 &  9.05 & 0.23 & 0.91 &  3.64 \\
+      vips          &  1.57 &  4.89 & 14.47 & 0.53 & 1.59 &  4.39 \\
+      x264          &  0.49 &  2.59 &  8.61 & 0.17 & 0.99 &  3.09 \\
+      \bottomrule
+    \end{tabular*}
+    \tlab{recording}
+    \begin{tablenotes}
+      \item \emph{Small}, \emph{medium}, and \emph{large} signify the input size
+      of the programs.
+    \end{tablenotes}
+  \end{threeparttable}
 \end{table}
 % vim: nowrap tw=0
