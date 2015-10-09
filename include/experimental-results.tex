@@ -4,8 +4,8 @@ This section illustrates the performance of the toolchain presented in
 equipped with 16 processors Intel Xeon E5520 2.27~\sc{GH}z and 24~\sc{GB} of
 \sc{RAM}.
 
-To begin with, we would like to describe how we approached acquiring reference
-traffic and workload data for our experiments; see \sref{traffic} and
+To begin with, we would like to describe how we acquired reference traffic and
+workload data for our experiments; the two were discussed in \sref{traffic} and
 \sref{workload}, respectively. This information might serve as a set of
 guidelines for potential users of the proposed methodology and toolbox.
 
@@ -15,10 +15,8 @@ a month period, namely, over May 2011. We downloaded the table tracking the life
 cycles of the jobs submitted to the cluster and extracted the time stamps of the
 first event related to each job. As a result, we obtained around 670,000 data
 points, which we used for model fitting as it was described in \sref{traffic}.
-The processing strategy described here is rather straightforward and could be a
-good place to start. However, one can query the data in more sophisticated ways
-in order to distill more specific and accurate information (for instance, to
-focus on a subset of the cluster's nodes).
+Needless to say that one can query the data in other ways in order to distill
+traffic patterns that are more relevant to particular problems.
 
 Regarding workload patters, we made use of the benchmark suites that are
 commonly utilized in research nowadays. With our toolbox in place, this approach

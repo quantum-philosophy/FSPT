@@ -4,13 +4,16 @@ of the methodology (see \fref{methodology}). Streamer was introduced in
 \sref{streamer} and is depicted in \fref{streamer}. Our objective in this
 subsection is to study the scalability of the tool as measured by synthesis
 time, which is the time that is needed for the tool to synthesize power and
-temperature profiles under certain conditions or requirements.
+temperature profiles under certain conditions or requirements. In these
+experiments, workload patterns are assigned to job arrivals randomly, and a
+simple first-in-first-served scheduling policy is assumed; both are default
+algorithms that come with the toolchain.
 
 Before we proceed, let us reiterate that, as far as Streamer is concerned, the
 expense of performance and power simulation is essentially zero as the tool
 works with precomputed power data (power patterns). The most time-consuming part
 of Streamer is temperature simulation, which is actually negligibly small (see
-below) compared to the time shown in \tref{recording}.
+below) compared to the recording time shown in \tref{recording}.
 
 The preformed experiments are consolidated in \tref{streaming}. We report
 synthesis time along two dimensions: synthesized time (rows) and platform size
@@ -19,7 +22,7 @@ different platforms as follows. Each considered platform is composed of a number
 of cores, and there is an L3 cache for every four cores; both cores and caches
 are referred to as processing elements. Platform size is then defined as the
 number of processing elements, and it is denoted by ``$M + N$'' in
-\tref{streaming} where $M$ and $N$ are the numbers of cores and caches,
+\tref{streaming} where $M$ and $N$ are the numbers of cores and L3 caches,
 respectively.\footnote{The specifications of the considered platforms are a part
 of our supplementary materials available at \cite{sources}.}
 

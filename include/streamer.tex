@@ -30,10 +30,10 @@ down to solving a system of differential equations, which can be done using
 different integration techniques. In our case, the solution is based on a solver
 leveraging exponential integrators \cite{hochbruck2010, ukhov2014}. The
 construction of thermal circuits is outsourced to either HotSpot
-\cite{skadron2004} or \sc{3D-ICE} \cite{sridhar2010} (in \fref{streamer}, the
-latter is illustrated). Both simulators are based on the thermal \sc{RC} model,
-and we extract the circuits that they build, which results in a unified
-interface for working with the two alternatives.
+\cite{skadron2004} or \sc{3D-ICE} \cite{sridhar2010} (see \fref{streamer}). Both
+simulators are based on the thermal \sc{RC} model, and we extract the circuits
+that they build, which results in a unified interface for working with the two
+alternatives.
 
 To summarize this subsection, the Streamer tool produces streams of power and
 temperature data, and this procedure closely follows the ideas presented in
