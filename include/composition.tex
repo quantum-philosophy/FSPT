@@ -27,37 +27,35 @@ In accordance with the scheduling decision, we distribute the workload pattern
 system. This means that we place each row of the workload pattern---which
 represents a power trace of a single processing element---to an appropriate row
 of the power profile starting from an appropriate column. The target column
-stays the same for all the rows of the workload pattern (since the rows
-correspond to the same time span).
+stays the same for all the rows of the workload pattern since the rows
+correspond to the same time span.
 
 There are several aspects that are worth noting. First, as mentioned in
-\sref{workload}, we record dynamic and static power separately. Consequently, we
-make sure that the static component is present even when no job is being
+\sref{workload}, we record dynamic and static power separately. We then make
+sure that the static component is present even when no job is being
 ``executed.'' Second, the types of the processing elements that the workload
 pattern was recorded on should be respected when scheduling and distributing the
-pattern. This ensures that, for instance, the power consumption of a cache does
-not end up being assigned to a core. Third, certain processing elements might be
-shared across several other processing elements; a good example is a set of
-cores sharing a cache. This scenario should be treated adequately, and we would
-like to elaborate on it now.
+pattern. This ensures that, for instance, the power consumption of a core does
+not end up being assigned to a cache. Third, certain processing elements might
+be shared across several jobs. This scenario should be treated adequately, and
+we would like to elaborate on it in what follows.
 
-At this point, we would like to draw attention to the following. It should be
-clear that, by recording power directly, we make a trade-off, and making this
-trade-off is necessary. Many details pertaining to programs' executions have
-been discarded in order to gain speed. What has been baked into recordings
-cannot be altered at the data-synthesis stage in general. Consider, for
-instance, a recording of a program that had two cores at its disposal. This
-pattern cannot be used to replay the execution as if there was only one core.
-Similarly, the recording cannot tell what would happen if the program could
-leverage one additional core. Another limitation concerns resource sharing,
-which is twofold. First, workload patterns obtained in isolation cannot be used
-to fabricate the interleaving of two programs (time sharing). Second, even if
-two programs run on two different cores, they still can affect each other by
-competing for such resources as shared L3 caches. Currently, the above concerns
-can be addresses in our methodology only partially.
+The jobs that are mapped by the scheduling policy to disjoint sets of processing
+elements require no special treatment. The interleaving of several jobs on a
+core can be modeled by an appropriate interleaving of the corresponding workload
+patterns. More concretely, workload patterns have the notion of time, and they
+can be cut into pieces and stitched back as needed. This approach is well suited
+for modeling preemption of low-priority jobs by higher-priority ones. Further,
+even when jobs do not share cores, the corresponding cores might share caches.
+Since the power consumption of caches is relatively low, an additive power model
+is generally sufficient: the power values pertaining to the cache as captured by
+the workload patterns of the jobs in question can be summed up to emulate the
+joint effect of the jobs on the cache. Other effects originating from resource
+sharing are not currently addressed by the proposed methodology and are a part
+of future work.
 
-Having the construction of the power pattern discussed, there is no much left to
-do. As the time goes by, we feed the power profile to a temperature simulator
+Having discussed the construction of the power pattern, there is only one step
+left. As the time goes by, we feed the power profile to a temperature simulator
 and obtain a temperature profile. The obtained power and temperature profiles
 are the final output of our methodology. The key observation to be made is that
 no expensive performance or power simulations are involved in the data-synthesis
