@@ -15,8 +15,11 @@ they will be discussed further in \sref{traffic} and \sref{workload},
 respectively. In \sref{composition}, we shall explain how all the pieces are
 combined into a coherent whole.
 
+\raggedbottom
 \subsection{Traffic} \slab{traffic}
 \input{include/traffic}
+\makeatletter
+\afterpage{\global\let\@textbottom\relax \global\let\@texttop\relax}
 
 \subsection{Workload} \slab{workload}
 \input{include/workload}
