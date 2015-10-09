@@ -7,20 +7,39 @@ corresponding temperature profile. In \fref{methodology}, this functionality
 resides in the box labeled ``Streamer.''
 
 As motivated in \sref{motivation}, a prominent use case of our methodology is
-the development of management strategies. Therefore, the management strategy
-(including the scheduling policy) of the system at hand is devised by the user,
-which is further detailed in \sref{usage-schemes}. Consequently, a scheduling
-policy is given, and it decides on a schedule. Namely, for each arrived job, the
-policy specifies when the job gets access to certain resources. Then we add
-accordingly the recorded power pattern of the job to the power profile of the
-system. A helpful analogy here might be paving a road with rectangular bricks of
-different sizes. As the time goes by, we feed the power profile to a temperature
-simulator and obtain a temperature profile.
+the development of management strategies, which will be detailed further in
+\sref{usage-schemes}. Therefore, the management strategy (including the
+scheduling policy) of the system at hand is devised by the user. Hence, a
+scheduling policy is assumed to be given. The polity decides on a schedule;
+namely, for each arrived job, the policy specifies when the job gets access to
+certain resources (processing elements).
 
-The obtained power and temperature profiles are the final output of our
-methodology. The key observation to be made is that no expensive performance or
-power simulations are involved in the data-synthesis stage. The time consumed by
-the procedure delineated above is practically negligible.
+Once the job has been scheduled, we proceed to updating the power profile of the
+system in order to account for this scheduling decision. The power profile is
+essentially a matrix that specifies the power consumption of the processing
+elements over discrete time moments. The workload pattern of the job can also be
+seen as such a matrix but smaller (with respect to both dimensions). For the
+sake of concreteness, assume that the rows and columns of the aforementioned
+matrices traverse the processing elements and time moments, respectively.
+
+In accordance with the scheduling decision, we distribute the workload pattern
+(a small matrix) of the job across the power profile (a big matrix) of the
+system. This means that we place each row of the workload pattern---which
+represents a power trace of a single processing element---to an appropriate row
+of the power profile starting from an appropriate column. The target column
+stays the same for all the rows of the workload pattern (since the rows
+correspond to the same time span).
+
+There are several aspects that are worth noting. First, as mentioned in
+\sref{workload}, we record dynamic and static power separately. Consequently, we
+make sure that the static component is present even when no job is being
+``executed.'' Second, the types of the processing elements that the workload
+pattern was recorded on should be respected when scheduling and distributing the
+pattern. This ensures that, for instance, the power consumption of a cache does
+not end up being assigned to a core. Third, certain processing elements might be
+shared across several other processing elements; a good example is a set of
+cores sharing a cache. This scenario should be treated adequately, and we would
+like to elaborate on it now.
 
 At this point, we would like to draw attention to the following. It should be
 clear that, by recording power directly, we make a trade-off, and making this
@@ -36,3 +55,11 @@ to fabricate the interleaving of two programs (time sharing). Second, even if
 two programs run on two different cores, they still can affect each other by
 competing for such resources as shared L3 caches. Currently, the above concerns
 can be addresses in our methodology only partially.
+
+Having the construction of the power pattern discussed, there is no much left to
+do. As the time goes by, we feed the power profile to a temperature simulator
+and obtain a temperature profile. The obtained power and temperature profiles
+are the final output of our methodology. The key observation to be made is that
+no expensive performance or power simulations are involved in the data-synthesis
+stage. The time consumed by the procedure delineated above is practically
+negligible.

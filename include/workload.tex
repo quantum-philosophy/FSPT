@@ -4,20 +4,13 @@ arrivals; however, an arrival is only a time stamp without any information about
 the actual workload. In this subsection, we describe how workload candidates are
 obtained and utilized for substantiating job arrivals, which is depicted at the
 bottom of \fref{methodology}. Figure~\ref{fig:streams} might also be helpful to
-clarify the relation between the previous and current sections. Let us begin by
-noting that workload candidates should conform to a number of criteria:
-\begin{itemize}
-  \item {\bfseries Requirement~1.} Workloads should represent well the
-  applications or services that the system in question is supposed to provide to
-  the end user.
-
-  \item {\bfseries Requirement~2.} A workload should be fast to evaluate, which,
-  in our context, refers to obtaining the power consumption over time of that
-  workload.
-\end{itemize}
-As emphasized in \sref{problem-formulation}, we aim to produce realistic power
-and temperature traces, and we would like to do it fast. The above requirements
-are a consequence of this goal.
+clarify the relation between the previous and current sections. To begin with,
+workload candidates should conform to a number of criteria. First, since we aim
+to produce realistic power and temperature trace, workloads should represent
+well the applications or services that the system in question is supposed to
+provide to the end user. Second, a workload should be fast to evaluate, which,
+in our context, refers to obtaining the power consumption over time of that
+workload.
 
 Our workload modeling is based on full-system simulations of reference programs.
 However, if we had incorporated such simulations into our workflow

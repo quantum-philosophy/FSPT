@@ -2,18 +2,12 @@ As described in \sref{problem-formulation}, the system at hand serves a stream
 of jobs, which can be also viewed as user requests. The foremost component of
 our methodology is then a traffic model, describing \emph{how} or, rather,
 \emph{when} jobs arrive. This model should satisfy a number of requirements in
-order to be useful:
-\begin{itemize}
-  \item {\bfseries Requirement~1.} The model should be able to capture the
-  idiosyncrasies present in real traffic as it establishes a foundation for the
-  subsequent generation of power and temperature traces (discussed in
-  \sref{composition}).
-
-  \item {\bfseries Requirement~2.} It should be straightforward to configure the
-  model given a dataset of traffic data (a sequence of arrival times of jobs)
-  serving as a reference.
-\end{itemize}
-Let us unfold the second requirement first.
+order to be practically useful. First of all, the model should be able to
+capture the idiosyncrasies present in real traffic as it establishes a
+foundation for the subsequent generation of power and temperature traces
+(discussed in \sref{composition}). Second, it should be straightforward to
+configure the model given a dataset of traffic data (a sequence of arrival times
+of jobs) serving as a reference. Let us unfold the second requirement first.
 
 The required ability to absorb reference data acknowledges the importance of the
 information that is at our disposal due to monitoring and logging mechanisms
