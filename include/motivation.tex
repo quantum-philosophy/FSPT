@@ -18,18 +18,18 @@ electronic systems uncertain as well.
 
 The above concerns are particularly hard to address from a theoretical
 standpoint. They can be better dealt with taking a more pragmatic approach,
-namely, making use of on-chip\footnote{In this paper, we use \emph{on-chip},
-\emph{online}, and \emph{runtime} interchangeably.} data. To elaborate, assuming
-that the system at hand provides basic mechanisms for profiling and monitoring
-such as hardware performance counters and thermal sensors, which is typically
-the case, direct or indirect power and temperature readings are an invaluable
-source of information for making power- and temperature-aware decisions. The
-attractiveness of the on-chip-data route is due to the fact that only one
-particular fabricated hardware in one particular environment needs to be
-considered. More importantly, being on the chip enables adaptation, which can
-also be made continuous. This means that instances of the system are treated on
-a case-by-case basis; each instance attains a custom-built, fine-tuned solution,
-and this solution evolves over time, diligently following any changes.
+namely, making use of online\footnote{In this paper, we use \emph{online} and
+\emph{runtime} interchangeably.} data. To elaborate, assuming that the system at
+hand provides basic mechanisms for profiling and monitoring such as hardware
+performance counters and thermal sensors, which is typically the case, direct or
+indirect power and temperature readings are an invaluable source of information
+for making power- and temperature-aware decisions. The attractiveness of the
+online-data route is due to the fact that only one particular fabricated
+hardware in one particular environment needs to be considered. More importantly,
+being on the chip enables adaptation, which can also be made continuous. This
+means that instances of the system are treated on a case-by-case basis; each
+instance attains a custom-built, fine-tuned solution, and this solution evolves
+over time, diligently following any changes.
 
 \subsection{Proactive Management}
 \input{include/assets/figures/governor}
@@ -47,7 +47,7 @@ efficient---is to predict power consumption and heat dissipation.
 Predicting the future relies on learning from the past. This task is typically
 accomplished by virtue of tools from statistics and adjacent fields such as
 machine learning \cite{bishop2006}. In this case, a proactive governor contains
-a learning component, which assimilates relevant on-chip data and makes
+a learning component, which assimilates relevant runtime data and makes
 predictions. An illustration of this scenario is shown in \fref{governor}. To
 give a concrete example, in \cite{coskun2008}, temperature forecasting is based
 on an autoregressive moving-average model, enabling the development of an
@@ -100,6 +100,6 @@ standpoint of a researcher trying to leverage the rich machinery of statistics
 and machine learning. The need for alternative sources of high-quality data is
 prominent, and providing such an alternative source is the very goal of this
 work. More concretely, we are to build a highly responsive (time-wise) research
-infrastructure, which is supposed to be used for the development of on-chip,
+infrastructure, which is supposed to be used for the development of online,
 data-driven, power- and temperature-aware solutions for multiprocessor systems
 instead of the one depicted in \fref{development}.
