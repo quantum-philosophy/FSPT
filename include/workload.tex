@@ -70,12 +70,12 @@ Let us now turn to the question: How do we choose which workload pattern to use
 for a particular arrival? We shall refer to this functionality as the workload
 model. The input to this model is a stream of arrival times, and its output is a
 stream of fully characterized jobs (time and work). The logic of the workload
-model can be dependent on the input stream and can introduce autocorrelations to
-the output stream, which allows for modeling, for instance, periodic and/or
-coupled workloads. Since such aspects rely heavily on domain-specific knowledge,
-we refrain from providing any particular dependency model. The default option
-that is used in our toolchain---which will be discussed in
-\sref{toolchain}---for assigning workloads to job arrivals is drawing samples
+model can be dependent on the input stream and, hence, can introduce
+autocorrelations to the output stream, which allows for modeling, for instance,
+periodic and/or coupled workloads. Since such aspects rely heavily on
+domain-specific knowledge, we refrain from providing any particular dependency
+model. The default option that is used in our toolchain (to be discussed in
+\sref{toolchain}) for assigning workloads to job arrivals is drawing samples
 from a uniform distribution over a set of workload patterns. This default
 behavior can be adjusted for the problem at hand as needed.
 
