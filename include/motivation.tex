@@ -32,12 +32,11 @@ instance attains a custom-built, fine-tuned solution, and this solution evolves
 over time, diligently following any changes.
 
 \subsection{Proactive Management}
-\input{include/assets/figures/governor}
 Power and temperature data should be available in a timely manner. Proactive
 management strategies, which we shall also refer to as proactive governors, are
 known to be more efficient than reactive ones since they aim at preventing
 problems instead of recovering from the consequences of problems
-\cite{coskun2008, chaudhry2015}, which, in particular, avoids slowing or
+\cite{chaudhry2015, coskun2008}, which, in particular, avoids slowing or
 shutting down processing elements. Acting proactively requires peaking into the
 future or, more formally, being able to forecast future behavior. Consequently,
 the first step towards proactive power- and temperature-aware management---and,
@@ -48,15 +47,14 @@ Predicting the future relies on learning from the past. This task is typically
 accomplished by virtue of tools from statistics and adjacent fields such as
 machine learning \cite{bishop2006}. In this case, a proactive governor contains
 a learning component, which assimilates relevant runtime data and makes
-predictions. An illustration of this scenario is shown in \fref{governor}. To
-give a concrete example, in \cite{coskun2008}, temperature forecasting is based
-on an autoregressive moving-average model, enabling the development of an
-efficient thermal management strategy for multiprocessor systems. The work in
-\cite{kumar2010} aids runtime thermal management by developing an on-chip
-temperature predictor based on artificial neural networks. The analysis and
-mitigation of the impact of process variation undertaken in \cite{juan2014} are
-facilitated by a linear-regression model trained on leakage measurements in
-order to predict peak temperatures.
+predictions. To give a concrete example, in \cite{coskun2008}, temperature
+forecasting is based on an autoregressive moving-average model, enabling the
+development of an efficient thermal management strategy for multiprocessor
+systems. The work in \cite{kumar2010} aids runtime thermal management by
+developing an on-chip temperature predictor based on artificial neural networks.
+The analysis and mitigation of the impact of process variation undertaken in
+\cite{juan2014} are facilitated by a linear-regression model trained on leakage
+measurements in order to predict peak temperatures.
 
 In the above, we have argued for the usage of learning-based techniques for the
 management of electronic systems, and we have put emphasis on those techniques
@@ -79,9 +77,8 @@ simulators are of great help, and their ubiquitous usage speaks to this
 assertion. Therefore, a typical research environment used for developing a
 governor of an electronic system is composed of a number of simulators,
 providing data to and processing data from the governor. An illustration of such
-an environment is given in \fref{development} wherein Governor is the one
-depicted in \fref{governor}, and the purpose of the other modules will be made
-clear later on.
+an environment is given in \fref{development}, which will be discussed further
+later on.
 
 Simulations can be undertaken on different levels, depending on the goal in
 mind. In order to be useful for learning purposes, simulations should be

@@ -10,17 +10,16 @@ which results in an adequately configured multifractal wavelet model
 \cite{riedi1999}. The model is then used to generate a stream of arrival times.
 The arrival times are fleshed out using the workload patterns, which was
 explained in \sref{workload}. The result is a stream of jobs, and the whole
-operation is referred to as job modeling in \fref{streamer}. At this point, it
-might be helpful to recall \fref{streams}. The rest follows \sref{composition}.
-The job stream is handled by a scheduling policy; in \fref{streamer}, this
-policy is a part of the Main module. As the incoming jobs are being scheduled,
-the power profile of the system under consideration is being constructed. The
-power profile is piped into a temperature simulator (to be discussed below),
-which delivers a temperature profile. The continuity of the process is worth
-noting: just as with arrival times and jobs, power and temperature can be viewed
-as streams of data. The synthesized data (power and temperature) can be fed back
-to the scheduler and/or stored for later usage. In the latter case, similar to
-reference data, the output is an SQLite database.
+operation is referred to as job modeling in \fref{streamer}. The rest follows
+\sref{composition}. The job stream is handled by a scheduling policy; in
+\fref{streamer}, this policy is a part of the Main module. As the incoming jobs
+are being scheduled, the power profile of the system under consideration is
+being constructed. The power profile is piped into a temperature simulator (to
+be discussed below), which delivers a temperature profile. The continuity of the
+process is worth noting: just as with arrival times and jobs, power and
+temperature can be viewed as streams of data. The synthesized data (power and
+temperature) can be fed back to the scheduler and/or stored for later usage. In
+the latter case, similar to reference data, the output is an SQLite database.
 
 Let us now outline how temperature simulation is undertaken inside Streamer. The
 simulation is based on the popular thermal \sc{RC} model. In this paradigm, a
