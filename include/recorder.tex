@@ -31,15 +31,14 @@ faster.
 
 The next stop is power simulation, which we delegate to \sc{McPAT}
 \cite{li2009}. \sc{McPAT} is originally a command-line program; we have made a
-shared library out of it and embedded it into Recorder. Hence, power simulation
-takes place in the Recorder process. Another important modification that we have
-made to \sc{McPAT} is the introduction of a caching mechanism, which was
-inspired by Sniper. The caching mechanism eliminates the repetition of certain
-computations inside \sc{McPAT}, which leads to considerable time savings. For
-caching purposes, we use Redis again; see the direct arrows between the Redis
-and \sc{McPAT} modules in \fref{recorder}. All Recorder processes that are
-connected to the same Redis server can leverage the same cache, making the
-caching mechanism really shine.
+shared library out of it and embedded it into Recorder. Another important
+modification that we have made to \sc{McPAT} is the introduction of a caching
+mechanism, which was inspired by Sniper. The caching mechanism eliminates the
+repetition of certain computations inside \sc{McPAT}, which leads to
+considerable time savings. For caching purposes, we use Redis again; see the
+direct arrows between the Redis and \sc{McPAT} modules in \fref{recorder}. All
+Recorder processes that are connected to the same Redis server can leverage the
+same cache, making the caching mechanism really shine.
 
 Finally, the computed power pattern is stored in a file, which can then be
 uploaded to a repository, as described in \sref{workload} and illustrated in

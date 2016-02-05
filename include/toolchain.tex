@@ -13,23 +13,11 @@ source. The code written by us is distributed under the \sc{MIT} license
 
 The main programs of our toolchain are called Recorder and Streamer, and we
 shall describe their architectures in the following subsections. Before we
-proceed, though, let us note that this work is not concerned with collecting
-reference arrival data (see \sref{traffic}), and, therefore, the toolbox does
-not cover this aspect either. Collecting such data is a job of a logging
-mechanism deployed in an environment similar to the one in which the system at
-hand is supposed to be used.
+proceed, let us remind that collecting reference arrival data (series of arrival
+times) is outside of the scope of this work (see \sref{traffic}).
 
 \subsection{Recorder} \slab{recorder}
 \input{include/recorder}
 
 \subsection{Streamer} \slab{streamer}
 \input{include/streamer}
-
-In the conclusion of this section, we would like to make a number of general
-comments about the toolbox. First, as mentioned earlier, our tools are composed
-of a number of packages, and we pursued a clear separation of the
-responsibilities of these packages. As a result, the packages can be swapped out
-or reused in other contexts. Second, we also provide auxiliary scripts and tools
-(for instance, a tool for constructing die floorplans based on the information
-from \sc{McPAT}), which are not elaborated on here but available as a part of
-the toolchain. Last but not least, the toolbox is open source \cite{sources}.

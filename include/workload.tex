@@ -3,11 +3,11 @@ arrivals; however, an arrival is only a time stamp without any information about
 the actual workload. In this subsection, we describe how workload candidates are
 obtained and utilized for substantiating job arrivals, which is depicted at the
 bottom of \fref{methodology}. To begin with, workload candidates should conform
-to a number of criteria. First, since we aim to produce realistic power and
-temperature trace, workloads should represent well the applications or services
-that the system in question is supposed to provide to the end user. Second, a
-workload should be fast to evaluate, which, in our context, refers to obtaining
-the power consumption over time of that workload.
+to a number of criteria. First, since we aim to produce realistic trace,
+workloads should represent well the applications or services that the system in
+question is supposed to provide to the user. Second, a workload should be fast
+to evaluate, which, in our context, refers to obtaining the power consumption
+over time of that workload.
 
 Our workload modeling is based on full-system simulations of reference programs.
 However, if we had incorporated such simulations into our workflow
@@ -50,27 +50,19 @@ relevant to the subsequent study (for instance, cores and shared caches).
 
 The result of the recording procedure is a repository of power traces
 corresponding to real programs, which we refer to as workload patterns; see the
-bottom cloud in \fref{methodology}.
-
-Full-system simulations obviously take time; however, as mentioned previously,
-they should be done only once. Moreover, since researchers tend to test their
-ideas using similar sets of benchmark suites, such as \sc{PARSEC}
-\cite{bienia2011} and \sc{SPEC CPU2006} \cite{cpu2006}, and considering similar
-sets of target architectures, it is reasonable to create a common repository of
-power patterns that will be populated and maintained online by the research
-community. The repository could be structured in a way that would allow for a
-proper accommodation of different recording conditions. Having established such
-a common repository, power patterns will be at a one-click distance from any
-single researcher, and no prior simulation will be needed. The role of the
-repository could be similar to the one played nowadays by the benchmark suites
-themselves, but it would be on a different level of abstraction and for a
-different purpose.
+bottom cloud in \fref{methodology}. Full-system simulations obviously take time;
+however, as mentioned previously, they should be done only once. Moreover, since
+researchers tend to test their ideas using similar sets of benchmark
+suites---for example, \sc{PARSEC} \cite{bienia2011} and \sc{SPEC CPU2006}
+\cite{cpu2006} are popular choices---it is reasonable to create a common
+repository of power patterns that will be populated and maintained online by the
+research community.
 
 Let us now turn to the question: How do we choose which workload pattern to use
 for a particular arrival? We shall refer to this functionality as the workload
 model. The input to this model is a stream of arrival times, and its output is a
 stream of fully characterized jobs (time and work). The logic of the workload
-model can be dependent on the input stream and, hence, can introduce
+model can be dependent on the input stream and thereby introduce
 autocorrelations to the output stream, which allows for modeling, for instance,
 periodic and/or coupled workloads. Since such aspects rely heavily on
 domain-specific knowledge, we refrain from providing any particular dependency
@@ -78,15 +70,6 @@ model. The default option that is used in our toolchain (to be discussed in
 \sref{toolchain}) for assigning workloads to job arrivals is drawing samples
 from a uniform distribution over a set of workload patterns. This default
 behavior can be adjusted for the problem at hand as needed.
-
-An optional job of the workload model is a set of workload transformations. A
-workload transformation is an operation that can be used for workload
-diversification and for emulation of the effects of such techniques as dynamic
-voltage/frequency scaling. A job (with a workload selected) can pass through a
-number of filters---such as noise, offset, scale, stretch, and shrink---before
-being pulled from the job stream. This, however, should be done thoughtfully as
-the purpose of recording power patterns is in part to bring in realistic power
-fluctuations.
 
 To recapitulate, we have obtained a database of reference workloads and
 discussed the formation of job streams from arrival streams. The patterns

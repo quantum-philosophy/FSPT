@@ -11,16 +11,12 @@ of jobs) serving as a reference. Let us unfold the second requirement first.
 
 The required ability to absorb reference data acknowledges the importance of the
 information that is at our disposal due to monitoring and logging mechanisms
-ubiquitously deployed nowadays. In \fref{methodology}, such mechanisms are
-represented by a set of modules labeled ``Logger.'' The corresponding data are
-assumed to be stored in a repository, which is accessible for the later usage
-taking place in the module labeled ``Streamer'' (to be discussed shortly). Now,
-from the perspective of a research project studying a particular system, only
-one traffic pattern is typically needed. If that pattern is very specific, it is
-probably not of much interest to others. However, often research is concerned
-with archetypes of electronic systems such as web servers. In such cases, the
-repository could be a community effort providing traffic data (after a proper
-obfuscation for confidentiality reasons) for research undertakings.
+ubiquitously deployed nowadays (consider, for instance, log files of web
+servers). In \fref{methodology}, such mechanisms are represented by a set of
+modules labeled ``Logger.'' The corresponding data are assumed to be stored in a
+repository, which is accessible for the later usage taking place in the module
+labeled ``Streamer'' (to be discussed shortly). Such a repository could be a
+community effort providing traffic data for research undertakings.
 
 Monitoring and logging mechanisms, which are a natural source of traffic
 patterns, are outside of the scope of this work. We only note that reference
@@ -51,15 +47,12 @@ often have multifractal structures.
 In order to address the aforementioned concerns and enable the generation of
 arrival streams exhibiting fractal properties, our methodology employs the
 multifractal wavelet model proposed in \cite{riedi1999}, characterizing
-positive-valued data with long-range-dependent correlations. To elaborate, we
-take a reference time series of arrival times, analyze it by means of the
-discrete wavelet transform based on Haar wavelets, and construct a certain
-representation of the data, which can then be used for generating random time
-series matching the fractal properties of the original one. The model can be
-tuned without any reference time series; however, the strength of the technique
-\emph{is} in the rigorous usage of reference data. By doing so, no manual
-parameter tuning is needed, and the model gets tailored to the traffic pattern
-of the particular problem at hand.
+positive-valued data with long-range-dependent correlations. In brief, we take a
+reference time series of arrival times, analyze it by means of the discrete
+wavelet transform based on Haar wavelets, and construct a certain representation
+of the data, which can then be used for generating random time series matching
+the fractal properties of the original one. Hence, the model gets automatically
+tailored to the traffic pattern of the particular problem at hand.
 
 To sum up, we now have a dataset of reference arrival times and a versatile
 technique for analyzing them and generating similar arrival streams. The
