@@ -1,4 +1,3 @@
-\subsection{Power and Temperature}
 Accounting for power and temperature is key to achieving effectiveness,
 efficiency, and robustness. However, power consumption and heat dissipation are
 a result of a myriad of interactions between numerous hardware and software
@@ -31,17 +30,15 @@ means that instances of the system are treated on a case-by-case basis; each
 instance attains a custom-built, fine-tuned solution, and this solution evolves
 over time, diligently following any changes.
 
-\subsection{Proactive Management}
 Power and temperature data should be available in a timely manner. Proactive
 management strategies, which we shall also refer to as proactive governors, are
 known to be more efficient than reactive ones since they aim at preventing
 problems instead of recovering from the consequences of problems
-\cite{chaudhry2015, coskun2008}, which, in particular, avoids slowing or
-shutting down processing elements. Acting proactively requires peaking into the
-future or, more formally, being able to forecast future behavior. Consequently,
-the first step towards proactive power- and temperature-aware management---and,
-hence, towards making electronic products more reliable and energy
-efficient---is to predict power consumption and heat dissipation.
+\cite{chaudhry2015, coskun2008}. Acting proactively requires the ability to
+forecast future behavior. Consequently, the first step towards proactive power-
+and temperature-aware management---and, hence, towards making electronic
+products more reliable and energy efficient---is to predict power consumption
+and heat dissipation.
 
 Predicting the future relies on learning from the past. This task is typically
 accomplished by virtue of tools from statistics and adjacent fields such as
@@ -64,7 +61,6 @@ any particular technique of this kind. Instead, the goal of our work is to
 provide an infrastructure that facilitates the development of such techniques,
 and this infrastructure addresses the following major concern.
 
-\subsection{Data for Learning} \slab{simulation}
 \input{include/assets/figures/development}
 Regardless of the learning tool utilized, the tool needs data to learn from.
 Prior to a physical instantiation of the platform under consideration, all the
@@ -80,23 +76,22 @@ providing data to and processing data from the governor. An illustration of such
 an environment is given in \fref{development}, which will be discussed further
 later on.
 
-Simulations can be undertaken on different levels, depending on the goal in
-mind. In order to be useful for learning purposes, simulations should be
-sufficiently detailed so that they capture well the traits of real systems.
-Although detailed simulations (down to cycle accuracy) are practical for the
-design of individual components, such simulations fall short when it comes to
-complex systems. A modern multiprocessor system is reasonably complex, and it
-might take days for a state-of-the-art simulator (not even cycle accurate) to
-simulate a short, in wall-clock time, program running on such a system. This
-scheme is not affordable for designing data-driven techniques as they require
-many simulations with potentially large payloads.
+Simulations can be undertaken on different levels. In order to be useful for
+learning purposes, simulations should be sufficiently detailed so that they
+capture well the traits of real systems. Although detailed simulations are
+practical for the design of individual components, such simulations fall short
+when it comes to complex systems. A modern multiprocessor system is reasonably
+complex, and it might take days for a state-of-the-art simulator to simulate a
+short, in wall-clock time, program running on such a system. This scheme is not
+affordable for designing data-driven techniques as they require many simulations
+with potentially large payloads.
 
 The conclusion is that real data are rarely available, and simulation data are
 prohibitively time consuming to obtain. Both are severely limiting from the
 standpoint of a researcher trying to leverage the rich machinery of statistics
 and machine learning. The need for alternative sources of high-quality data is
 prominent, and providing such an alternative source is the very goal of this
-work. More concretely, we are to build a highly responsive (time-wise) research
-infrastructure, which is supposed to be used for the development of online,
-data-driven, power- and temperature-aware solutions for multiprocessor systems
-instead of the one depicted in \fref{development}.
+work. We are to build a highly responsive (time-wise) research infrastructure,
+which is supposed to be used for the development of online, data-driven, power-
+and temperature-aware solutions for multiprocessor systems instead of the one
+depicted in \fref{development}.
