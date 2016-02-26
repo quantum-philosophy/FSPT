@@ -1,9 +1,8 @@
-As described in \sref{problem-formulation}, the system at hand serves a stream
-of jobs, which can be also viewed as user requests. The foremost component of
-our methodology is then a traffic model, describing \emph{how} or, rather,
-\emph{when} jobs arrive. This model should satisfy a number of requirements in
-order to be practically useful. First of all, the model should be able to
-capture the idiosyncrasies present in real traffic as it establishes a
+The system at hand serves a stream of jobs, which can be also viewed as user
+requests. The foremost component of our methodology is then a traffic model,
+describing \emph{when} jobs arrive. This model should satisfy a number of
+requirements in order to be practically useful. First of all, the model should
+be able to capture the idiosyncrasies present in real traffic as it is a
 foundation for the subsequent generation of power and temperature traces
 (discussed in \sref{composition}). Second, it should be straightforward to
 configure the model given a dataset of traffic data (a sequence of arrival times
@@ -11,8 +10,8 @@ of jobs) serving as a reference. Let us unfold the second requirement first.
 
 The required ability to absorb reference data acknowledges the importance of the
 information that is at our disposal due to monitoring and logging mechanisms
-ubiquitously deployed nowadays (consider, for instance, log files of web
-servers). In \fref{methodology}, such mechanisms are represented by a set of
+ubiquitously deployed nowadays; consider, for instance, log files of web
+servers. In \fref{methodology}, such mechanisms are represented by a set of
 modules labeled ``Logger.'' The corresponding data are assumed to be stored in a
 repository, which is accessible for the later usage taking place in the module
 labeled ``Streamer'' (to be discussed shortly). Such a repository could be a
@@ -22,11 +21,10 @@ Monitoring and logging mechanisms, which are a natural source of traffic
 patterns, are outside of the scope of this work. We only note that reference
 traffic data should be collected in an environment similar to the one in which
 the system at hand is supposed to function. For a better intuition about and a
-good example of traffic data, the interested reader is referred to a publicly
-available dataset \cite{google} containing traffic data of a large computer
-cluster over a month period. The dataset was published for research purposes by
-Google in 2011; it will be discussed further in \sref{experimental-results}. Let
-us now move on to the analysis and synthesis of a chosen traffic pattern.
+good example of traffic data, the interested reader is referred to the dataset
+published by Google in 2011 \cite{google}; the dataset will be discussed further
+in \sref{experimental-results}. Let us now move on to the analysis and synthesis
+of a chosen traffic pattern.
 
 The seminal work in \cite{leland1994} and subsequent studies have shown that
 network traffic exhibits fractal properties such as burstiness, self-similarity,
@@ -37,12 +35,12 @@ therefore, drastically departure from reality when it comes to modeling network
 traffic. A step in the right direction is to consider the fractional Gaussian
 noise \cite{lifshits2014}, which is a self-similar stochastic process. However,
 the process is inconvenient to work with from the perspective of a computer
-simulator. More concretely, the noise is suited for modeling arrivals per unit
-of time but not arrival or inter-arrival times, which are what is typically
-needed for simulation. Moreover, even with a proper rescaling and shift, the
-process can still take negative values, which is unrealistic. Finally, the
-fractional Gaussian noise is a monofractal process; however, real traffic data
-often have multifractal structures.
+simulator. Concretely, the noise is suited for modeling arrivals per unit of
+time but not arrival or inter-arrival times, which are what is typically needed
+for simulation. Moreover, even with a proper rescaling and shift, the process
+can still take negative values, which is unrealistic. Finally, the fractional
+Gaussian noise is a monofractal process; however, real traffic data often have
+multifractal structures.
 
 In order to address the aforementioned concerns and enable the generation of
 arrival streams exhibiting fractal properties, our methodology employs the

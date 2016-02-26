@@ -3,27 +3,21 @@ This section illustrates the performance of the toolchain presented in
 equipped with 16 processors Intel Xeon E5520 2.27~\sc{GH}z and 24~\sc{GB} of
 \sc{RAM}.
 
-To begin with, we would like to describe how we acquired reference traffic and
-workload data for our experiments; the two were discussed in \sref{traffic} and
-\sref{workload}, respectively. This information might serve as a set of
-guidelines for potential users of the proposed methodology and toolbox.
+In order to obtain real-life traffic patterns for the experiments presented in
+this section, we used a dataset published by Google \cite{google}. The dataset
+contains usage data of a computer cluster over a month period. We downloaded the
+table tracking the life cycles of the jobs submitted to the cluster and
+extracted the time stamps of the first event related to each job. As a result,
+we obtained around 670,000 data points (arrival times), which we used for the
+model fitting described in \sref{traffic}.
 
-In order to obtain real-life traffic patterns, we used a dataset published by
-Google \cite{google}. The dataset contains usage data of a computer cluster over
-a month period. We downloaded the table tracking the life cycles of the jobs
-submitted to the cluster and extracted the time stamps of the first event
-related to each job. As a result, we obtained around 670,000 data points, which
-we used for the model fitting described in \sref{traffic}.
-
-Regarding workload patters, we made use of the benchmark suites that are
-commonly utilized in research nowadays. Concretely, the workload patterns were
-obtained by simulating and recording (via our infrastructure shown in
-\fref{recorder}) the programs from the popular \sc{PARSEC} \cite{bienia2011} and
-\sc{SPEC CPU2006} \cite{cpu2006} benchmark suites; the former contains 13
-programs, and the latter 29 programs. The architecture used in these simulations
-is Intel's Nehalem-based Gainestown series; Sniper is shipped with a
-configuration for this architecture (\tt{nehalem.cfg} and \tt{gainestown.cfg}),
-and we used it without any changes.
+A set of workload patters was obtained by simulating and recording (via our
+infrastructure shown in \fref{recorder}) the programs from the popular
+\sc{PARSEC} \cite{bienia2011} and \sc{SPEC CPU2006} \cite{cpu2006} benchmark
+suites; the former contains 13 programs, and the latter 29 programs. The
+architecture used in these simulations is Intel's Nehalem-based Gainestown
+series; Sniper is shipped with a configuration for this architecture
+(\tt{nehalem.cfg} and \tt{gainestown.cfg}), and we used it without any changes.
 
 All reference data that we collected and processed to make them suitable for our
 toolbox are available online at \cite{sources}.
@@ -34,13 +28,12 @@ toolbox are available online at \cite{sources}.
 \subsection{Streaming}
 \input{include/streaming}
 
-To summarize, we have discussed the performance of Recorder and Streamer. The
-results reported in \tref{recording} motivate our work and communicate well the
-message of this paper: the speed of the state-of-the-art simulators is severely
-onerous for the purpose of experimenting with data-driven techniques. The core
-problem is that such techniques typically require lots of data (long execution
-traces); moreover, these data might need to be recalculated each time a
-parameter changes (for instance, the parameterization of the scheduling policy).
-The results in \tref{streaming} show that the proposed approach can efficiently
-tackle this problem by taking the data burden away and, hence, making it easier
-to experiment with data-driven techniques.
+To summarize, the results reported in \tref{recording} motivate our work and
+communicate well the message of this paper: the speed of the state-of-the-art
+simulators is severely onerous for the purpose of experimenting with data-driven
+techniques. The core problem is that such techniques typically require lots of
+data (long execution traces); moreover, these data might need to be recalculated
+each time a parameter changes (for instance, the parameterization of the
+scheduling policy). The results in \tref{streaming} show that the proposed
+approach can efficiently tackle this problem by taking the data burden away and,
+hence, making it easier to experiment with data-driven techniques.

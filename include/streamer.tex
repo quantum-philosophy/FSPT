@@ -15,27 +15,21 @@ operation is referred to as job modeling in \fref{streamer}. The rest follows
 \fref{streamer}, this policy is a part of the Main module. As the incoming jobs
 are being scheduled, the power profile of the system under consideration is
 being constructed. The power profile is piped into a temperature simulator (to
-be discussed below), which delivers a temperature profile. The continuity of the
-process is worth noting: just as with arrival times and jobs, power and
-temperature can be viewed as streams of data. The synthesized data (power and
-temperature) can be fed back to the scheduler and/or stored for later usage. In
-the latter case, similar to reference data, the output is an SQLite database.
+be discussed below), which delivers a temperature profile. The synthesized data
+(power and temperature) can be fed to the scheduler and/or stored for later
+usage. In the latter case, similar to reference data, the output is an SQLite
+database.
 
-Let us now outline how temperature simulation is undertaken inside Streamer. The
-simulation is based on the popular thermal \sc{RC} model. In this paradigm, a
-so-called thermal \sc{RC} circuit representing the system at hand is constructed
-and then used to analyze the thermal behavior of the system. The analysis boils
-down to solving a system of differential equations, which can be done using
-different integration techniques. In our case, the solution is based on a solver
-leveraging exponential integrators \cite{hochbruck2010, ukhov2014}. The
+Let us now outline how temperature simulation is undertaken by Streamer. The
+simulation is based on the thermal \sc{RC} model. In this paradigm, a so-called
+thermal \sc{RC} circuit representing the system at hand is constructed and then
+used to analyze the thermal behavior of the system. The analysis boils down to
+solving a system of differential equations. In our case, the solution is based
+on a solver leveraging exponential integrators \cite{ukhov2014}. The
 construction of thermal circuits is outsourced to either HotSpot
-\cite{skadron2004} or \sc{3D-ICE} \cite{sridhar2010} (see \fref{streamer}). Both
-simulators are based on the thermal \sc{RC} model, and we extract the circuits
-that they build, which results in a unified interface for working with the two
-alternatives.
+\cite{skadron2004} or \sc{3D-ICE} \cite{sridhar2010} (see \fref{streamer}). We
+provide a unified interface for working with the two alternatives.
 
-To summarize this subsection, the Streamer tool produces streams of power and
-temperature data, and this procedure closely follows the ideas presented in
-\sref{methodology}. Our temperature simulation is based on the thermal \sc{RC}
-model, in which thermal circuits are constructed by either HotSpot or
-\sc{3D-ICE}.
+To summarize, Recorder is used for recording workload patterns, and Streamer
+produces streams of power and temperature data. Both closely follow the ideas
+presented in \sref{methodology}.

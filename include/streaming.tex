@@ -1,22 +1,15 @@
 \input{include/assets/tables/streaming}
-Let us turn to the Streaming tool, which corresponds to the data-synthesis stage
-of the methodology (see \fref{methodology}). Streamer was introduced in
-\sref{streamer} and is depicted in \fref{streamer}. Our objective in this
-subsection is to study the scalability of the tool as measured by synthesis
-time, which is the time that is needed for the tool to synthesize power and
-temperature profiles under certain conditions or requirements. In these
-experiments, workload patterns are assigned to job arrivals randomly, and a
-simple first-in-first-served scheduling policy is assumed; both are the default
+Let us turn to Streamer, which corresponds to the data-synthesis stage (recall
+\sref{streamer} and \fref{streamer}). Our objective in this subsection is to
+study the scalability of the tool as measured by synthesis time, which is the
+time that is needed for the tool to synthesize power and temperature profiles
+under certain conditions or requirements. In these experiments, workload
+patterns are assigned to job arrivals randomly, and a simple
+first-in-first-served scheduling policy is assumed; both are the default
 algorithms that come with the toolchain.
 
-Before we proceed, let us reiterate that, as far as Streamer is concerned, the
-expense of performance and power simulation is essentially zero as the tool
-works with precomputed power data (power patterns). The most time-consuming part
-of Streamer is temperature simulation, which is actually negligibly small (see
-below) compared to the recording time shown in \tref{recording}.
-
 The preformed experiments are consolidated in \tref{streaming}. We report
-synthesis time along two dimensions: synthesized time (rows) and platform size
+synthesis time along two axes: synthesized time (rows) and platform size
 (columns). The former is analogous to simulated time, and the latter represents
 different platforms as follows. Each considered platform is composed of a number
 of cores, and there is an L3 cache for every four cores; both cores and caches
@@ -37,5 +30,5 @@ Another observation made from \tref{streaming} is that synthesis time scales
 linearly with respect to the length of the time span being synthesized
 (synthesized time), and the same can be concluded regarding platform size. The
 growth with respect to platform size is due to the increasing complexity of the
-underlaying thermal \sc{RC} circuit used for temperature simulation; thermal
+underlying thermal \sc{RC} circuit used for temperature simulation; thermal
 circuits were elaborated on in \sref{streamer}.

@@ -21,13 +21,9 @@ queue. Recorder fetches messages from the queue (observe the diagonal arrow in
 \fref{recorder}) and processes the corresponding files. There are several
 aspects that are worth noting here. First, the decoupling allows Sniper and
 Recorder to work asynchronously, each at its own pace. Second, there can be
-multiple Recorder processes serving the same message queue; one only has to
-ensure the correct order when storing the data computed by the processes, which
-the tool takes care of. Third, there can be many Sniper processes, each of which
-simulates a different program and uses a different Redis queue. The benefit of
-having a centralized key-value storage in the third observation will become
-clear shortly. The aforementioned aspects make the recording substantially
-faster.
+multiple Recorder processes serving the same message queue. Third, there can be
+many Sniper processes, each of which simulates a different program and uses a
+different Redis queue. The above aspects substantially seed up the recording.
 
 The next stop is power simulation, which we delegate to \sc{McPAT}
 \cite{li2009}. \sc{McPAT} is originally a command-line program; we have made a
@@ -45,7 +41,3 @@ uploaded to a repository, as described in \sref{workload} and illustrated in
 \fref{methodology}. Currently, each output file is an SQLite database
 \cite{sqlite}, which implies that the versatile SQL language is automatically at
 one's disposal for working with the data.
-
-To summarize, Recorder is used for recording workload patterns. The overall
-process can be made substantially faster by launching multiple Sniper processes
-along with a single Redis server and multiple Recorder processes.

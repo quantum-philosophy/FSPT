@@ -31,14 +31,11 @@ From our experience, performance and power simulation takes by far the largest
 expense in terms of time. Therefore, the information about a reference program's
 execution that we propose to record is the power consumption of that execution.
 This approach pushes the aforementioned expense to the data-acquisition stage
-and eliminates it all together from the data-synthesis stage. To put it
-differently, each recording is obtained via a one-time simulation at the
-data-acquisition stage, and from there on the recording is reused as many times
-as needed at the data-synthesis stage of our methodology. Since the actual data
-generation, which takes place at the data-synthesis stage, is deliver from the
-expensive simulations, it has a very low computational demand. This demand is
-negligible compared to the one of the scenario depicted in \fref{development},
-in which one undertakes performance and power simulations nonstop.
+and eliminates it all together from the data-synthesis stage. Since the actual
+data generation is deliver from the expensive simulations, it has a very low
+computational demand. This demand is negligible compared to the one of the
+scenario depicted in \fref{development}, in which one undertakes performance and
+power simulations nonstop.
 
 The power consumption of a program can be recorded differently; let us be more
 specific about what we do. The first aspect to note is that we record power as a
