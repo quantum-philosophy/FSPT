@@ -1,56 +1,34 @@
-\lettrine[findent=0.4em, nindent=0em]{\textbf{P}}{ower consumption} and heat
-dissipation are of paramount importance. The two inseparable phenomena dictate
-limitations on the usage of electronic devices and magnify the costs pertaining
-to the deployment and maintenance of electronic systems. Power is tightly
-related to energy, and energy translates willingly to hours of battery life and
-to electricity bills. Operating temperature, on the other hand, is one of the
-major causes of permanent damage \cite{jedec}, which necessitates the deployment
-of adequate cooling equipment, escalating overall product expenses
-\cite{chaudhry2015}. The situation is deteriorated further by the
-power-temperature interplay: higher power leads to higher temperature, and
-higher temperature strikes back by making electronic devices consume even more
-power \cite{liu2007}. Under these severe circumstances, it is no surprise that
-power and temperature have steadily been in the research limelight and have no
-plans on leaving this spot.
+\lettrine[findent=0.3em, nindent=0em]{\textbf{P}}{ower consumption} and heat
+dissipation are of great importance. Power is related to energy, and energy to
+hours of battery life and to electricity bills. Temperature, on the other hand,
+is one of the major causes of permanent damage \cite{jedec}, which necessitates
+adequate cooling equipment escalating product expenses \cite{chaudhry2015}. The
+situation is deteriorated further by the power-temperature interplay: higher
+power leads to higher temperature, and higher temperature to higher power
+\cite{liu2007}.
 
-In this paper, we set out to assist researchers working with power and
-temperature in one specific but rather broad context. More concretely, we aim at
-facilitating the development of online, data-driven, power- and
-temperature-aware solutions for multiprocessor systems. Let us clarify the terms
-involved in the previous statement; the approach itself will be described
-shortly after. \emph{Online} refers to taking decisions at runtime, which is in
-contrast to having decisions taken at design time. \emph{Data-driven} refers to
-the usage of learning \cite{bishop2006}, that is, to the usage of algorithms
-that learn from data as opposed to algorithms of any other kind.
-\emph{Power-aware} refers to decision-making that takes into account the impact
-on and the impact of power (and, therefore, energy) consumption. Similarly,
-\emph{temperature-aware} refers to considering heat dissipation when taking
-decisions.
-
-We approach the outlined objective by developing a methodology for fast
-synthesis of realistic power and temperature profiles. Our motivation for doing
-so is described in the next section, \sref{motivation}, and here we only remark
-that data-driven techniques obviously require data to learn from, and these data
-might not be easily accessible to researchers for a variety of reasons, thereby
-preventing research ideas from flowing freely. The goal of this work is to
+This work is to assist the researchers who work with power and temperature in
+one specific but rather broad context: the development of data-driven power- and
+temperature-aware solutions for multiprocessor systems; here \emph{data-driven}
+refers to the usage of algorithms that learn from data \cite{bishop2006}. To
+this end, a toolchain for fast synthesis of realistic power and temperature
+profiles is developed. The primary motivation is that data-driven techniques
+require data to learn from, and these data might not be easily accessible for a
+variety of reasons, hampering research ideas. The goal of this work is to
 eliminate this obstacle.
 
-It is important to realize right from the start that, while artificial data
-enable thoughts and ideas to evolve and ripen, the solution being developed will
-eventually have to face real data. Therefore, the solution should be tested and,
-if needed, calibrated in a stage environment prior to the deployment to a
-production environment, which could also be done periodically at the end of a
-long development cycle. The usage of synthetic data substantially speeds up the
-development process due to the flexibility and fast feedback enabled by such
-data, which, in particular, means that one can filter out bad ideas at early
-stages and focus solely on the ones which are viable.
+It is important to realize that the solution being developed will eventually
+have to face real data and, therefore, should be tested and, if needed,
+calibrated in a stage environment prior to the deployment to a production
+environment. However, such synthetic data as the ones we generate can
+substantially speed up this process due to the flexibility and fast feedback
+that they provided. In particular, one can filter out inadequate ideas at early
+stages and focus solely on those that are viable.
 
-The remainder of the paper is organized as follows. The motivation for embarking
-on this line of research is given in \sref{motivation}.
-Section~\ref{sec:prior-work} provides an overview of the prior work. In
-\sref{present-work}, the contributions of the present work are summarized. The
-problem that we address is formalized in \sref{problem-formulation}. The
-proposed methodology is presented in \sref{methodology}. The methodology is
-accompanied by a toolchain, and this toolchain is described in \sref{toolchain}.
-The performance of the toolchain is evaluated in \sref{experimental-results}.
-Section \ref{sec:conclusion} concludes the paper.
+The remainder of the paper is organized as follows. The motivation behind this
+work is given in \sref{motivation}. Section~\ref{sec:prior-work} provides an
+overview of the prior work. In \sref{present-work}, our contributions are
+summarized. The addressed problem is formalized in \sref{problem-formulation}.
+Our methodology and toolchain are presented in \sref{methodology} and
+\sref{toolchain}, respectively. The experimental results are given in
+\sref{experimental-results}. Section \ref{sec:conclusion} concludes the paper.
