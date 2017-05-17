@@ -1,49 +1,21 @@
 Accounting for power and temperature is key to achieving effectiveness,
-efficiency, and robustness. However, power consumption and heat dissipation are
-a result of a myriad of interactions between numerous hardware and software
-components comprising modern electronic systems. It is, therefore, difficult to
-describe mathematically or algorithmically the impact of a parameter on the
-power and temperature characteristics of the system being developed. Moreover,
-many aspects of the system are inherently uncertain to the designer. One of the
-reasons is process variation \cite{chandrakasan2000}: the properties of
-fabricated dies deviate from the nominal ones since process parameters cannot be
-controlled precisely using the technologies currently employed in the
-fabrication process. Another reason is aging \cite{coskun2006}: the performance
-of a system degrades over time due to natural or accelerated wear, which is
-unlikely to be uniform. Yet another and perhaps the most consequential reason is
-workload: the demand on a system in the field is rarely, if ever, known in the
-lab. Such uncertainties inevitably make power and temperature characteristics of
-electronic systems uncertain as well.
+efficiency, and robustness. However, the power and temperature characteristics
+of the system under development are difficult to describe mathematically or
+algorithmically. Modern systems are complex, and many aspects are inherently
+uncertain to the designer due to such phenomena as process variation
+\cite{chandrakasan2000}, aging \cite{coskun2006}, and varying workload.
 
-The above concerns are particularly hard to address from a theoretical
-standpoint. They can be better dealt with taking a more pragmatic approach,
-namely, making use of online\footnote{In this paper, we use \emph{online} and
-\emph{runtime} interchangeably.} data. To elaborate, assuming that the system at
-hand provides basic mechanisms for profiling and monitoring such as hardware
-performance counters and thermal sensors, which is typically the case, direct or
-indirect power and temperature readings are an invaluable source of information
-for making power- and temperature-aware decisions. The attractiveness of the
-online-data route is due to the fact that only one particular fabricated
-hardware in one particular environment needs to be considered. More importantly,
-being on the chip enables adaptation, which can also be made continuous. This
-means that instances of the system are treated on a case-by-case basis; each
-instance attains a custom-built, fine-tuned solution, and this solution evolves
-over time, diligently following any changes.
+The above concern is particularly hard to address from a theoretical standpoint;
+it can be better dealt with taking a more pragmatic approach, namely, making use
+of runtime data. Assuming that the system provides mechanisms for profiling and
+monitoring, direct or indirect power and temperature readings are an invaluable
+source of information for making proactive power- and temperature-aware
+decisions \cite{chaudhry2015, coskun2008}.
 
-Power and temperature data should be available in a timely manner. Proactive
-management strategies, which we shall also refer to as proactive governors, are
-known to be more efficient than reactive ones since they aim at preventing
-problems instead of recovering from the consequences of problems
-\cite{chaudhry2015, coskun2008}. Acting proactively requires the ability to
-forecast future behavior. Consequently, the first step towards proactive power-
-and temperature-aware management---and, hence, towards making electronic
-products more reliable and energy efficient---is to predict power consumption
-and heat dissipation.
-
-Predicting the future relies on learning from the past. This task is typically
-accomplished by virtue of tools from statistics and adjacent fields such as
-machine learning \cite{bishop2006}. In this case, a proactive governor contains
-a learning component, which assimilates relevant runtime data and makes
+Acting proactively requires forecasting the future by learning from the past,
+which is typically accomplished by virtue of statistics and adjacent fields such
+as machine learning \cite{bishop2006}. In this case, a proactive governor
+contains a learning component, which assimilates relevant runtime data and makes
 predictions. To give a concrete example, in \cite{coskun2008}, temperature
 forecasting is based on an autoregressive moving-average model, enabling the
 development of an efficient thermal management strategy for multiprocessor
