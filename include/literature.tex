@@ -1,12 +1,10 @@
-The present work is tightly related to simulation techniques. For our purposes,
-it is sufficient to distinguish four types of simulation: traffic, performance,
-power, and temperature, which are shown in \fref{development}. The subjects of
-the last two are apparent. In this paper, \emph{traffic} refers to a stream of
-jobs or requests that load the system with work, and \emph{performance} refers
-to the system's performance measures as functions of time, including the numbers
-of executed instructions and read/write memory accesses. For clarity reasons,
-the discussion on traffic simulation is postponed until \sref{traffic}; in the
-rest of this section, we shall focus on performance, power, and temperature.
+The present work is related to simulation techniques. For our purposes, it is
+sufficient to distinguish four types of simulation: traffic, performance, power,
+and temperature, which are shown in \fref{development}. Here \emph{traffic}
+refers to a stream of jobs that lade the system with work, and
+\emph{performance} to the system's performance metrics such as the numbers of
+executed instructions. We focus on performance, power, and temperature in this
+section and on traffic in \sref{traffic}.
 
 A performance simulator that we would like to highlight is Sniper
 \cite{carlson2011}. Sniper is aimed at x86-based systems, and it has been
@@ -14,26 +12,22 @@ validated against Intel Core 2 and Nehalem architectures. The simulator works at
 a higher level of abstraction than the one of cycle-accurate simulators, which
 makes its simulation times more affordable. Regarding power simulation, a common
 choice is the \sc{McPAT} framework \cite{li2009}. \sc{McPAT} is also capable of
-estimating the areas occupied by processing elements, which is handy as this
+estimating the areas occupied by processing elements, which is useful as this
 information is essential for temperature simulation. Architecture-level
 temperature simulation is arguably dominated by HotSpot \cite{skadron2004}. A
 popular alternative is \sc{3D-ICE} \cite{sridhar2010}, which is more focused on
-\sc{3D} structures and features the modeling of inter-tier microchannel liquid
-cooling.
+\sc{3D} structures.
 
-The pipeline assembled from the aforementioned simulators is a frequently used
-one in today's research as the components are state-of-the-art. However, the
-pipeline as such is slow and stiff for learning purposes. According to our
-experience, this is mainly due to the performance-simulation and, to a lesser
-extent, power-simulation components, which are considerably time consuming.
-Temperature simulation, on the other hand, has a very small cost compared to the
-other two.
+The pipeline assembled from the aforementioned simulators is frequently used in
+today's research. However, it is slow and stiff for learning purposes. This is
+mainly due to performance simulation and, to a lesser extent, power simulation
+as they are considerably time consuming. Temperature simulation has a relatively
+small cost compared to the other two.
 
-Lastly, we would like to emphasize that the need for a systematic assistance in
-obtaining data for learning-based research studies, which is the goal of this
-work, is prominent in the literature. For instance, the study in \cite{lu2015}
-proposes a temperature-aware task-allocation strategy based on reinforcement
-learning. The authors of that work had to invest time into developing a custom
-simulation platform (still based on the above-mentioned simulators) in order to
-experiment with their approach. From our perspective, such auxiliary work should
-be streamlined.
+The need for a systematic assistance in obtaining data for learning-based
+undertakings is prominent in the literature. For instance, the study in
+\cite{lu2015} proposes a temperature-aware task-allocation strategy based on
+reinforcement learning. The authors of that work had to invest time into
+developing a custom simulation platform (still based on the above-mentioned
+simulators) in order to experiment with their approach. From our perspective,
+such auxiliary work should be streamlined.

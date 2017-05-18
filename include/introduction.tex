@@ -5,30 +5,63 @@ is one of the major causes of permanent damage \cite{jedec}, which necessitates
 adequate cooling equipment escalating product expenses \cite{chaudhry2015}. The
 situation is deteriorated further by the power-temperature interplay: higher
 power leads to higher temperature, and higher temperature to higher power
-\cite{liu2007}.
+\cite{liu2007}. Therefore, accounting for power and temperature is key to
+achieving effectiveness, efficiency, and robustness.
 
-This work is to assist the researchers who work with power and temperature in
+The present work is to assist researchers who work with power and temperature in
 one specific but rather broad context: the development of data-driven power- and
 temperature-aware solutions for multiprocessor systems; here \emph{data-driven}
 refers to the usage of algorithms that learn from data \cite{bishop2006}. To
 this end, a toolchain for fast synthesis of realistic power and temperature
-profiles is developed. The primary motivation is that data-driven techniques
-require data to learn from, and these data might not be easily accessible for a
-variety of reasons, hampering research ideas. The goal of this work is to
-eliminate this obstacle.
+profiles is developed. Our primary motivation is as follows.
 
-It is important to realize that the solution being developed will eventually
-have to face real data and, therefore, should be tested and, if needed,
-calibrated in a stage environment prior to the deployment to a production
-environment. However, such synthetic data as the ones we generate can
-substantially speed up this process due to the flexibility and fast feedback
-that they provided. In particular, one can filter out inadequate ideas at early
-stages and focus solely on those that are viable.
+The power and temperature characteristics of the system under development are
+difficult to describe mathematically or algorithmically. Modern systems are
+complex, and many aspects are inherently uncertain to the designer due to such
+phenomena as process variation \cite{chandrakasan2000}, aging \cite{coskun2006},
+and varying workload. The concern is particularly hard to address from the
+theoretical standpoint; it can be better dealt with taking a more pragmatic
+approach, namely, making use of runtime data. Assuming that the system provides
+mechanisms for profiling and monitoring, direct or indirect power and
+temperature readings are an invaluable source of information for making
+proactive power- and temperature-aware decisions \cite{chaudhry2015,
+coskun2008}.
 
-The remainder of the paper is organized as follows. The motivation behind this
-work is given in \sref{motivation}. Section~\ref{sec:literature} provides an
-overview of the prior work. In \sref{contribution}, our contributions are
-summarized. The addressed problem is formalized in \sref{problem}. Our
-methodology and toolchain are presented in \sref{methodology} and
-\sref{toolchain}, respectively. The experimental results are given in
-\sref{result}. Section \ref{sec:conclusion} concludes the paper.
+\input{include/assets/figures/development}
+Acting proactively requires forecasting the future by learning from the past,
+which is typically accomplished by virtue of machine learning \cite{bishop2006}.
+Regardless of the learning technique utilized, the technique needs data to learn
+from. Real data are rarely available in large enough quantities. For instance,
+the target platform might not be at one's disposal or might not be an
+appropriate place for early experimentation, which is common in research.
+Therefore, a typical research environment is often composed of a number of
+computer simulators, which constitute an alternative source of the needed data.
+An illustration of this scenario is given in \fref{development}, which depicts a
+potential environment for developing a governor of an electronic system.
+
+Computer simulators, however, fall short when it comes to complex systems: it
+might take days for a state-of-the-art simulator to simulate a short, in
+wall-clock time, program. This scheme is not affordable for designing
+data-driven techniques as they require many simulations with potentially large
+payloads.
+
+To summarize, real data are rarely or sparingly available, and simulation data
+are prohibitively time consuming to obtain, which hampers the exploration of
+data-driven solutions. The need for alternative sources of high-quality data is
+prominent, which brings us to the goal of this work: our objective is to provide
+such a source for the case of power and temperature.
+
+It is well understood that the solution being developed will eventually have to
+face real data, and, therefore, it should be tested and, if needed, calibrated
+in a stage environment prior to deploying the solution to a production
+environment. The synthetic data that we generate can substantially speed up this
+process due to the flexibility and fast feedback that they provided. In
+particular, one can filter out inadequate ideas at early stages and focus solely
+on those that are viable.
+
+The remainder of the paper is organized as follows. Section~\ref{sec:literature}
+provides an overview of the prior work. In \sref{contribution}, our
+contributions are summarized. The addressed problem is formalized in
+\sref{problem}. Our methodology and toolchain are presented in
+\sref{methodology} and \sref{toolchain}, respectively. The experimental results
+are given in \sref{result}. Section \ref{sec:conclusion} concludes the paper.
