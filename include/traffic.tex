@@ -1,58 +1,47 @@
-The system at hand serves a stream of jobs, which can be also viewed as user
-requests. The foremost component of our methodology is then a traffic model,
-describing \emph{when} jobs arrive. This model should satisfy a number of
-requirements in order to be practically useful. First of all, the model should
-be able to capture the idiosyncrasies present in real traffic as it is a
-foundation for the subsequent generation of power and temperature traces
-(discussed in \sref{composition}). Second, it should be straightforward to
-configure the model given a dataset of traffic data (a sequence of arrival times
-of jobs) serving as a reference. Let us unfold the second requirement first.
+The foremost step is construct a traffic model describing \emph{when} jobs
+arrive. The model should satisfy a number of requirements in order to be
+practically useful. First, it should be able to capture the idiosyncrasies
+present in real traffic as it is a foundation for the subsequent generation of
+power and temperature traces (discussed in \sref{composition}). Second, it
+should be straightforward to configure given a data set of traffic data (a
+sequence of arrival times of jobs) serving as a reference.
 
 The required ability to absorb reference data acknowledges the importance of the
-information that is at our disposal due to monitoring and logging mechanisms
-ubiquitously deployed nowadays; consider, for instance, log files of web
-servers. In \fref{methodology}, such mechanisms are represented by a set of
-modules labeled ``Logger.'' The corresponding data are assumed to be stored in a
-repository, which is accessible for the later usage taking place in the module
-labeled ``Streamer'' (to be discussed shortly). Such a repository could be a
-community effort providing traffic data for research undertakings.
+information that is at one's disposal due to monitoring and logging mechanisms
+ubiquitously deployed nowadays. In \fref{methodology}, such mechanisms are
+represented by a set of modules labeled ``Logger.'' The corresponding data are
+are stored in a repository, which is accessible to the module labeled
+``Streamer'' (to be discussed shortly).
 
-Monitoring and logging mechanisms, which are a natural source of traffic
-patterns, are outside of the scope of this work. We only note that reference
-traffic data should be collected in an environment similar to the one in which
-the system at hand is supposed to function. For a better intuition about and a
-good example of traffic data, the interested reader is referred to the dataset
-published by Google in 2011 \cite{google}; the dataset will be discussed further
-in \sref{result}. Let us now move on to the analysis and synthesis of a chosen
-traffic pattern.
+Monitoring and logging mechanisms, which are a source of traffic patterns, are
+outside of the scope of this work. For a good example of traffic data, the
+interested reader is referred to the data set published by Google in 2011
+\cite{google}; the data set will be discussed further in \sref{result}. Let us
+now move on to the analysis and synthesis of a chosen traffic pattern.
 
 The seminal work in \cite{leland1994} and subsequent studies have shown that
 network traffic exhibits fractal properties such as burstiness, self-similarity,
-and long-range dependence, which is very much unlike traditional telephone
-traffic. It is well known that traffic models based on the Poisson process
-\cite{lifshits2014} are unable to express any of the above properties and,
-therefore, drastically departure from reality when it comes to modeling network
-traffic. A step in the right direction is to consider the fractional Gaussian
-noise \cite{lifshits2014}, which is a self-similar stochastic process. However,
-the process is inconvenient to work with from the perspective of a computer
-simulator. Concretely, the noise is suited for modeling arrivals per unit of
-time but not arrival or inter-arrival times, which are what is typically needed
-for simulation. Moreover, even with a proper rescaling and shift, the process
-can still take negative values, which is unrealistic. Finally, the fractional
-Gaussian noise is a monofractal process; however, real traffic data often have
-multifractal structures.
+and long-range dependence. It is well known that traffic models based on the
+Poisson process \cite{lifshits2014} are unable to express any of the above
+properties. A step in the right direction is the fractional Gaussian noise
+\cite{lifshits2014}, which is a self-similar stochastic process. However, the
+process is inconvenient to work with. More concretely, the noise is suited for
+modeling arrivals per unit of time but not arrival or inter-arrival times, which
+are what is typically needed for simulation. Moreover, the process can take
+negative values, which is unrealistic. Finally, the fractional Gaussian noise is
+a monofractal process; however, real traffic data often have multifractal
+structures.
 
-In order to address the aforementioned concerns and enable the generation of
-arrival streams exhibiting fractal properties, our methodology employs the
-multifractal wavelet model proposed in \cite{riedi1999}, characterizing
-positive-valued data with long-range-dependent correlations. In brief, we take a
-reference time series of arrival times, analyze it by means of the discrete
-wavelet transform based on Haar wavelets, and construct a certain representation
-of the data, which can then be used for generating random time series matching
-the fractal properties of the original one. Hence, the model gets automatically
-tailored to the traffic pattern of the particular problem at hand.
+In order to address the aforementioned concerns, we employ the multifractal
+wavelet model proposed in \cite{riedi1999}, which characterizes positive-valued
+data with long-range-dependent correlations. In accordance with the model, we
+take a reference time series of arrival times, analyze it by means of the
+discrete wavelet transform based on Haar wavelets, and construct a certain
+representation of the data, which can then be used for generating random time
+series matching the fractal properties of the original one. As a result, the
+model becomes tailored to the traffic pattern of the particular problem at hand.
 
-To sum up, we now have a dataset of reference arrival times and a versatile
+To summarize, we have obtained a data set of reference arrival times and a
 technique for analyzing them and generating similar arrival streams. The
 technique is capable of capturing the properties that are commonly present in
-real traffic such as burstiness, self-similarity, and long-range dependence.
+real traffic.

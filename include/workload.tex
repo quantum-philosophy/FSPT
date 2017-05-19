@@ -1,73 +1,57 @@
-In the previous subsection, we introduced our approach to generating streams of
-arrivals; however, an arrival is only a time stamp without any information about
-the actual workload. In this subsection, we describe how workload candidates are
-obtained and utilized for substantiating job arrivals, which is depicted at the
-bottom of \fref{methodology}. To begin with, workload candidates should conform
-to a number of criteria. First, since we aim to produce realistic trace,
-workloads should represent well the applications or services that the system in
-question is supposed to provide to the user. Second, a workload should be fast
-to evaluate, which, in our context, refers to obtaining the power consumption
-over time of that workload.
+An arrival is only a time stamp without any information about the actual
+workload. In this subsection, we describe how workload candidates are obtained
+and complement job arrivals, which is depicted at the bottom of
+\fref{methodology}. To begin with, workload candidates should conform to a
+number of criteria. First, since we aim to produce realistic trace, workloads
+should represent well the applications or services that the system is supposed
+to provide to the user. Second, a workload should be fast to evaluate, which, in
+our context, refers to obtaining the power consumption over time of that
+workload.
 
 Our workload modeling is based on full-system simulations of reference programs.
 However, if we had incorporated such simulations into our workflow
-\emph{directly}, we would have wound up with a configuration similar to the one
-displayed in \fref{development}. This, of course, would have defeated the
-purpose of our work since, as motivated in \sref{introduction}, detailed
-simulations are too time consuming. Instead, we propose the use of high-level
-recordings; this functionality corresponds to the modules labeled ``Recorder''
-in \fref{methodology}. To elaborate, using an adequate simulator capable of
-modeling the target architecture, we execute each reference program in isolation
-and record certain information about this execution.\footnote{Such a technique
-is similar in spirit to PinPlay \cite{patil2010}, which is a tool for recording
-and replaying an execution of a program at the instruction level.} At a later
-stage of our pipeline (see the Streamer module in \fref{methodology}), the
-collected information is utilized in order to flesh out jobs upon their arrival,
-and this stage requires no simulation. These recordings are building blocks:
-they are combined to form complex workloads corresponding to multiple programs
-running in parallel, which will be elaborated on in \sref{composition}.
+\emph{directly}, we would have ended up with a configuration similar to the one
+displayed in \fref{development}. This would have defeated the purpose of our
+work since, as motivated in \sref{introduction}, detailed simulations are too
+time consuming. Instead, we utilize high-level recordings; this functionality
+corresponds to the modules labeled ``Recorder'' in \fref{methodology}. To
+elaborate, using a simulator capable of modeling the target architecture, we
+execute each reference program in isolation and record certain information about
+this execution. At a later stage of our pipeline (see the Streamer module in
+\fref{methodology}), the collected information is utilized in order to flesh out
+jobs upon their arrival, and this stage requires no simulation.
 
-From our experience, performance and power simulation takes by far the largest
-expense in terms of time. Therefore, the information about a reference program's
-execution that we propose to record is the power consumption of that execution.
-This approach pushes the aforementioned expense to the data-acquisition stage
-and eliminates it all together from the data-synthesis stage. Since the actual
-data generation is deliver from the expensive simulations, it has a very low
-computational demand. This demand is negligible compared to the one of the
-scenario depicted in \fref{development}, in which one undertakes performance and
-power simulations nonstop.
+Performance and power simulation takes by far the largest expense in terms of
+time. Therefore, the information about a reference program's execution that we
+record is the power consumption of that execution. This approach pushes the
+aforementioned expense to the data-acquisition stage and eliminates it from the
+data-synthesis stage. Since the actual data generation is deliver from the
+expensive simulations, it has a very low computational demand. This demand is
+negligible compared to the one of the scenario depicted in \fref{development},
+in which one undertakes performance and power simulations nonstop.
 
-The power consumption of a program can be recorded differently; let us be more
-specific about what we do. The first aspect to note is that we record power as a
-function of time (assuming a certain sampling interval). Second, the dynamic and
-static components of the power consumption are recorded separately in order to
-get a better control over the subsequent composition (\sref{composition}).
-Third, the power consumption is recorded for all processing elements that are
-relevant to the subsequent study (for instance, cores and shared caches).
+The power consumption of a program can be recorded in different ways. The first
+aspect to note is that we record power as a function of time (assuming a certain
+sampling interval). Second, the dynamic and static components of the power
+consumption are recorded separately for a better control over the subsequent
+composition (\sref{composition}). Third, the power consumption is recorded for
+all the processing elements of interest (for instance, cores and shared caches).
 
-The result of the recording procedure is a repository of power traces
-corresponding to real programs, which we refer to as workload patterns; see the
-bottom cloud in \fref{methodology}. Full-system simulations obviously take time;
-however, as mentioned previously, they should be done only once. Moreover, since
-researchers tend to test their ideas using similar sets of benchmark
-suites---for example, \sc{PARSEC} \cite{bienia2011} and \sc{SPEC CPU2006}
-\cite{cpu2006} are popular choices---it is reasonable to create a common
-repository of power patterns that will be populated and maintained online by the
-research community.
+The result of recording is a repository of power traces corresponding to real
+programs, which we refer to as workload patterns; see the bottom cloud in
+\fref{methodology}. Full-system simulations take time; however, they have to be
+done only once.
 
-Let us now turn to the question: How do we choose which workload pattern to use
-for a particular arrival? We shall refer to this functionality as the workload
-model. The input to this model is a stream of arrival times, and its output is a
-stream of fully characterized jobs (time and work). The logic of the workload
-model can be dependent on the input stream and thereby introduce
-autocorrelations to the output stream, which allows for modeling, for instance,
-periodic and/or coupled workloads. Since such aspects rely heavily on
-domain-specific knowledge, we refrain from providing any particular dependency
-model. The default option that is used in our toolchain (to be discussed in
-\sref{toolchain}) for assigning workloads to job arrivals is drawing samples
-from a uniform distribution over a set of workload patterns. This default
-behavior can be adjusted for the problem at hand as needed.
+Regarding the assignment of a workload pattern to an arrival, we shall refer to
+this functionality as the workload model. The input to this model is a stream of
+arrival times, and its output is a stream of fully characterized jobs (time and
+work). The workload model relies on domain-specific knowledge. For instance, the
+output stream can be made dependent on the input one in order to introduce
+autocorrelations and, thereby, model periodic and coupled workloads. Therefore,
+we let the model be user defined. The default option that is used in our
+toolchain is choosing workload patterns at random.
 
 To recapitulate, we have obtained a database of reference workloads and
-discussed the formation of job streams from arrival streams. The patterns
-correspond to executions of real programs and, thus, exhibit realistic traits.
+discussed the formation of job streams from arrival streams. The utilized
+patterns correspond to executions of real programs and, thus, exhibit realistic
+traits.
