@@ -15,13 +15,19 @@ choice is the \sc{McPAT} framework \cite{li2009}. \sc{McPAT} is also capable of
 estimating the areas occupied by processing elements, which is useful since this
 information is essential for temperature simulation. Architecture-level
 temperature simulation is arguably dominated by HotSpot \cite{skadron2004}. A
-popular alternative is \sc{3D-ICE} \cite{sridhar2010}, which is more focused on
-\sc{3D} structures.
+popular alternative is \sc{3D-ICE} \cite{sridhar2010}, which is particularly
+focused on \sc{3D} structures.
 
 The pipeline assembled from the aforementioned simulators is the one frequently
 used in today's research. However, as we elaborate in \sref{introduction}, it is
 extremely time consuming and, hence, is not suitable for learning purposes. In
 our experience, this is mainly due to performance simulation and, to a lesser
 extent, power simulation. Temperature simulation usually has a relatively small
-cost compared to the other two. These concerns will be discussed further and
+cost compared to the other two. These concerns are to be discussed further and
 illustrated in \sref{result}.
+
+Our work makes the following major contribution. We present an efficient
+toolchain for generating realistic power and temperature profiles of electronic
+systems in order to facilitate the development of intelligent data-driven
+techniques for the analysis and management of such systems. The toolchain is
+open source and publicly available online at \cite{sources}.
