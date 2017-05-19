@@ -5,23 +5,16 @@ supposed to process. Each job implies a certain amount of work to be done and,
 therefore, a certain amount of power to be consumed and a certain amount of heat
 to be dissipated.
 
-Consider now a hypothetical research project targeted at developing a management
-strategy for the system at hand, such as a scheduling policy. Since the
-importance of power and temperature is well understood, which was motivated in
-\sref{introduction}, the solution is required to take into account the two
-quantities. Suppose further that the solution is to be based on a technique that
-learns from the power and/or temperature data available on the chip, which was
-motivated in \sref{introduction}.
+Consider now a research project targeted at developing a resource manager for
+the system at hand. Since the importance of power and temperature is well
+understood, the solution is required to take into account the two quantities.
+Suppose further that the solution is to be based on a technique that learns from
+the power and/or temperature data available on the chip.
 
-Our goal is to develop a methodology for fast generation of realistic power and
-temperature profiles of the system in order to provide the research project with
-plenty of data to experiment with. Hence, the requirements to the data that we
-would like to produce are as follows. First, the generated profiles should
-preserve the particularities of job arrivals and program executions that are
-present in real life, which is what makes the subsequent learning meaningful.
-Second, the generation should be substantially faster than performing
-traditional simulations, which is what makes our work worth doing.
-
-In addition, we would like to construct a toolchain in order to streamline the
-usage of the proposed methodology. The toolchain will be presented in
-\sref{toolchain} whereas the methodology will be discussed in the next section.
+Our goal is to develop a toolchain for generating power and temperature profiles
+of the system in order to provide the project with plenty of data to experiment
+with. The generated profiles should preserve the particularities of job arrivals
+and program executions that are present in real life, which is what makes the
+subsequent learning meaningful. In addition, the generation process should be
+substantially faster than traditional simulations, which is what makes the work
+worth doing.
