@@ -1,10 +1,10 @@
-The present work is related to simulation techniques. For our purposes, it is
+The present work is related to computer simulation. For our purposes, it is
 sufficient to distinguish four types of simulation: traffic, performance, power,
-and temperature, which are shown in \fref{development}. Here \emph{traffic}
-refers to a stream of jobs that lade the system with work, and
-\emph{performance} to the system's performance metrics such as the numbers of
-executed instructions. We focus on performance, power, and temperature in this
-section and on traffic in \sref{traffic}.
+and temperature, which are shown in \fref{development}. In the scope of this
+paper, \emph{traffic} refers to a stream of jobs that lade the system with work,
+and \emph{performance} to the system's performance metrics such as the numbers
+of executed instructions. We touch upon performance, power, and temperature in
+this section and upon traffic in \sref{traffic}.
 
 A performance simulator that we would like to highlight is Sniper
 \cite{carlson2011}. Sniper is aimed at x86-based systems, and it has been
@@ -12,22 +12,16 @@ validated against Intel Core 2 and Nehalem architectures. The simulator works at
 a higher level of abstraction than the one of cycle-accurate simulators, which
 makes its simulation times more affordable. Regarding power simulation, a common
 choice is the \sc{McPAT} framework \cite{li2009}. \sc{McPAT} is also capable of
-estimating the areas occupied by processing elements, which is useful as this
+estimating the areas occupied by processing elements, which is useful since this
 information is essential for temperature simulation. Architecture-level
 temperature simulation is arguably dominated by HotSpot \cite{skadron2004}. A
 popular alternative is \sc{3D-ICE} \cite{sridhar2010}, which is more focused on
 \sc{3D} structures.
 
-The pipeline assembled from the aforementioned simulators is frequently used in
-today's research. However, it is slow and stiff for learning purposes. This is
-mainly due to performance simulation and, to a lesser extent, power simulation
-as they are considerably time consuming. Temperature simulation has a relatively
-small cost compared to the other two.
-
-The need for a systematic assistance in obtaining data for learning-based
-undertakings is prominent in the literature. For instance, the study in
-\cite{lu2015} proposes a temperature-aware task-allocation strategy based on
-reinforcement learning. The authors of that work had to invest time into
-developing a custom simulation platform (still based on the above-mentioned
-simulators) in order to experiment with their approach. From our perspective,
-such auxiliary work should be streamlined.
+The pipeline assembled from the aforementioned simulators is the one frequently
+used in today's research. However, as we elaborate in \sref{introduction}, it is
+extremely time consuming and, hence, is not suitable for learning purposes. In
+our experience, this is mainly due to performance simulation and, to a lesser
+extent, power simulation. Temperature simulation usually has a relatively small
+cost compared to the other two. These concerns will be discussed further and
+illustrated in \sref{result}.
