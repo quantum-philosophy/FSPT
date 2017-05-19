@@ -1,19 +1,20 @@
 \lettrine[findent=0.3em, nindent=0em]{\textbf{P}}{ower consumption} and heat
-dissipation are of great importance. Power is related to energy, and energy to
+dissipation are of great importance. Power translates to energy, and energy to
 hours of battery life and to electricity bills. Temperature, on the other hand,
 is one of the major causes of permanent damage \cite{jedec}, which necessitates
-adequate cooling equipment escalating product expenses \cite{chaudhry2015}. The
-situation is deteriorated further by the power-temperature interplay: higher
-power leads to higher temperature, and higher temperature to higher power
-\cite{liu2007}. Therefore, accounting for power and temperature is key to
-achieving effectiveness, efficiency, and robustness.
+adequate cooling equipment and, hence, escalates product expenses
+\cite{chaudhry2015}. The situation is deteriorated further by the
+power-temperature interplay: higher power leads to higher temperature, and
+higher temperature to higher power \cite{liu2007}. Therefore, accounting for
+power and temperature is key to achieving effectiveness, efficiency, and
+robustness.
 
 The present work is to assist researchers who work with power and temperature in
 one specific but rather broad context: the development of data-driven power- and
-temperature-aware solutions for multiprocessor systems; here \emph{data-driven}
+temperature-aware solutions for electronic systems; here \emph{data-driven}
 refers to the usage of algorithms that learn from data \cite{bishop2006}. To
-this end, a toolchain for fast synthesis of realistic power and temperature
-profiles is developed. Our primary motivation is as follows.
+this end, we develop a toolchain for fast synthesis of realistic power and
+temperature profiles. Our primary motivation is as follows.
 
 The power and temperature characteristics of the system under development are
 difficult to describe mathematically or algorithmically. Modern systems are
@@ -31,13 +32,13 @@ coskun2008}.
 Acting proactively requires forecasting the future by learning from the past,
 which is typically accomplished by virtue of machine learning \cite{bishop2006}.
 Regardless of the learning technique utilized, the technique needs data to learn
-from. Real data are rarely available in large enough quantities. For instance,
-the target platform might not be at one's disposal or might not be an
-appropriate place for early experimentation, which is common in research.
-Therefore, a typical research environment is often composed of a number of
-computer simulators, which constitute an alternative source of the needed data.
-An illustration of this scenario is given in \fref{development}, which depicts a
-potential environment for developing a governor of an electronic system.
+from. Real data are rarely available in large enough quantities. The target
+platform might not be at one's disposal or might not be an appropriate place for
+early experimentation, which is common in research. Therefore, a research
+environment is typically composed of a number of computer simulators as they
+constitute a feasible alternative source of the needed data. An illustration of
+this scenario is given in \fref{development}, which depicts a potential
+environment for developing a governor of an electronic system.
 
 Computer simulators, however, fall short when it comes to complex systems: it
 might take days for a state-of-the-art simulator to simulate a short, in
@@ -46,13 +47,13 @@ data-driven techniques as they require many simulations with potentially large
 payloads.
 
 To summarize, real data are rarely or sparingly available, and simulation data
-are prohibitively time consuming to obtain, which hampers the exploration of
+are prohibitively time consuming to obtain, which hampers the development of
 data-driven solutions. The need for alternative sources of high-quality data is
 prominent, which brings us to the goal of this work: our objective is to provide
 such a source for the case of power and temperature.
 
-It is well understood that the solution being developed will eventually have to
-face real data, and, therefore, it should be tested and, if needed, calibrated
+It is well understood that the solution being developed will eventually face
+real data, and, therefore, it should be tested and, if it is needed, calibrated
 in a stage environment prior to deploying the solution to a production
 environment. The synthetic data that we generate can substantially speed up this
 process due to the flexibility and fast feedback that they provided. In
