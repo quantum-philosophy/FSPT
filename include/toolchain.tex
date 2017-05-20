@@ -1,15 +1,11 @@
-An important part of this work is a toolchain embodying the methodology. The
-toolchain has been implemented in the Rust programming language \cite{rust}. It
+The toolchain follows the methodology described in \sref{methodology}. It
 consists of a number of command-line tools, and the tools are composed of a
-number of stand-alone packages. The toolchain also makes use of third-party
-software, including the state-of-the-art simulators introduced in
-\sref{literature}. Regardless of the origin, each component toolchain is open
-source. Our code is available at \cite{sources}.
+number of stand-alone packages. We also make use of third-party software,
+including the simulators introduced in \sref{literature}. The toolchain is
+available online at \cite{sources}.
 
-The main programs of our toolchain are called Recorder and Streamer, and we
-shall describe their architectures in the following subsections. Before we
-proceed, let us remind that collecting reference arrival data (series of arrival
-times) is outside of the scope of this work (see \sref{traffic}).
+The main programs of the toolchain are called \emph{Recorder} and
+\emph{Streamer}, which we discuss in the following subsections.
 
 \subsection{Recorder} \slab{recorder}
 \input{include/recorder}

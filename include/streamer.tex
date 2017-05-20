@@ -1,35 +1,36 @@
 \input{include/assets/figures/streamer}
-The Streamer tool corresponds to the data-synthesis stage, which means that it
-is responsible for synthesizing power and temperature data using reference data
-as a material for the synthesis; see the box labeled ``Streamer'' in
-\fref{methodology}. The structure of the tool is laid out in \fref{streamer}.
+The Streamer tool corresponds to the data-synthesis stage. It is responsible for
+synthesizing power and temperature data using reference data as a material for
+the synthesis. In \fref{methodology}, it corresponds to the rightmost box
+labeled ``Streamer.'' The structure of the tool is illustrated in
+\fref{streamer}.
 
 Given a traffic pattern and a set of workload patterns, Streamer proceeds as
-follows. The traffic pattern is processed as it was described in \sref{traffic},
+follows. The traffic pattern is processed as it is described in \sref{traffic},
 which results in an adequately configured multifractal wavelet model
 \cite{riedi1999}. The model is then used to generate a stream of arrival times.
-The arrival times are fleshed out using the workload patterns, which was
-explained in \sref{workload}. The result is a stream of jobs, and the whole
-operation is referred to as job modeling in \fref{streamer}. The rest follows
-\sref{composition}. The job stream is handled by a scheduling policy; in
-\fref{streamer}, this policy is a part of the box labeled ``Main.'' As the
-incoming jobs are being scheduled, the power profile of the system under
-consideration is being constructed. The power profile is piped into a
-temperature simulator (to be discussed below), which delivers a temperature
-profile. The synthesized data (power and temperature) can be fed to the
-scheduler and/or stored for later usage. In the latter case, similar to
-reference data, the output is an SQLite database.
+The arrival times are substantiated using the workload patterns, which is
+explained in \sref{workload}. The result is a stream of jobs. In
+\fref{streamer}, the whole above operation takes place in the box labeled ``Job
+model.'' The rest follows \sref{composition}. Namely, the job stream is handled
+by the user's resource manager, which resides in the box labeled ``Main.'' As
+jobs are being scheduled, the power profile of the system is being constructed.
+The power profile is piped into a temperature simulator (to be discussed below),
+which delivers the temperature profile of the system. Finally, the synthesized
+data (power and temperature) are made available to the manager. They can also be
+saved on disk, in which case, similar to reference data, the output is an SQLite
+database.
 
-Let us now outline how temperature simulation is undertaken by Streamer. The
-simulation is based on the thermal \sc{RC} model. In this paradigm, a so-called
-thermal \sc{RC} circuit representing the system at hand is constructed and then
-used to analyze the thermal behavior of the system. The analysis boils down to
-solving a system of differential equations. In our case, the solution is based
-on a solver leveraging exponential integrators \cite{ukhov2014}. The
-construction of thermal circuits is outsourced to either HotSpot
-\cite{skadron2004} or \sc{3D-ICE} \cite{sridhar2010} (see \fref{streamer}). We
-provide a unified interface for working with the two alternatives.
+Let us now discuss the temperature simulation that Streamer undertakes. It is
+based on the well-known thermal \sc{RC} model. We construct first a thermal
+\sc{RC} circuit for the platform under consideration and then use it for
+analyzing the thermal behavior of the system. The analysis boils down to solving
+a system of differential equations. In our case, the solution is based on a
+solver leveraging exponential integrators \cite{ukhov2014}. The construction of
+thermal circuits is delegated to either HotSpot \cite{skadron2004} or
+\sc{3D-ICE} \cite{sridhar2010} (see \fref{streamer}) depending on the user's
+preferences.
 
-To summarize, Recorder is used for recording workload patterns, and Streamer
-produces streams of power and temperature data. Both closely follow the ideas
-presented in \sref{methodology}.
+To summarize, Recorder captures workload patterns, and Streamer produces streams
+of power and temperature data. Both closely follow the methodology described in
+\sref{methodology}.
