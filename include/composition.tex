@@ -1,17 +1,12 @@
-As a result of the previous two subsections, we have obtained a stream of jobs.
-This streams needs to be processed, which is the topic of this subsection. Here,
-\emph{processing} refers to progressively building a schedule,\footnote{In this
-paper, the mapping of tasks to processing elements is assumed to be a part of
-the scheduling procedure.} constructing a power profile, and computing the
-corresponding temperature profile. In \fref{methodology}, this functionality
-resides in the box labeled ``Streamer.''
+The obtained stream of jobs needs to be processed by progressively building a
+schedule, constructing a power profile, and computing the corresponding
+temperature profile. In \fref{methodology}, this functionality resides in the
+box labeled ``Streamer.''
 
-As motivated in \sref{introduction}, a prominent use case of our methodology is
-the development of management strategies. Therefore, the management strategy
-(including the scheduling policy) of the system at hand is devised by the user.
-Hence, a scheduling policy is assumed to be given. The policy decides on a
-schedule; namely, for each arrived job, the policy specifies when the job gets
-access to certain resources.
+Our infrastructure is to facilitate the development of intelligent data-driven
+resource managers (see \sref{problem}). Hence, the manager of the system at hand
+is devised by the user, which includes the scheduling policy as well. For each
+job, the policy specifies when the job is granted computational resources.
 
 Once the job has been scheduled, we proceed to updating the power profile of the
 system in order to account for this scheduling decision. The power profile is

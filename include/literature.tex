@@ -1,10 +1,23 @@
 The present work is related to computer simulation. For our purposes, it is
 sufficient to distinguish four types of simulation: traffic, performance, power,
-and temperature, which are shown in \fref{development}. In the scope of this
-paper, \emph{traffic} refers to a stream of jobs that lade the system with work,
-and \emph{performance} to the system's performance metrics such as the numbers
-of executed instructions. We touch upon performance, power, and temperature in
-this section and upon traffic in \sref{traffic}.
+and temperature, which are shown in \fref{development}. In this paper,
+\emph{traffic} refers to a stream of jobs that lade the system with work, and
+\emph{performance} to various performance metrics of the system such as the
+numbers of executed instructions and read/write memory accesses.
+
+Let us discuss traffic first. The Poisson process \cite{lifshits2014} is
+arguably the most well-known model in this regard. However, the seminal work in
+\cite{leland1994} and subsequent studies have shown that network traffic
+exhibits fractal properties such as burstiness, self-similarity, and long-range
+dependence. The Poisson process is unable to express any of these properties.
+Another popular model is the fractional Gaussian noise \cite{lifshits2014},
+which is a self-similar stochastic process. However, the process is suited for
+modeling arrivals per unit of time but not for modeling arrival or inter-arrival
+times, which are what is typically needed for simulation. Moreover, the noise
+can take negative values and is a monofractal process, both of which are
+unrealistic. The work in \cite{riedi1999} addresses the aforementioned concerns
+by introducing a multifractal wavelet model that characterizes positive-valued
+data with long-range-dependent correlations.
 
 A performance simulator that we would like to highlight is Sniper
 \cite{carlson2011}. Sniper is aimed at x86-based systems, and it has been
