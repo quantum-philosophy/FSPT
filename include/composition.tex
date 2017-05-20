@@ -1,58 +1,43 @@
-The obtained stream of jobs needs to be processed by progressively building a
+The stream of jobs needs to be now processed by progressively building a
 schedule, constructing a power profile, and computing the corresponding
 temperature profile. In \fref{methodology}, this functionality resides in the
 box labeled ``Streamer.''
 
-Our infrastructure is to facilitate the development of intelligent data-driven
-resource managers (see \sref{problem}). Hence, the manager of the system at hand
-is devised by the user, which includes the scheduling policy as well. For each
-job, the policy specifies when the job is granted computational resources.
+Since our infrastructure is to facilitate the development of intelligent
+data-driven resource managers (see \sref{problem}), the manager of the system at
+hand is devised by the user, which also includes the scheduling policy. For each
+job, the policy specifies \emph{when} the job is granted computational
+resources.
 
 Once the job has been scheduled, we proceed to updating the power profile of the
-system in order to account for this scheduling decision. The power profile is
-essentially a matrix that specifies the power consumption of the processing
-elements over discrete time moments. The workload pattern of the job can also be
-seen as such a matrix but smaller (with respect to both dimensions). For the
-sake of concreteness, assume that the rows and columns of the aforementioned
-matrices traverse the processing elements and time moments, respectively.
-
-In accordance with the scheduling decision, we distribute the workload pattern
-(a small matrix) of the job across the power profile (a big matrix) of the
-system. This means that we place each row of the workload pattern---which
-represents a power trace of a single processing element---to an appropriate row
-of the power profile starting from an appropriate column. The target column
-stays the same for all the rows of the workload pattern since the rows
-correspond to the same time span.
+system. The power profile is a matrix that specifies the power consumption of
+the processing elements over discrete time moments; the rows and columns
+traverse the processing elements and time moments, respectively. The workload
+pattern of the job can also be seen as such a matrix but smaller. Then, in
+accordance with the scheduling decision, each row of the workload pattern is
+added to an appropriate row of the power profile starting from an appropriate
+column.
 
 There are several aspects that are worth noting. First, as mentioned in
 \sref{workload}, we record dynamic and static power separately. We then make
 sure that the static component is present even when no job is being
 ``executed.'' Second, the types of the processing elements that the workload
 pattern was recorded on should be respected when scheduling and distributing the
-pattern. This ensures that, for instance, the power consumption of a core does
-not end up being assigned to a cache. Third, certain processing elements might
-be shared across several jobs. This scenario should be treated adequately, and
-we would like to elaborate on it in what follows.
+pattern. Third, certain processing elements might be shared across several jobs,
+which we discuss now.
 
 The jobs that are mapped by the scheduling policy to disjoint sets of processing
 elements require no special treatment. The interleaving of several jobs on a
 core can be modeled by an appropriate interleaving of the corresponding workload
-patterns. More concretely, workload patterns have the notion of time, and they
-can be cut into pieces and stitched back as needed. This approach is well suited
-for modeling preemption of low-priority jobs by higher-priority ones. Further,
-even when jobs do not share cores, the corresponding cores might share caches.
-Since the power consumption of caches is relatively low, an additive power model
-is generally sufficient: the power values pertaining to the cache as captured by
-the workload patterns of the jobs in question can be summed up to emulate the
-joint effect of the jobs on the cache. Other effects originating from resource
-sharing are not currently addressed by the proposed methodology and are a part
-of future work.
+patterns: workload patterns have the notion of time, and they can be cut into
+pieces and stitched back as needed. The joint effect of several jobs on a cache
+can be reproduced by an additive model: the power values pertaining to the
+cache, as captured by the workload patterns of the jobs in question, are summed
+up. This approximation is sufficient as the power consumption of caches is
+usually relatively low. Other effects originating from resource sharing are not
+currently addressed in our methodology.
 
-Having discussed the construction of the power pattern, there is only one step
-left. As the time goes by, we feed the power profile to a temperature simulator
-and obtain a temperature profile. The obtained power and temperature profiles
-are the final output of our methodology; the two can be subsequently utilized as
-needed, including feeding them into the scheduling policy as sensor readings.
-The key observation to be made is that no expensive performance or power
-simulations are involved in the data-synthesis stage. The time consumed by the
-procedure delineated above is practically negligible.
+Finally, the temperature profile of the system is obtained by gradually feeding
+the power profile into a temperature simulator. These two profiles are our final
+output. They are fed into the resource manager as if they were the actual sensor
+readings.
