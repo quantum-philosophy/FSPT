@@ -1,36 +1,36 @@
 \input{include/assets/tables/recording}
-In the above, we outlined how the reference workload data were harvested using
+In the above, we outlined how the reference workload data are harvested using
 Recorder and the infrastructure around it (recall \sref{recorder} and
-\fref{recorder}). Now we show and elaborate on the performance characteristics
-of this recording process.
+\fref{recorder}). Let us now elaborate on the performance characteristics of
+this recording process.
 
 The benchmark suite that we shall look at is \sc{PARSEC}. Our findings are
 summarized in \tref{recording}. \sc{PARSEC} provides several choices of inputs
-to the programs, and we recorded each program with three different inputs,
+to the programs, and each program was recorded with three different inputs,
 namely, with the ones classified as small, medium, and large. There are two
 types of information shown in \tref{recording}: recording time (in hours), which
 is the time that was taken to simulate and record the programs, and simulated
 time (in seconds), which is the time that the programs would have taken in real
-life. The sampling interval used in all experiments is one millisecond.
+life. The sampling interval used in all the experiments was one millisecond.
 
 Each input class was recorded in a single batch: all 13 programs were simulated
-at the same time using 13 Sniper processes, which was explained and motivated in
+at the same time using 13 Sniper processes, which is explained and motivated in
 \sref{streamer}. Consequently, the total recording time with respect to each
 batch is dictated by the program that took the most time to finish. For small
 and medium inputs, this program was \texttt{facesim}, which took approximately
 13 hours in both cases. The simulated times of \texttt{facesim} indicate that
 \sc{PARSEC} actually has only one input size for this particular program.
 Regarding large inputs, \texttt{freqmine} finished last; more concretely, the
-program took 18 hours. As an aside for the curious reader, the simulated and
+program took 18 hours. As an aside for the interested reader, the simulated and
 recording times of \sc{SPEC CPU2006} (not shown) were an order of magnitude
 larger than the ones of \sc{PARSEC}.
 
 It can be seen in \tref{recording} that the throughput in terms of simulated
 time is (expectedly) low: roughly speaking, two--three hours of recording time
 amounts to one second of simulated time. However, it is important to realize
-that these are one-time expenses in our methodology; the situation would be
-drastically worse if one had to perform such simulations all the time (see
-\sref{workload}). Another important aspect to note is that the observed
-recording times have been substantially reduced by the choice of performance
-simulator---Sniper is based on novel simulation ideas \cite{carlson2011}---and
-the parallelization strategy and caching mechanism described in \sref{streamer}.
+that these are one-time expenses in our methodology; the situation would be much
+worse if one had to perform such simulations all the time (see \sref{workload}).
+Another important aspect to note is that the observed recording times have been
+substantially reduced by the choice of performance simulator---Sniper is based
+on novel simulation ideas \cite{carlson2011}---and the parallelization strategy
+and caching mechanism described in \sref{streamer}.

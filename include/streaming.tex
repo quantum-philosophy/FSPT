@@ -5,29 +5,30 @@ study the scalability of the tool as measured by synthesis time, which is the
 time that is needed for the tool to synthesize power and temperature profiles
 under certain conditions or requirements. In these experiments, workload
 patterns are assigned to job arrivals randomly, and a simple
-first-in-first-served scheduling policy is assumed; both are the default
-algorithms that come with the toolchain.
+first-in-first-served scheduling policy is assumed; both are the default but
+easily replaceable options used by the toolchain.
 
-The preformed experiments are consolidated in \tref{streaming}. We report
+The preformed experiments are consolidated in \tref{streaming}. We report our
 synthesis time along two axes: synthesized time (rows) and platform size
 (columns). The former is analogous to simulated time, and the latter represents
 different platforms as follows. Each considered platform is composed of a number
-of cores, and there is an L3 cache for every four cores; both cores and caches
-are referred to as processing elements. Platform size is then defined as the
+of cores, and there is a single L3 cache for every four cores; both cores and
+caches are referred to as processing elements. Platform size is defined as the
 number of processing elements, and it is denoted by ``$M + N$'' in
 \tref{streaming} where $M$ and $N$ are the numbers of cores and L3 caches,
 respectively.
 
 Unlike the throughput of simulation (discussed in the previous subsection), the
 throughput of synthesis in terms of synthesized time is very high, which is well
-supported by \tref{streaming}. For instance, it takes Streamer around a minute
-to produce power and temperature data that are worth around 17 minutes of
+supported by \tref{streaming}. To give an example, it takes Streamer around a
+minute to produce power and temperature data that are worth around 17 minutes of
 runtime of a multiprocessor system with 16 cores, which would be practically
-infeasible to achieve with full-fledged simulations (refer to \tref{recording}).
+infeasible to achieve with full-fledged simulations (see the results in
+\tref{recording}).
 
 Another observation made from \tref{streaming} is that synthesis time scales
 linearly with respect to the length of the time span being synthesized
-(synthesized time), and the same can be concluded regarding platform size. The
-growth with respect to platform size is due to the increasing complexity of the
-underlying thermal \sc{RC} circuit used for temperature simulation; thermal
-circuits were elaborated on in \sref{streamer}.
+(synthesized time), and the same can be concluded regarding the other dimension,
+platform size. The growth with respect to platform size is due to the increasing
+complexity of the underlying thermal \sc{RC} circuit used for temperature
+simulation; thermal circuits are elaborated on in \sref{streamer}.

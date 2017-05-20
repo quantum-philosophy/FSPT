@@ -1,17 +1,17 @@
 This section illustrates the performance of the toolchain presented in
-\sref{toolchain}. All the experiments reported below are conducted on a
+\sref{toolchain}. All the experiments reported below were conducted on a
 \sc{GNU}/Linux machine equipped with 16 \sc{CPU}s Intel Xeon E5520 2.27~\sc{GH}z
 and 24~\sc{GB} of \sc{RAM}.
 
-In order to obtain real-life traffic patterns for our experiments, we use a
+In order to obtain real-life traffic patterns for our experiments, we used a
 large data set published by Google in 2011 \cite{reiss2011}. The data set
-contains usage data of a computer cluster over a month period. We have
-downloaded the table tracking the life cycle of the jobs submitted to the
-cluster and extracted the time stamps of the first event related to each job. As
-a result, there are around 670\,000 arrival times available, which we use for
-fitting the traffic model as it is described in \sref{traffic}.
+contains usage data of a computer cluster over a month period. We downloaded the
+table tracking the life cycle of the jobs submitted to the cluster and extracted
+the time stamps of the first event related to each job. As a result, there were
+around 670\,000 arrival times available, which we used for fitting the traffic
+model as it is described in \sref{traffic}.
 
-A set of workload patters is obtained by simulating and recording (via our
+A set of workload patters was obtained by simulating and recording (via our
 infrastructure shown in \fref{recorder}) the programs from the popular
 \sc{PARSEC} \cite{bienia2011} and \sc{SPEC CPU2006} \cite{cpu2006} benchmark
 suites; the former contains 13 programs, and the latter 29 programs. The
@@ -19,8 +19,8 @@ architecture used in these simulations is Intel's Nehalem-based Gainestown
 series; Sniper is shipped with a configuration for this architecture
 (\tt{nehalem.cfg} and \tt{gainestown.cfg}), and we used it without any changes.
 
-All the reference data that we have collected and processed to make them
-suitable for our toolchain are available at \cite{sources}.
+All the reference data that we collected and processed to make them suitable for
+our toolchain are available at \cite{sources}.
 
 \subsection{Recording}
 \input{include/recording}
@@ -33,7 +33,7 @@ communicate well the message of this paper: the speed of the state-of-the-art
 simulators is severely onerous for the purpose of experimenting with data-driven
 techniques. The core problem is that such techniques typically require lots of
 data (long execution traces); moreover, these data might need to be recalculated
-each time a parameter changes (for instance, the parameterization of the
-scheduling policy). The results in \tref{streaming} show that the proposed
-approach can efficiently tackle this problem by taking the data burden away and,
-hence, making it easier to experiment with data-driven techniques.
+each time a parameter changes such as the parameterization of the scheduling
+policy used. The results in \tref{streaming} show that the proposed approach can
+efficiently tackle this problem by taking the data burden away and, hence,
+making it easier to experiment with data-driven techniques.
