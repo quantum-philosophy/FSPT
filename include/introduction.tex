@@ -9,18 +9,18 @@ higher temperature to higher power \cite{liu2007}. Therefore, accounting for
 power and temperature is key to achieving effectiveness, efficiency, and
 robustness.
 
-The present work is to assist researchers who work with power and temperature in
-one specific but rather broad context: the development of data-driven power- and
-temperature-aware solutions for electronic systems; here \emph{data-driven}
+Our work is to assist researchers who are concerned with power and temperature
+in one specific but rather broad context: the development of data-driven power-
+and temperature-aware solutions for electronic systems; here \emph{data-driven}
 refers to the usage of algorithms that learn from data \cite{bishop2006}. To
 this end, we develop a toolchain for fast synthesis of realistic power and
-temperature profiles. Our primary motivation is as follows.
+temperature profiles, which is primary motivated as follows.
 
 The power and temperature characteristics of the system under development are
 difficult to describe mathematically or algorithmically. Modern systems are
 complex, and many aspects are inherently uncertain to the designer due to such
 phenomena as process variation \cite{chandrakasan2000}, aging \cite{coskun2006},
-and varying workload. The concern is particularly hard to address from the
+and varying workload. The concern is particularly difficult to address from the
 theoretical standpoint; it can be better dealt with taking a more pragmatic
 approach, namely, making use of runtime data. Assuming that the system provides
 mechanisms for profiling and monitoring, direct or indirect power and
@@ -31,22 +31,22 @@ coskun2008}.
 \input{include/assets/figures/development}
 Acting proactively requires forecasting the future by learning from the past,
 which is typically accomplished by virtue of machine learning \cite{bishop2006}.
-Regardless of the learning technique utilized, the technique needs data to learn
-from. Real data are rarely available in large enough quantities. The target
-platform might not be at one's disposal or might not be an appropriate place for
-early experimentation, which is common in research. Therefore, a research
-environment is typically composed of a number of computer simulators as they
-constitute a feasible alternative source of the needed data. An illustrative
-example is given in \fref{development}, which depicts a potential environment
-for developing a resource manager of an electronic system.
+Regardless of the learning technique utilized, the technique requires data to
+learn from. Real data are rarely available in large enough quantities. The
+target platform might not be at one's disposal or might not be an appropriate
+place for early experimentation, which is common in research. Therefore, a
+research environment is typically composed of a number of computer simulators as
+they constitute a feasible alternative source of the needed data. An
+illustrative example is given in \fref{development}, which depicts a potential
+environment for developing a resource manager of an electronic system.
 
 Computer simulators, however, fall short when it comes to complex systems: it
 might take days for a state-of-the-art simulator to simulate a short, in
 wall-clock time, program. This scheme is not affordable for designing
-data-driven techniques as they require many simulations with potentially large
+data-driven solutions as they require many simulations with potentially large
 payloads.
 
-To summarize, real data are rarely or sparingly available, and simulation data
+To summarize, real data are rarely and sparingly available, and simulation data
 are prohibitively time consuming to obtain, which hampers the development of
 data-driven solutions. The need for alternative sources of high-quality data is
 prominent, which brings us to the goal of this work: our objective is to provide
