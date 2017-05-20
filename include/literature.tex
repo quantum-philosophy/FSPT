@@ -11,13 +11,13 @@ arguably the most well-known model in this regard. However, the seminal work in
 exhibits fractal properties such as burstiness, self-similarity, and long-range
 dependence. The Poisson process is unable to express any of these properties.
 Another popular model is the fractional Gaussian noise \cite{lifshits2014},
-which is a self-similar stochastic process. However, the process is suited for
+which is a self-similar stochastic process. However, this process is suited for
 modeling arrivals per unit of time but not for modeling arrival or inter-arrival
 times, which are what is typically needed for simulation. Moreover, the noise
 can take negative values and is a monofractal process, both of which are
 unrealistic. The work in \cite{riedi1999} addresses the aforementioned concerns
-by introducing a multifractal wavelet model that characterizes positive-valued
-data with long-range-dependent correlations.
+by introducing a multifractal wavelet model for characterizing positive-valued
+sequences with long-range-dependent correlations.
 
 A performance simulator that we would like to highlight is Sniper
 \cite{carlson2011}. Sniper is aimed at x86-based systems, and it has been
@@ -32,12 +32,12 @@ popular alternative is \sc{3D-ICE} \cite{sridhar2010}, which is particularly
 focused on \sc{3D} structures.
 
 The pipeline assembled from the aforementioned simulators is the one frequently
-used in today's research. However, as we elaborate in \sref{introduction}, it is
-extremely time consuming and, hence, is not suitable for learning purposes. In
-our experience, this is mainly due to performance simulation and, to a lesser
-extent, power simulation. Temperature simulation usually has a relatively small
-cost compared to the other two. These concerns are to be discussed further and
-illustrated in \sref{result}.
+used in today's research (see the blue boxes in \fref{development}). However, as
+we elaborate in \sref{introduction}, it is extremely time consuming and, hence,
+is not suitable for learning purposes. In our experience, this is mainly due to
+performance simulation and, to a lesser extent, power simulation. Temperature
+simulation usually has a relatively small cost. These concerns are to be
+discussed and illustrated in \sref{result}.
 
 Our work makes the following major contribution. We present an efficient
 toolchain for generating realistic power and temperature profiles of electronic

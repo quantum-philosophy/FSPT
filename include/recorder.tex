@@ -2,10 +2,10 @@
 The Recorder tool is used at the data-acquisition stage of our methodology. More
 specifically, the tool records reference workload patterns, which were discussed
 in \sref{workload} and are needed for Streamer. In \fref{methodology}, Recorder
-corresponds to the bottom-left modules with the same name. The tool does not
-work in isolation; there is an infrastructure around it. This infrastructure is
+corresponds to the bottom-left boxes with the same name. The tool does not work
+in isolation; there is an infrastructure around it. This infrastructure is
 depicted in \fref{recorder}, in which Recorder itself is composed of the two
-blue modules on the right-hand side.
+blue boxes on the right-hand side.
 
 Given a reference application and a target platform, the starting point is
 performance simulation, which we undertake by virtue of the Sniper simulator
@@ -32,9 +32,9 @@ modification that we have made to \sc{McPAT} is the introduction of a caching
 mechanism, which was inspired by Sniper. The caching mechanism eliminates the
 repetition of certain computations inside \sc{McPAT}, which leads to
 considerable time savings. For caching purposes, we use Redis again; see the
-direct arrows between the Redis and \sc{McPAT} modules in \fref{recorder}. All
-Recorder processes that are connected to the same Redis server can leverage the
-same cache, making the caching mechanism really shine.
+direct arrows between Redis and \sc{McPAT} in \fref{recorder}. All Recorder
+processes that are connected to the same Redis server can leverage the same
+cache, making the caching mechanism really shine.
 
 Finally, the computed power pattern is stored in a file, which can then be
 uploaded to a repository, as described in \sref{workload} and illustrated in

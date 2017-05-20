@@ -12,14 +12,14 @@ Our workload modeling is based on full-system simulations of reference programs.
 However, if we had incorporated such simulations into our workflow
 \emph{directly}, we would have ended up with a configuration similar to the one
 displayed in \fref{development}. This would have defeated the purpose of our
-work since, as motivated in \sref{introduction}, detailed simulations are too
-time consuming. Instead, we utilize high-level recordings; this functionality
-corresponds to the modules labeled ``Recorder'' in \fref{methodology}. To
-elaborate, using a simulator capable of modeling the target architecture, we
-execute each reference program in isolation and record certain information about
-this execution. At a later stage of our pipeline (see the Streamer module in
-\fref{methodology}), the collected information is utilized in order to flesh out
-jobs upon their arrival, and this stage requires no simulation.
+work since, as motivated in \sref{introduction}, detailed simulations are
+considerably time consuming. Instead, we utilize high-level recordings; this
+functionality corresponds to the boxes labeled ``Recorder'' in
+\fref{methodology}. To elaborate, using a simulator capable of modeling the
+target architecture, we execute each reference program in isolation and record
+certain information about this execution. At a later stage of our pipeline (see
+Streamer in \fref{methodology}), the collected information is utilized in order
+to flesh out jobs upon their arrival, and this stage requires no simulation.
 
 Performance and power simulation takes by far the largest expense in terms of
 time. Therefore, the information about a reference program's execution that we

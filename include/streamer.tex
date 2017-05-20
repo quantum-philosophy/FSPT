@@ -1,7 +1,7 @@
 \input{include/assets/figures/streamer}
 The Streamer tool corresponds to the data-synthesis stage, which means that it
 is responsible for synthesizing power and temperature data using reference data
-as a material for the synthesis; see the module labeled ``Streamer'' in
+as a material for the synthesis; see the box labeled ``Streamer'' in
 \fref{methodology}. The structure of the tool is laid out in \fref{streamer}.
 
 Given a traffic pattern and a set of workload patterns, Streamer proceeds as
@@ -12,13 +12,13 @@ The arrival times are fleshed out using the workload patterns, which was
 explained in \sref{workload}. The result is a stream of jobs, and the whole
 operation is referred to as job modeling in \fref{streamer}. The rest follows
 \sref{composition}. The job stream is handled by a scheduling policy; in
-\fref{streamer}, this policy is a part of the Main module. As the incoming jobs
-are being scheduled, the power profile of the system under consideration is
-being constructed. The power profile is piped into a temperature simulator (to
-be discussed below), which delivers a temperature profile. The synthesized data
-(power and temperature) can be fed to the scheduler and/or stored for later
-usage. In the latter case, similar to reference data, the output is an SQLite
-database.
+\fref{streamer}, this policy is a part of the box labeled ``Main.'' As the
+incoming jobs are being scheduled, the power profile of the system under
+consideration is being constructed. The power profile is piped into a
+temperature simulator (to be discussed below), which delivers a temperature
+profile. The synthesized data (power and temperature) can be fed to the
+scheduler and/or stored for later usage. In the latter case, similar to
+reference data, the output is an SQLite database.
 
 Let us now outline how temperature simulation is undertaken by Streamer. The
 simulation is based on the thermal \sc{RC} model. In this paradigm, a so-called
