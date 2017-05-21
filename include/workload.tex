@@ -19,9 +19,9 @@ functionality corresponds to the boxes labeled ``Recorder'' in
 target architecture, we execute each reference program in isolation and record
 certain information about this execution. At a later stage of our pipeline (see
 Streamer in \fref{methodology}), the collected information is utilized in order
-to flesh out jobs upon their arrival, and this stage requires no simulation.
+to substantiate jobs upon their arrival, and this stage requires no simulation.
 
-Performance and power simulation takes by far the largest expense in terms of
+Performance and power simulations are by far the largest expense in terms of
 time. Therefore, the information about a reference program's execution that we
 record is the power consumption of that execution. This approach pushes the
 aforementioned expense to the data-acquisition stage and eliminates it from the
@@ -37,21 +37,21 @@ consumption are recorded separately for a better control over the subsequent
 composition (\sref{composition}). Third, the power consumption is recorded for
 all the processing elements of interest (for instance, cores and shared caches).
 
-The result of recording is a repository of power traces corresponding to real
-programs, which we refer to as workload patterns; see the bottom cloud in
+The result of the recording is a repository of power traces corresponding to
+real programs, which we refer to as workload patterns; see the bottom cloud in
 \fref{methodology}. Full-system simulations take time; however, they have to be
 done only once.
 
-Regarding the assignment of a workload pattern to an arrival, we shall refer to
-this functionality as the workload model. The input to this model is a stream of
-arrival times, and its output is a stream of fully characterized jobs (time and
-work). The workload model relies on domain-specific knowledge. For instance, the
-output stream can be made dependent on the input one in order to introduce
-autocorrelations and, thereby, model periodic and coupled workloads. Therefore,
-we let the model be user defined. The default option that is used in our
-toolchain is choosing workload patterns at random.
+Let us turn to the assignment of a workload pattern to an arrival. We shall
+refer to this functionality as the workload model. The input to this model is a
+stream of arrival times, and its output is a stream of fully characterized jobs
+(time and work). The workload model relies on domain-specific knowledge. For
+instance, the output stream can be made dependent on the input stream in order
+to introduce autocorrelations and, thereby, model periodic and coupled
+workloads. Therefore, we let the model be user defined. The default option that
+is used in our toolchain is choosing workload patterns at random.
 
 To recapitulate, we have obtained a database of reference workloads and
 discussed the formation of job streams from arrival streams. The utilized
-patterns correspond to executions of real programs and, thus, exhibit realistic
-traits.
+patterns correspond to executions of real programs and, therefore, exhibit
+realistic traits.

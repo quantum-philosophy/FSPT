@@ -2,13 +2,13 @@ In this section, we describe the general methodology that our toolchain follows.
 An overview of the methodology is given in \fref{methodology} and can be
 summarized as follows. There are two major stages: data acquisition and data
 synthesis. The leftmost boxes in \fref{methodology} correspond to the
-data-acquisition stage, and the rightmost boxes to the data-synthesis stage. The
+data-acquisition stage, and the rightmost one to the data-synthesis stage. The
 data-acquisition stage collects and stores reference data while the
-data-synthesis stage fetches these data and produces power and temperature
-traces of the system. There are two types of reference data: traffic and
-workload, which are referred to as patterns. The two pieces characterize job
+data-synthesis stage fetches these data and produces the desired power and
+temperature traces of the system. There are two types of reference data: traffic
+and workload, which are referred to as patterns. The two pieces characterize job
 arrivals and job workloads, and they are to be discussed in \sref{traffic} and
-\sref{workload}, respectively, and to be combined in \sref{composition}.
+\sref{workload} and to be combined in \sref{composition}.
 
 \subsection{Traffic} \slab{traffic}
 \input{include/traffic}
@@ -22,8 +22,8 @@ arrivals and job workloads, and they are to be discussed in \sref{traffic} and
 To recapitulate, the methodology that we follow is composed of two stages. In
 the data-acquisition stage, reference traffic and workload data are harvested.
 In the data-synthesis stage, the data are used to generate a stream of jobs and
-subsequently compute a power and a temperature profile. The produced data
-preserve the particularities of the reference data. At the same time, the
-synthesis is fast since it has no expensive performance or power simulations
-involved. The time consumed by the procedure delineated above is practically
+subsequently compute a power profile and a temperature profile. The produced
+profiles preserve the particularities of the reference data. At the same time,
+the synthesis is fast since it has no expensive performance or power simulations
+involved; the time consumed by the procedure delineated above is practically
 negligible.

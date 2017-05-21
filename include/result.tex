@@ -1,13 +1,13 @@
 This section illustrates the performance of the toolchain presented in
-\sref{toolchain}. All the experiments reported below were conducted on a
+\sref{toolchain}. The experiments that are reported below were conducted on a
 \sc{GNU}/Linux machine equipped with 16 \sc{CPU}s Intel Xeon E5520 2.27~\sc{GH}z
 and 24~\sc{GB} of \sc{RAM}.
 
 In order to obtain real-life traffic patterns for our experiments, we used a
-large data set published by Google in 2011 \cite{reiss2011}. The data set
-contains usage data of a computer cluster over a month period. We downloaded the
+data set published by Google in 2011 \cite{reiss2011}. The data set contains the
+usage data of a large computer cluster over a month period. We downloaded the
 table tracking the life cycle of the jobs submitted to the cluster and extracted
-the time stamps of the first event related to each job. As a result, there were
+the time stamp of the first event related to each job. As a result, there were
 around 670\,000 arrival times available, which we used for fitting the traffic
 model as it is described in \sref{traffic}.
 
@@ -30,10 +30,10 @@ our toolchain are available at \cite{sources}.
 
 To summarize, the results reported in \tref{recording} motivate our work and
 communicate well the message of this paper: the speed of the state-of-the-art
-simulators is severely onerous for the purpose of experimenting with data-driven
-techniques. The core problem is that such techniques typically require lots of
-data (long execution traces); moreover, these data might need to be recalculated
-each time a parameter changes such as the parameterization of the scheduling
-policy used. The results in \tref{streaming} show that the proposed approach can
-efficiently tackle this problem by taking the data burden away and, hence,
-making it easier to experiment with data-driven techniques.
+simulators is severely onerous for the purpose of experimenting with
+machine-learning techniques. The core problem is that such techniques typically
+require lots of data (long execution traces); moreover, these data might need to
+be recalculated each time a parameter changes such as the parameterization of
+the scheduling policy used. The results in \tref{streaming} show that the
+proposed approach can efficiently tackle this problem by taking the data burden
+away and, hence, making it easier to experiment with data-driven techniques.

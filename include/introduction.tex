@@ -11,16 +11,16 @@ robustness.
 
 Our work is to assist researchers who are concerned with power and temperature
 in one specific but rather broad context: the development of data-driven power-
-and temperature-aware solutions for electronic systems; here \emph{data-driven}
+and temperature-aware solutions for computer systems where \emph{data-driven}
 refers to the usage of algorithms that learn from data \cite{bishop2006}. To
 this end, we develop a toolchain for fast synthesis of realistic power and
-temperature profiles, which is primary motivated as follows.
+temperature profiles, which is motivated as follows.
 
-The power and temperature characteristics of the system under development are
-difficult to describe mathematically or algorithmically. Modern systems are
-complex, and many aspects are inherently uncertain to the designer due to such
-phenomena as process variation \cite{chandrakasan2000}, aging \cite{coskun2006},
-and varying workload. The concern is particularly difficult to address from the
+The power and temperature characteristics of a computer system are difficult to
+describe mathematically or algorithmically. Modern computer systems are complex,
+and many aspects are inherently uncertain to the designer due to such phenomena
+as process variation \cite{chandrakasan2000}, aging \cite{coskun2006}, and
+varying workload. The concern is particularly difficult to address from a
 theoretical standpoint; it can be better dealt with taking a more pragmatic
 approach, namely, making use of runtime data. Assuming that the system provides
 mechanisms for profiling and monitoring, direct or indirect power and
@@ -38,7 +38,7 @@ place for early experimentation, which is common in research. Therefore, a
 research environment is typically composed of a number of computer simulators as
 they constitute a feasible alternative source of the needed data. An
 illustrative example is given in \fref{development}, which depicts a potential
-environment for developing a resource manager of an electronic system.
+environment for developing a resource manager for a computer system.
 
 Computer simulators, however, fall short when it comes to complex systems: it
 might take days for a state-of-the-art simulator to simulate a short, in

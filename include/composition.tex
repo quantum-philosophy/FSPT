@@ -3,11 +3,10 @@ schedule, constructing a power profile, and computing the corresponding
 temperature profile. In \fref{methodology}, this functionality resides in the
 box labeled ``Streamer.''
 
-Since our infrastructure is to facilitate the development of intelligent
-data-driven resource managers (see \sref{problem}), the manager of the system at
-hand is devised by the user, which also includes the scheduling policy. For each
-job, the policy specifies \emph{when} the job is granted computational
-resources.
+Since one of the major use cases for our toolchain is the development of
+data-driven resource managers, the manager of the system at hand is assumed to
+be given, which also includes the scheduling policy. For each job, the policy
+specifies what computational resources are granted to the job and \emph{when}.
 
 Once the job has been scheduled, we proceed to updating the power profile of the
 system. The power profile is a matrix that specifies the power consumption of

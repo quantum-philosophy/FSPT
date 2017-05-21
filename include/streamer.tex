@@ -12,24 +12,23 @@ which results in an adequately configured multifractal wavelet model
 The arrival times are substantiated using the workload patterns, which is
 explained in \sref{workload}. The result is a stream of jobs. In
 \fref{streamer}, the whole above operation takes place in the box labeled ``Job
-model.'' The rest follows \sref{composition}. Namely, the job stream is handled
-by the user's resource manager, which resides in the box labeled ``Main.'' As
-jobs are being scheduled, the power profile of the system is being constructed.
-The power profile is piped into a temperature simulator (to be discussed below),
-which delivers the temperature profile of the system. Finally, the synthesized
-data (power and temperature) are made available to the manager. They can also be
-saved on disk, in which case, similar to reference data, the output is an SQLite
-database.
+model.'' The rest follows \sref{composition}. Namely, the job stream is first
+handled by the user's resource manager, which resides in the box labeled
+``Main.'' As jobs are being scheduled, the power profile of the system is being
+progressively constructed. The power profile is piped into a temperature
+simulator (to be discussed), which delivers a temperature profile. Finally, the
+synthesized power and temperature profiles are made available to the manager.
+They can also be saved on disk, in which case, similar to reference data, the
+output is an SQLite database.
 
-Let us now discuss the temperature simulation that Streamer undertakes. It is
-based on the well-known thermal \sc{RC} model. We construct first a thermal
-\sc{RC} circuit for the platform under consideration and then use it for
-analyzing the thermal behavior of the system. The analysis boils down to solving
-a system of differential equations. In our case, the solution is based on a
-solver leveraging exponential integrators \cite{ukhov2014}. The construction of
-thermal circuits is delegated to either HotSpot \cite{skadron2004} or
-\sc{3D-ICE} \cite{sridhar2010} (see \fref{streamer}) depending on the user's
-preferences.
+Let us now elaborate on the temperature simulation that Streamer undertakes. It
+is based on the well-known thermal \sc{RC} model. We construct a thermal \sc{RC}
+circuit for the platform at hand and then use it for analyzing the thermal
+behavior of the system. The analysis boils down to solving a system of
+differential equations. In our case, the solution is based on a solver
+leveraging exponential integrators \cite{ukhov2014}. The construction of thermal
+circuits is delegated to either HotSpot \cite{skadron2004} or \sc{3D-ICE}
+\cite{sridhar2010} (see \fref{streamer}) depending on the user's preferences.
 
 To summarize, Recorder captures workload patterns, and Streamer produces streams
 of power and temperature data. Both closely follow the methodology described in
