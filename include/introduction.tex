@@ -11,10 +11,10 @@ robustness.
 
 Our work is to assist researchers who are concerned with power and temperature
 in one specific but rather broad context: the development of data-driven power-
-and temperature-aware solutions for computer systems where \emph{data-driven}
-refers to the usage of algorithms that learn from data \cite{bishop2006}. To
-this end, we develop a toolchain for fast synthesis of realistic power and
-temperature profiles, which is motivated as follows.
+and temperature-aware resource managers for computer systems where
+\emph{data-driven} refers to the usage of algorithms that learn from data
+\cite{bishop2006}. To this end, we develop a toolchain for fast synthesis of
+realistic power and temperature profiles, which is motivated as follows.
 
 The power and temperature characteristics of a computer system are difficult to
 describe mathematically or algorithmically. Modern computer systems are complex,
@@ -24,9 +24,9 @@ varying workload. The concern is particularly difficult to address from a
 theoretical standpoint; it can be better dealt with taking a more pragmatic
 approach, namely, making use of runtime data. Assuming that the system provides
 mechanisms for profiling and monitoring, direct or indirect power and
-temperature readings are an invaluable source of information for making
-proactive power- and temperature-aware decisions \cite{chaudhry2015,
-coskun2008}.
+temperature measurements are an invaluable source of information for making
+proactive power- and temperature-aware resource-management decisions
+\cite{chaudhry2015, coskun2008}.
 
 \input{include/assets/figures/development}
 Acting proactively requires forecasting the future by learning from the past,
