@@ -6,12 +6,24 @@
 %
 % Formatting
 %
-\usepackage{inconsolata}
+\usepackage{balance}
 \usepackage{hyperref}
+\usepackage{inconsolata}
 
 \usepackage{lettrine}
 \usepackage[factor=1700]{microtype}
 \newcommand{\subscript}[1]{\text{\kern0.1em#1}}
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@maketitle}
+  {\addvspace{0.5\baselineskip}\egroup}
+  {\addvspace{0\baselineskip}\egroup}
+  {}
+  {}
+\makeatother
+
+\linespread{0.987}
 
 %
 % Figures
